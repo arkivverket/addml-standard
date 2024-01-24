@@ -1,0 +1,17 @@
+@startuml
+rectangle reference
+rectangle context
+rectangle content
+rectangle additionalElements as aEs1
+rectangle additionalElement as aE1
+
+reference -- context
+reference -- content
+
+context -- aEs1
+content -- aEs1
+
+aEs1 -- aE1
+aEs1 -- aE1
+
+@enduml
