@@ -1,0 +1,21 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+rectangle additionalElements
+rectangle value
+rectangle properties
+rectangle "additionalElements" as a2
+rectangle processes
+
+object additionalElement
+additionalElement : name
+additionalElement : dataType
+additionalElement : format
+
+additionalElements --{ additionalElement
+
+additionalElement --{ value
+additionalElement --{ properties
+additionalElement --{ a2
+additionalElement --{ processes
+@enduml
