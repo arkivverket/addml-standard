@@ -1,0 +1,13 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+rectangle period
+
+object startDate
+startDate : value = 20000101
+object endDate
+endDate : value = 20101231
+
+period --{ startDate
+period --{ endDate
+@enduml
