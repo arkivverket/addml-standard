@@ -4,7 +4,7 @@
 
 ADDML består av 3 hoveddeler. En del som beskriver tilhørende informasjon (kataloginformasjon), dvs. informasjon om dataene i datasettet - *reference*. En del som er selve beskrivelsen av flate filer i detalj - *flatFiles*. En del som gir mulighet for å knytte opp andre filer enn flate filer til beskrivelsen - *dataObjects*.
 
-![Hoveddelene i ADDML](https://www.plantuml.com/plantuml/png/FSr12i9G38JXlQVG0zZWrbLl8h69RMZob7b9lRuLmTK70yC_zcHaXHzErYOlqO8VbynNlnBDbalTX-aPn5XjsnIh9h58-7b_Dc48WTyKt5D1_-rXSq7nytOPleLHc-n-0000?cache=no)
+![Hoveddelene i ADDML](https://www.plantuml.com/plantuml/svg/FSr12i9G38JXlQVG0zZWrbLl8h69RMZob7b9lRuLmTK70yC_zcHaXHzErYOlqO8VbynNlnBDbalTX-aPn5XjsnIh9h58-7b_Dc48WTyKt5D1_-rXSq7nytOPleLHc-n-0000?cache=no)
 
 Figur - Hoveddelene i ADDML
 
