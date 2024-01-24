@@ -12,6 +12,6 @@ object endDate
 startDate : value = 20000101
 endDate : value = 20101231
 
-period --{ startDate
-period --{ endDate
+period --|| startDate
+period --|| endDate
 @enduml
