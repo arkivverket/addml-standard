@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:addml="http://www.arkivverket.no/standarder/addml_tw"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.arkivverket.no/standarder/addml_tw" elementFormDefault="qualified" version="8.3">
+  <xs:annotation>
+    <xs:documentation xml:lang="en"> Changes made in versions up to 8.2 are not documented in this
+      document. Updated 2014-08-15 and 2014-09-29, Terje Pettersen-Dahl: Version 8.3: 1. Element
+      reference in dataset made optional. 2. Optional possibility for header-lines. 3.
+      FieldDefinitionReference made unique within an instance. 4. Created this documentation
+      section. </xs:documentation>
+  </xs:annotation>
+  <xs:element name="addml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:dataset" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dataset">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:reference" minOccurs="0" />
+        <xs:element ref="addml:flatFiles" minOccurs="0" />
+        <xs:element ref="addml:dataObjects" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:context" minOccurs="0" />
+        <xs:element ref="addml:content" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="context">
+    <xs:annotation>
+      <xs:documentation>Kontekst-informasjon</xs:documentation>
+      <xs:documentation>Aktører</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:additionalElements" minOccurs="0" />
+        <xs:element ref="addml:processes" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="content">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:additionalElements" minOccurs="0" />
+        <xs:element ref="addml:processes" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="flatFiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:flatFile" maxOccurs="unbounded" />
+        <xs:element ref="addml:flatFileDefinitions" />
+        <xs:element ref="addml:structureTypes" />
+        <xs:element ref="addml:queries" minOccurs="0" />
+        <xs:element ref="addml:processes" minOccurs="0" />
+        <xs:element ref="addml:flatFileProcesses" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+
+    <!-- Fil-nøkler -->
+    <xs:key name="flatFileKey">
+      <xs:selector xpath="addml:flatFile" />
+      <xs:field xpath="@name" />
+    </xs:key>
+
+    <!-- Definisjon-nøkler -->
+    <xs:key name="flatFileDefinitionKey">
+      <xs:selector xpath="addml:flatFileDefinitions/addml:flatFileDefinition" />
+      <xs:field xpath="@name" />
+    </xs:key>
+    <xs:key name="recordDefinitionKey">
+      <xs:selector xpath=".//addml:recordDefinitions/addml:recordDefinition" />
+      <xs:field xpath="@name" />
+    </xs:key>
+    <xs:key name="fieldDefinitionKey">
+      <xs:selector xpath=".//addml:fieldDefinitions/addml:fieldDefinition" />
+      <xs:field xpath="@name" />
+    </xs:key>
+
+    <!-- Type-nøkler -->
+    <xs:key name="flatFileTypeKey">
+      <xs:selector xpath="addml:structureTypes/addml:flatFileTypes/addml:flatFileType" />
+      <xs:field xpath="@name" />
+    </xs:key>
+    <xs:key name="recordTypeKey">
+      <xs:selector xpath="addml:structureTypes/addml:recordTypes/addml:recordType" />
+      <xs:field xpath="@name" />
+    </xs:key>
+    <xs:key name="fieldTypeKey">
+      <xs:selector xpath="addml:structureTypes/addml:fieldTypes/addml:fieldType" />
+      <xs:field xpath="@name" />
+    </xs:key>
+
+    <!-- Prosess-nøkler -->
+    <xs:key name="flatFileProcessKey">
+      <xs:selector xpath="./addml:flatFileProcesses" />
+      <xs:field xpath="@flatFileReference" />
+    </xs:key>
+    <xs:key name="recordProcessKey">
+      <xs:selector xpath=".//recordProcesses" />
+      <xs:field xpath="@definitionReference" />
+    </xs:key>
+    <xs:key name="fieldProcessKey">
+      <xs:selector xpath=".//fieldProcesses" />
+      <xs:field xpath="@definitionReference" />
+    </xs:key>
+
+    <!-- Referanse fra fil til definisjon -->
+    <xs:keyref name="flatFile2Definition" refer="addml:flatFileDefinitionKey">
+      <xs:selector xpath="addml:flatFile" />
+      <xs:field xpath="@definitionReference" />
+    </xs:keyref>
+
+    <!-- Referanser til type -->
+    <xs:keyref name="flatFileDefinition2Type" refer="addml:flatFileTypeKey">
+      <xs:selector xpath="addml:flatFileDefinitions/addml:flatFileDefinition" />
+      <xs:field xpath="@typeReference" />
+    </xs:keyref>
+    <xs:keyref name="recordDefinition2Type" refer="addml:recordTypeKey">
+      <xs:selector xpath=".//addml:recordDefinitions/addml:recordDefinition" />
+      <xs:field xpath="@typeReference" />
+    </xs:keyref>
+    <xs:keyref name="fieldDefinition2Type" refer="addml:fieldTypeKey">
+      <xs:selector xpath=".//addml:fieldDefinitions/addml:fieldDefinition" />
+      <xs:field xpath="@typeReference" />
+    </xs:keyref>
+    <!-- Referanser til prosess -->
+    <xs:keyref name="flatFileProcess2File" refer="addml:flatFileKey">
+      <xs:selector xpath="./addml:flatFileProcesses" />
+      <xs:field xpath="@flatFileReference" />
+    </xs:keyref>
+    <xs:keyref name="recordProcess2Definition" refer="addml:recordDefinitionKey">
+      <xs:selector xpath=".//addml:recordProcesses" />
+      <xs:field xpath="@definitionReference" />
+    </xs:keyref>
+    <xs:keyref name="fieldProcess2Definition" refer="addml:fieldDefinitionKey">
+      <xs:selector xpath=".//addml:fieldProcesses" />
+      <xs:field xpath="@definitionReference" />
+    </xs:keyref>
+  </xs:element>
+  <xs:element name="flatFile">
+    <xs:annotation>
+      <xs:documentation>Inneholder informasjon om en enkelt fil.</xs:documentation>
+      <xs:documentation>Skal ha følgende egenskaper:</xs:documentation>
+      <xs:documentation>fileName - Relativ filbane</xs:documentation>
+      <xs:documentation>numberOfOccurrences - Antall post-forekomster i filen</xs:documentation>
+      <xs:documentation>checksum/algorithm - Fast verdi 'SHA-256'</xs:documentation>
+      <xs:documentation>checksum/value - Sjekksum-verdi for fil</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:properties" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+      <xs:attribute name="definitionReference" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="flatFileDefinitions">
+    <xs:annotation>
+      <xs:documentation>Inneholder beskrivelser av filer, poster og felter. Inneholder også hvor de er å finne.</xs:documentation>
+      <xs:documentation>Er ment å ha en definisjon per fil/post/felt.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:flatFileDefinition" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="flatFileDefinition">
+    <xs:annotation>
+      <xs:documentation>Inneholder situasjonsspesifikk informasjon som benyttes for å beskrive en fil. </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:properties" minOccurs="0" />
+        <xs:element ref="addml:external" minOccurs="0" />
+        <xs:element ref="addml:recordDefinitionFieldIdentifier" minOccurs="0" />
+        <xs:element ref="addml:recordDefinitions" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+      <xs:attribute name="typeReference" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="external">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="recordDefinitionFieldIdentifier" type="addml:notEmtpyString" />
+  <xs:element name="recordDefinitions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:recordDefinition" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="uniqueFieldReferenceRepetingGroups">
+      <xs:selector xpath="addml:recordDefinition/addml:repeatingGroups/addml:repeatingGroup/addml:fieldDefinitionReferences/addml:fieldDefinitionReference" />
+      <xs:field xpath="@name" />
+    </xs:unique>
+  </xs:element>
+  <xs:element name="recordDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:properties" minOccurs="0" />
+        <xs:element ref="addml:recordDefinitionFieldValue" minOccurs="0" />
+        <xs:element ref="addml:incomplete" minOccurs="0" />
+        <xs:element ref="addml:fixedLength" minOccurs="0" />
+        <xs:element ref="addml:repeatingGroups" minOccurs="0" />
+        <xs:element ref="addml:keys" minOccurs="0" />
+        <xs:element ref="addml:fieldDefinitions" />
+        <xs:element ref="addml:headerLevel" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+      <xs:attribute name="typeReference" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="recordDefinitionFieldValue" type="addml:notEmtpyString" />
+  <xs:element name="incomplete">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="fixedLength" type="xs:nonNegativeInteger" />
+  <xs:element name="repeatingGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:repeatingGroup" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="repeatingGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:element ref="addml:repeatingGroupOccurrenceField" />
+          <xs:element ref="addml:fixedOccurrences" />
+        </xs:choice>
+        <xs:element ref="addml:fieldDefinitionReferences" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="repeatingGroupOccurrenceField">
+    <xs:complexType>
+      <xs:attribute name="definitionReference" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fixedOccurrences" type="xs:nonNegativeInteger" />
+  <xs:element name="keys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:key" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="key">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="addml:primaryKey" />
+          <xs:element ref="addml:alternateKey" />
+          <xs:element ref="addml:foreignKey" />
+        </xs:choice>
+        <xs:element ref="addml:fieldDefinitionReferences" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="primaryKey">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="alternateKey">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="foreignKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:flatFileDefinitionReference" />
+        <xs:element ref="addml:relationType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+	<xs:element name="relationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Shows the relation between to post-definitions; </xs:documentation>
+			<xs:documentation xml:lang="no">Viser forholdet mellom to post-definisjoner; </xs:documentation>
+		</xs:annotation>
+	<xs:simpleType>
+		<xs:restriction base="addml:notEmtpyString">
+			<xs:enumeration value="1:1">
+				<xs:annotation>
+					<xs:documentation>En til en</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="n:1">
+				<xs:annotation>
+					<xs:documentation>Mange til en</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="m:n">
+				<xs:annotation>
+					<xs:documentation>Mange til mange</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	</xs:element>
+  <xs:element name="fieldDefinitions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:fieldDefinition" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fieldDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:properties" minOccurs="0" />
+        <xs:element ref="addml:startPos" minOccurs="0" />
+        <xs:element ref="addml:endPos" minOccurs="0" />
+        <xs:element ref="addml:fixedLength" minOccurs="0" />
+        <xs:element ref="addml:minLength" minOccurs="0" />
+        <xs:element ref="addml:maxLength" minOccurs="0" />
+        <xs:element ref="addml:unique" minOccurs="0" />
+        <xs:element ref="addml:notNull" minOccurs="0" />
+        <xs:element ref="addml:fieldParts" minOccurs="0" />
+        <xs:element ref="addml:codes" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+      <xs:attribute name="typeReference" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="startPos" type="xs:nonNegativeInteger" />
+  <xs:element name="endPos" type="xs:nonNegativeInteger" />
+  <xs:element name="minLength" type="xs:nonNegativeInteger" />
+  <xs:element name="maxLength" type="xs:nonNegativeInteger" />
+  <xs:element name="unique">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="notNull">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="fieldParts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:fieldDefinition" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="codes">
+    <xs:annotation>
+      <xs:documentation>Definerer gyldige koder for feltet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:code" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="code">
+    <xs:annotation>
+      <xs:documentation>Inneholder verdi og forklaring</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="codeValue" type="xs:string" use="required" />
+      <xs:attribute name="explan" type="addml:notEmtpyString" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="structureTypes">
+    <xs:annotation>
+      <xs:documentation>Inneholder informasjon om hvordan filer, poster og felter skal leses.</xs:documentation>
+      <xs:documentation>I motsetning til definisjon, er type ment å gjelde for flere definisjoner.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:flatFileTypes" />
+        <xs:element ref="addml:recordTypes" minOccurs="0" />
+        <xs:element ref="addml:fieldTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="flatFileTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:flatFileType" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="flatFileType">
+    <xs:annotation>
+      <xs:documentation>Inneholder tegnsett, post- og felt-skilletegn, anførselstegn og bit-tolkninger av hva et tegn skal være.</xs:documentation>
+      <xs:documentation>Fastlenge-filer skal ikke ha feltskille eller anførselstegn.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:charset" />
+        <xs:element ref="addml:charDefinitions" minOccurs="0" />
+        <xs:choice>
+          <xs:element ref="addml:fixedFileFormat" />
+          <xs:element ref="addml:delimFileFormat" />
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="charset">
+    <xs:annotation></xs:annotation>
+    <xs:simpleType>
+      <xs:union>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="UTF-8">
+              <xs:annotation>
+                <xs:documentation>Unicode 8-bit</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ISO-8859-1">
+              <xs:annotation>
+                <xs:documentation>Nordisk</xs:documentation>
+                <xs:documentation>ISO 8859-1 omfatter alle ASCII-tegn pluss de fleste spesialtegn
+                  brukt i vesteuropeiske språk.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ISO-8859-4">
+              <xs:annotation>
+                <xs:documentation>Samisk</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType>
+          <xs:restriction base="addml:notEmtpyString">
+            <xs:annotation>
+              <xs:documentation>Andre tegnsett</xs:documentation>
+            </xs:annotation>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="charDefinitions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:charDefinition" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="charDefinition">
+    <xs:complexType>
+      <xs:attribute name="fromChar" type="addml:notEmtpyString" use="required" />
+      <xs:attribute name="toChar" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fixedFileFormat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:recordSeparator" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delimFileFormat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:recordSeparator" />
+        <xs:element ref="addml:fieldSeparatingChar" />
+        <xs:element ref="addml:quotingChar" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fieldSeparatingChar" type="addml:notEmtpyString" />
+  <xs:element name="quotingChar" type="addml:notEmtpyString" />
+  <xs:element name="recordTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:recordType" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="recordType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:trimmed" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="trimmed">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="fieldTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:fieldType" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fieldType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:dataType" />
+        <xs:element ref="addml:fieldFormat" minOccurs="0" />
+        <xs:element ref="addml:alignment" minOccurs="0" />
+        <xs:element ref="addml:padChar" minOccurs="0" />
+        <xs:element ref="addml:packType" minOccurs="0" />
+        <xs:element ref="addml:nullValues" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dataType" type="addml:dataTyperForAV" />
+  <xs:element name="fieldFormat" type="addml:notEmtpyString" />
+  <xs:element name="alignment">
+    <xs:simpleType>
+      <xs:restriction base="addml:notEmtpyString">
+        <xs:enumeration value="left">
+          <xs:annotation>
+            <xs:documentation>Tekst er justert til venstre</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="center">
+          <xs:annotation>
+            <xs:documentation>Tekst er midtstilt</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="right">
+          <xs:annotation>
+            <xs:documentation>Tekst er justert til høyre</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="padChar" type="addml:notEmtpyString" />
+  <xs:element name="packType" type="addml:notEmtpyString" />
+  <xs:element name="nullValues">
+	  <xs:annotation><xs:documentation>List over definerte null-verdier for felt-typen.</xs:documentation></xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:nullValue" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Verdi i felt som indikerer null-verdi eller standard verdi i base for
+              null.</xs:documentation>
+            <xs:documentation>Dato og bolske felter er av natur obligatoriske, og må få definert
+              null-verdier om de mangler.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nullValue" type="xs:string" />
+  <xs:element name="queries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:query" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="query">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:statement" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="statement" type="addml:notEmtpyString" />
+  <xs:element name="flatFileProcesses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="processes" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="process" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="addml:parameters" minOccurs="0" />
+                  </xs:sequence>
+                  <xs:attribute name="name" use="required">
+                    <xs:simpleType>
+                      <xs:restriction base="addml:notEmtpyString">
+                        <xs:enumeration value="Analyse_CountRecords">
+                          <xs:annotation>
+                            <xs:documentation>Teller opp antall poster i en fil.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Analyse_CountChars">
+                          <xs:annotation>
+                            <xs:documentation>Teller opp antall tegn i en fil.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_AllFixedLength">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer at oppgitt postlengde på samtlige posttyper er korrekt.</xs:documentation>
+                            <xs:documentation>Gjelder kun fast format</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_NumberOfRecords">
+                          <xs:annotation>
+                            <xs:documentation>Teller opp og kontrollerer at antall poster i filen er lik antallet som er oppgitt i egenskapen numberOfOccurrences under flatFile.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_Key">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer at nøkkelen er unik.</xs:documentation>
+                            <xs:documentation>Kun primary eller alternate</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_ForeignKey">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer fremmednøkler for å sjekke at de går til
+                              en faktisk forekomst.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="addml:recordProcesses" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="flatFileReference" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="recordProcesses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="processes" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="process" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="addml:parameters" minOccurs="0" />
+                  </xs:sequence>
+                  <xs:attribute name="name" use="required">
+                    <xs:simpleType>
+                      <xs:restriction base="addml:notEmtpyString">
+                        <xs:enumeration value="Analyse_FindExtremeRecords">
+                          <xs:annotation>
+                            <xs:documentation>Finner lengste og korteste post for hver posttype.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Analyse_CountRecordDefinitionOccurences">
+                          <xs:annotation>
+                            <xs:documentation>Teller opp antall poster for hver posttype.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Analyse_AllFrequenceList">
+                          <xs:annotation>
+                            <xs:documentation>Utfører en frekvensanalyse for samtlige felt hvor det
+                              er definert et kodesett.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Analyse_CrossTable">
+                          <xs:annotation>
+                            <xs:documentation>Utfører en kryss-sjekk mellom 2 felt i samme post.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_FixedLength">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer om oppgitt postlengde er korrekt</xs:documentation>
+                            <xs:documentation>Gjelder kun fast format</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_NotUsedRecordDef">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer om denne posttypen benyttes i datasettet.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_Key">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer at nøkkelen er unik.</xs:documentation>
+                            <xs:documentation>Kun primary eller alternate</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_ForeignKey">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer fremmednøkler for å sjekke at de går til
+                              en faktisk forekomst.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="addml:fieldProcesses" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="definitionReference" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fieldProcesses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="processes" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="process" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="addml:parameters" minOccurs="0" />
+                  </xs:sequence>
+                  <xs:attribute name="name" use="required">
+                    <xs:simpleType>
+                      <xs:restriction base="addml:notEmtpyString">
+                        <xs:enumeration value="Analyse_CountNULL">
+                          <xs:annotation>
+                            <xs:documentation>Teller opp antall forekomster av verdien null i
+                              feltet.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Analyse_FindExtremeValues">
+                          <xs:annotation>
+                            <xs:documentation>Finner lengste og korteste verdi i feltet.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Analyse_FindMinMaxValue">
+                          <xs:annotation>
+                            <xs:documentation>Finner laveste og høyeste verdi i feltet.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Analyse_FrequenceList">
+                          <xs:annotation>
+                            <xs:documentation>Teller opp antall forekomster for hver verdi i feltet.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_MinLength">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer om oppgitt minste lengde faktisk er
+                              minste lengde i feltet.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_MaxLength">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer om oppgitt største lengde faktisk er
+                              største lengde i feltet.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_DataFormat">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer om oppgitt dataformat er korrekt.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_NotNull">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer om det fines null-verdier i feltet.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_Uniqueness">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer om verdiene i feltet er unike.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_Codes">
+                          <xs:annotation>
+                            <xs:documentation>Kontrollerer om definerte koder benyttes.</xs:documentation>
+                            <xs:documentation>Kontrollerer om det benyttes verdier som ikke er
+                              definert i kodelisten.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_Birthno">
+                          <xs:annotation>
+                            <xs:documentation>Kontroll av kontrollsifferne i et fødselsnummer.</xs:documentation>
+                            <xs:documentation>Prosessen har ingen parametre, men forutsetter at
+                              dataType er string.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_Organisationno">
+                          <xs:annotation>
+                            <xs:documentation>Kontroll av kontrollsifferne i et organisasjonsnummer.</xs:documentation>
+                            <xs:documentation>Prosessen har ingen parametre, men forutsetter at
+                              dataType er string.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_Accountno">
+                          <xs:annotation>
+                            <xs:documentation>Kontroll av kontrollsifferne i et kontonummer.</xs:documentation>
+                            <xs:documentation>Prosessen har ingen parametre, men forutsetter at
+                              dataType er string.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_Date_Value">
+                          <xs:annotation>
+                            <xs:documentation>Kontroll av verdiene i et dato-felt.</xs:documentation>
+                            <xs:documentation>Prosessen har ingen parametre, men forutsetter at
+                              dataType er date.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Control_Boolean_Value">
+                          <xs:annotation>
+                            <xs:documentation>Kontroll av verdiene i et boolsk felt.</xs:documentation>
+                            <xs:documentation>Prosessen har ingen parametre, men forutsetter at
+                              dataType er boolean.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="definitionReference" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="processes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:process" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="process">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:parameters" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="parameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:parameter" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="parameter">
+    <xs:complexType>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+      <xs:attribute name="value" type="addml:notEmtpyString" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="flatFileDefinitionReference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:recordDefinitionReferences" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="recordDefinitionReferences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:recordDefinitionReference" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="recordDefinitionReference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:fieldDefinitionReferences" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fieldDefinitionReferences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:fieldDefinitionReference" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="uniqueFieldReference">
+      <xs:selector xpath="addml:fieldDefinitionReference" />
+      <xs:field xpath="@name" />
+    </xs:unique>
+  </xs:element>
+  <xs:element name="fieldDefinitionReference">
+    <xs:complexType>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="dataObjects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:dataObject" maxOccurs="unbounded" />
+        <xs:element ref="addml:processes" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dataObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:properties" minOccurs="0" />
+        <xs:element ref="addml:dataObjects" minOccurs="0" />
+        <xs:element ref="addml:processes" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="additionalElements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:description" minOccurs="0" />
+        <xs:element ref="addml:additionalElement" maxOccurs="unbounded" />
+        <xs:element ref="addml:processes" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="additionalElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:value" minOccurs="0" />
+        <xs:element ref="addml:properties" minOccurs="0" />
+        <xs:element ref="addml:additionalElements" minOccurs="0" />
+        <xs:element ref="addml:processes" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+      <xs:attribute name="dataType" type="addml:dataTyperForAV" />
+      <xs:attribute name="format" type="addml:notEmtpyString" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description" type="addml:notEmtpyString" />
+  <xs:element name="properties">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:property" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="property">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="addml:value" minOccurs="0" />
+        <xs:element ref="addml:properties" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute name="name" type="addml:notEmtpyString" use="required" />
+      <xs:attribute name="dataType" type="addml:dataTyperForAV" />
+      <xs:attribute name="format" type="addml:notEmtpyString" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="headerLevel" type="xs:integer" />
+  <xs:element name="recordSeparator">
+    <xs:simpleType>
+      <xs:union>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="CR">
+              <xs:annotation>
+                <xs:documentation>Carriage Return - \r</xs:documentation>
+                <xs:documentation>Brukt av tidlig Mac</xs:documentation>
+                <xs:documentation>Bruk må avtales med Arkivverket</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="LF">
+              <xs:annotation>
+                <xs:documentation>Line Feed - \n</xs:documentation>
+                <xs:documentation>Brukt av Unix og OS-X</xs:documentation>
+                <xs:documentation>Bruk må avtales med Arkivverket</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CRLF">
+              <xs:annotation>
+                <xs:documentation>Carriage Return Line Feed - \r\n</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="">
+              <xs:annotation>
+                <xs:documentation>Ingen skilletegn</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1">
+              <xs:annotation>
+                <xs:documentation>Andre skilletegn</xs:documentation>
+              </xs:annotation>
+            </xs:minLength>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="value" type="addml:notEmtpyString" />
+
+  <xs:simpleType name="notEmtpyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dataTyperForAV">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="addml:notEmtpyString">
+          <xs:enumeration value="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="no">Tekst</xs:documentation>
+              <xs:documentation>Imidlertid er det likevel noen situasjoner som skal nevnes. Noen
+                ganger kan det være spesielle ”felt” som forefinnes. Noen av disse spesialfeltene
+                vil det være mulig å legge på noen kontroller. Her skal nevnes:</xs:documentation>
+              <xs:documentation>• Fødselsnummer - fnr</xs:documentation>
+              <xs:documentation>• Organisasjonsnummer - org</xs:documentation>
+              <xs:documentation>• Kontonummer - knr</xs:documentation>
+              <xs:documentation>Alle disse tre har så mange tegn, at de i visse systemer ikke kan
+                defineres som numeriske. I tillegg skal disse feltene alltid ha et gitt antall
+                siffer og dermed kunne ha ledende nuller. Angivelse av disse spesialvariantene
+                gjøres ved å benytte taggen for format hvor kortversjonen (fnr, org eller knr) angis
+                som verdier for de respektive.</xs:documentation>
+              <xs:documentation>Eksempel for et organisasjonsnr: dataType = string, fieldFormat =
+                org.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="integer">
+            <xs:annotation>
+              <xs:documentation xml:lang="no">Nummerisk</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="decimal">
+            <xs:annotation>
+              <xs:documentation xml:lang="no">Heltall med komma</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="date">
+            <xs:annotation>
+              <xs:documentation xml:lang="no">Dato, mulig med tid</xs:documentation>
+              <xs:documentation>Datofelt skal i utgangspunktet være satt sammen av en datodel og en
+                tidsdel. Imidlertid kan tidsdelen bortfalle slik at bare datodelen forefinnes.</xs:documentation>
+              <xs:documentation>Datodelen skal bestå av 3 elementer samt skilletegn. De tre
+                elementene er dag, måned og år.</xs:documentation>
+              <xs:documentation>Dag skal alltid beskrives med dd i formatet, måned med MM (siffer)
+                eller MMM (bokstaver) og år med yy (2-sifret) eller yyyy (4-sifret). Rekkefølgen på
+                elementene angis i formatet. Dersom skilletegn mellom elementene er benyttet, angis
+                også dette i formatet.</xs:documentation>
+              <xs:documentation>Tidsdelen skal bestå av 3 elementer samt skilletegn. De tre
+                elementene er time, minutt og sekund.</xs:documentation>
+              <xs:documentation> Time skal alltid beskrives med HH i formatet, minutt med mm og
+                sekund med ss, alle 2-sifret. Rekkefølgen skal være i nevnte orden og elementene
+                skal skilles ad med kolon (:). I tillegg skal tidsdelen startes med T for å angi
+                skille mellom datodel og tidsdel, og avsluttes med zzz for å angi Europeisk tid.
+                Elementet sekund er valgfritt.</xs:documentation>
+              <xs:documentation>dataType = date, fieldFormat = dd.MM.yyyyTHH:mm:sszzz</xs:documentation>
+              <xs:documentation>Prosessen Control_Date_Value validerer feltformatet.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="boolean">
+            <xs:annotation>
+              <xs:documentation xml:lang="no">Bolsk</xs:documentation>
+              <xs:documentation>Verdier angis med formatet T/F. Her angir T ”true”-verdien og F
+                ”false”-verdien. De skal alltid skilles med / (skråstrek/slash).</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="link">
+            <xs:annotation>
+              <xs:documentation xml:lang="no">Lenke</xs:documentation>
+              <xs:documentation>Link vil bli behandlet som en string, er typen når feltet inneholder
+                en eller annen form for referanse.</xs:documentation>
+              <xs:documentation>URL, eksempelvis en filsti eller internett-adresse.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="addml:notEmtpyString">
+          <xs:annotation>
+            <xs:documentation>Annen datatype enn hva finnes i Arkivverkets profil.</xs:documentation>
+          </xs:annotation>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+</xs:schema>
