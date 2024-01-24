@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<addml name="Asta7-eksport" xmlns="http://www.arkivverket.no/standarder/addml">
+   <dataset name="Norges forskningsråd (NFR)">
+      <description>Norges forskningsråd (NFR), 1992-2000, hovedserie A</description>
+      <reference>
+         <context>
+            <additionalElements>
+               <additionalElement name="recordCreators">
+                  <additionalElements>
+                     <additionalElement name="recordCreator">
+                        <value>Arkivskaper</value>
+                     </additionalElement>
+                  </additionalElements>
+               </additionalElement>
+               <additionalElement name="systemType">
+                  <value>Fagsystem</value>
+               </additionalElement>
+               <additionalElement name="systemName">
+                  <value>System A</value>
+               </additionalElement>
+               <additionalElement name="archive">
+                  <value>Arkiv B</value>
+               </additionalElement>
+            </additionalElements>
+         </context>
+         <content>
+            <additionalElements>
+               <additionalElement name="archivalPeriod">
+                  <properties>
+                     <property name="startDate">
+                        <value>2000</value>
+                     </property>
+                     <property name="endDate">
+                        <value>2019</value>
+                     </property>
+                  </properties>
+               </additionalElement>
+            </additionalElements>
+         </content>
+      </reference>
+      <flatFiles>
+         <flatFile definitionReference="FIL" name="FIL">
+            <properties>
+               <property name="fileName">
+                  <value>FIL.csv</value>
+               </property>
+               <property name="numberOfOccurrences">
+                  <value>123</value>
+               </property>
+               <property name="checksum">
+                  <properties>
+                     <property name="algorithm">
+                        <value>SHA-256</value>
+                     </property>
+                     <property name="value">
+                        <value>545af5b694223532471ddddeaedfdad8b4b7803fe4883ba58e51f20fd569e6b6</value>
+                     </property>
+                  </properties>
+               </property>
+            </properties>
+         </flatFile>
+         <flatFile definitionReference="SERIE" name="SERIE">
+            <properties>
+               <property name="fileName">
+                  <value>SERIE.csv</value>
+               </property>
+               <property name="numberOfOccurrences">
+                  <value>12</value>
+               </property>
+               <property name="checksum">
+                  <properties>
+                     <property name="algorithm">
+                        <value>SHA-256</value>
+                     </property>
+                     <property name="value">
+                        <value>b2370c99dc15bb8b71ee5458b566c63c65d2566a1a5a63608f49a5a722eaaf9b</value>
+                     </property>
+                  </properties>
+               </property>
+            </properties>
+         </flatFile>
+         <flatFileDefinitions>
+            <flatFileDefinition name="FIL" typeReference="csv">
+               <description>Inneholder beskrivelse av medfølgende dokumenter</description>
+               <recordDefinitions>
+                  <recordDefinition name="FIL_post" typeReference="post">
+                     <keys>
+                        <key name="primaryKey_FIL">
+                           <primaryKey />
+                           <fieldDefinitionReferences>
+                              <fieldDefinitionReference name="id" />
+                           </fieldDefinitionReferences>
+                        </key>
+                        <key name="foreignKey_FIL_SERIE">
+                           <foreignKey>
+                              <flatFileDefinitionReference name="SERIE">
+                                 <recordDefinitionReferences>
+                                    <recordDefinitionReference name="SERIE_post">
+                                       <fieldDefinitionReferences>
+                                          <fieldDefinitionReference name="arkivenhetid" />
+                                       </fieldDefinitionReferences>
+                                    </recordDefinitionReference>
+                                 </recordDefinitionReferences>
+                              </flatFileDefinitionReference>
+                              <relationType>n:1</relationType>
+                           </foreignKey>
+                           <fieldDefinitionReferences>
+                              <fieldDefinitionReference name="serieid" />
+                           </fieldDefinitionReferences>
+                        </key>
+                     </keys>
+                     <fieldDefinitions>
+                        <fieldDefinition name="filnavn" typeReference="link">
+                           <description>Filreferanse</description>
+                           <notNull />
+                        </fieldDefinition>
+                        <fieldDefinition name="sjekksum" typeReference="string">
+                           <description>Sjekksum for filen</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="beskrivelse" typeReference="string">
+                           <description>Utdypende beskrivelse av arkivenheten</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="ID" typeReference="string">
+                           <description>Primærnøkkel</description>
+                           <unique />
+                           <notNull />
+                        </fieldDefinition>
+                        <fieldDefinition name="serieid" typeReference="string">
+                           <description>SerieID. Fremmednøkkel, peker mot kolonnen "ID" i tabellen SERIE</description>
+                        </fieldDefinition>
+                     </fieldDefinitions>
+                     <headerLevel>1</headerLevel>
+                  </recordDefinition>
+               </recordDefinitions>
+            </flatFileDefinition>
+            <flatFileDefinition name="SERIE" typeReference="csv">
+               <description>Klassifikasjon av dokumenter</description>
+               <recordDefinitions>
+                  <recordDefinition name="SERIE_post" typeReference="post">
+                     <keys>
+                        <key name="primaryKey_SERIE">
+                           <primaryKey />
+                           <fieldDefinitionReferences>
+                              <fieldDefinitionReference name="ID" />
+                           </fieldDefinitionReferences>
+                        </key>
+                     </keys>
+                     <fieldDefinitions>
+                        <fieldDefinition name="navn" typeReference="string">
+                           <description>Navn på serie</description>
+                           <notNull />
+                        </fieldDefinition>
+                        <fieldDefinition name="startdato" typeReference="date">
+                           <description>Startdato</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="sluttdato" typeReference="date">
+                           <description>Sluttdato</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="innhold" typeReference="string">
+                           <description>Utfyllende innholdsbeskrivelse</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="ID" typeReference="string">
+                           <description>Primærnøkkel</description>
+                           <unique />
+                           <notNull />
+                        </fieldDefinition>
+                        <fieldDefinition name="arkivkodefra" typeReference="string">
+                           <description>Arkivkode fra</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="arkivkodetil" typeReference="string">
+                           <description>Arkivkode til</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="beskrivelse" typeReference="string">
+                           <description>Utdypende beskrivelse av arkivenhetens fysiske tilstand</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="bevaringstid" typeReference="integer">
+                           <description>Antall år arkivenheten skal bevares</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="kassasjonsar" typeReference="string">
+                           <description>Året materialet skal kasseres</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="kasskode" typeReference="string">
+                           <description>Kode/opplysning om foretatt eller planlagt kassasjon</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="merknad" typeReference="string">
+                           <description>Tilleggsopplysninger beregnet på arkivskapere/depotansvarlige</description>
+                        </fieldDefinition>
+                        <fieldDefinition name="serieid" typeReference="string">
+                           <description>Referanse til forelder-serie</description>
+                        </fieldDefinition>
+                     </fieldDefinitions>
+                     <headerLevel>1</headerLevel>
+                  </recordDefinition>
+               </recordDefinitions>
+            </flatFileDefinition>
+         </flatFileDefinitions>
+         <structureTypes>
+            <flatFileTypes>
+               <flatFileType name="csv">
+                  <charset>UTF-8</charset>
+                  <delimFileFormat>
+                     <recordSeparator>LF</recordSeparator>
+                     <fieldSeparatingChar>;</fieldSeparatingChar>
+                     <quotingChar>"</quotingChar>
+                  </delimFileFormat>
+               </flatFileType>
+            </flatFileTypes>
+            <recordTypes>
+               <recordType name="post" />
+            </recordTypes>
+            <fieldTypes>
+               <fieldType name="string">
+                  <dataType>string</dataType>
+               </fieldType>
+               <fieldType name="date">
+                  <dataType>date</dataType>
+                  <fieldFormat>yyyy-MM-ddTHH:mm:ss</fieldFormat>
+               </fieldType>
+               <fieldType name="integer">
+                  <dataType>integer</dataType>
+               </fieldType>
+               <fieldType name="link">
+                  <dataType>link</dataType>
+               </fieldType>
+            </fieldTypes>
+         </structureTypes>
+      </flatFiles>
+      <dataObjects>
+         <dataObject name="dokumenter">
+            <properties>
+               <property name="folder">
+                  <properties>
+                     <property name="name">
+                        <value>dokumenter</value>
+                     </property>
+                  </properties>
+               </property>
+               <property name="info">
+                  <properties>
+                     <property name="numberOfOccurrences">
+                        <value>dokumenter</value>
+                        <properties>
+                           <property name="filePath">
+                              <value>*.*</value>
+                           </property>
+                           <property dataType="integer" name="value">
+                              <value>123</value>
+                           </property>
+                        </properties>
+                     </property>
+                  </properties>
+               </property>
+            </properties>
+         </dataObject>
+         <dataObject name="dokumentasjon">
+            <properties>
+               <property name="folder">
+                  <properties>
+                     <property name="name">
+                        <value>sysdok</value>
+                     </property>
+                  </properties>
+               </property>
+               <property name="info">
+                  <properties>
+                     <property name="numberOfOccurrences">
+                        <value>dokumenter</value>
+                        <properties>
+                           <property name="filePath">
+                              <value>*.*</value>
+                           </property>
+                           <property dataType="integer" name="value">
+                              <value>2</value>
+                           </property>
+                        </properties>
+                     </property>
+                  </properties>
+               </property>
+            </properties>
+         </dataObject>
+      </dataObjects>
+   </dataset>
+</addml>
