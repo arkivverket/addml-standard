@@ -1,11 +1,15 @@
 @startuml
 allowmixing
 skinparam linetype ortho
+
 rectangle period
 
+rectangle {
 object startDate
-startDate : value = 20000101
 object endDate
+}
+
+startDate : value = 20000101
 endDate : value = 20101231
 
 period --{ startDate
