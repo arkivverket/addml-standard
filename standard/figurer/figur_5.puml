@@ -1,0 +1,7 @@
+@startuml
+rectangle dataObjects
+rectangle dataObject
+
+dataObjects -- dataObject
+dataObjects -- dataObject
+@enduml
