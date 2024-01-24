@@ -1,16 +1,34 @@
 @startuml
+skinparam linetype ortho
+
+skinparam package<<Layout>> {
+  borderColor Transparent
+  backgroundColor Transparent
+  fontColor Transparent
+  stereotypeFontColor Transparent
+}
+
+package files <<Layout>> {
 rectangle flatFiles
 rectangle flatFile
+}
+
+package definitions <<Layout>> {
 rectangle flatFileDefinitions
 rectangle flatFileDefinition
-rectangle flatFileType
 rectangle recordDefinitions
 rectangle recordDefinition
-rectangle recordType
 rectangle fieldDefinitions
 rectangle fieldDefinition
-rectangle fieldType
+}
+
+package types <<Layout>> {
 rectangle structureTypes
+rectangle flatFileType
+rectangle recordType
+rectangle fieldType
+}
+
 
 flatFiles --- flatFile
 flatFiles -- flatFileDefinitions
@@ -26,11 +44,11 @@ flatFileDefinition - flatFileType
 recordDefinition - recordType
 fieldDefinition - fieldType
 
-flatFileType -- structureTypes
+structureTypes -- flatFileType 
 flatFileType --[hidden]- recordType
 recordType--[hidden]- fieldType
-recordType - structureTypes
+structureTypes -- recordType
 structureTypes -- fieldType
 
-flatFiles - structureTypes
+flatFiles -- structureTypes
 @enduml
