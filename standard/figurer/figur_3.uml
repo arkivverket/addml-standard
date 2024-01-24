@@ -1,0 +1,10 @@
+@startuml
+rectangle flatFile
+rectangle recordDefinition
+rectangle flatFileDefinition
+rectangle fieldDefinition
+
+flatFile -- flatFileDefinition
+flatFileDefinition -- recordDefinition
+recordDefinition -- fieldDefinition
+@enduml
