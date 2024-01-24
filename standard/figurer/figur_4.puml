@@ -1,0 +1,36 @@
+@startuml
+rectangle flatFiles
+rectangle flatFile
+rectangle flatFileDefinitions
+rectangle flatFileDefinition
+rectangle flatFileType
+rectangle recordDefinitions
+rectangle recordDefinition
+rectangle recordType
+rectangle fieldDefinitions
+rectangle fieldDefinition
+rectangle fieldType
+rectangle structureTypes
+
+flatFiles --- flatFile
+flatFiles -- flatFileDefinitions
+flatFile - flatFileDefinition
+
+flatFileDefinitions -- flatFileDefinition
+flatFileDefinition -- recordDefinitions
+recordDefinitions -- recordDefinition
+recordDefinition -- fieldDefinitions
+fieldDefinitions -- fieldDefinition
+
+flatFileDefinition - flatFileType
+recordDefinition - recordType
+fieldDefinition - fieldType
+
+flatFileType -- structureTypes
+flatFileType --[hidden]- recordType
+recordType--[hidden]- fieldType
+recordType - structureTypes
+structureTypes -- fieldType
+
+flatFiles - structureTypes
+@enduml
