@@ -12,10 +12,10 @@ additionalElement : name
 additionalElement : dataType
 additionalElement : format
 
-additionalElements --{ additionalElement
+additionalElements --|{ additionalElement
 
-additionalElement --{ value
-additionalElement --{ properties
-additionalElement --{ a2
-additionalElement --{ processes
+additionalElement --o| value
+additionalElement --o| properties
+additionalElement --o| a2
+additionalElement --o| processes
 @enduml
