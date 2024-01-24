@@ -12,7 +12,7 @@ Til slutt er det vist et enkelt eksempel med bruk av elementet. For noen element
 
 Elementet additionalElement utgjør et egetdefinert element. Standarden selv definerer ingen tilleggselementer, men lar det være opp til brukerne å definere sine egne. Sammen med additionalElements danner additionalElement muligheten for å kunne bygge sin egen generiske struktur.
 
-![Struktur](https://www.plantuml.com/plantuml/svg/FSqn3i9G2CRntLFe0IoxKnSFWWLRKg0D3-hrVOs94ycF_FEDBJ6oJ2ytyKcBk4AlI-RU7W2pv5AlOTeCC5Ov3ewL4v38zDvB9mo2m0yOjkI0lxrbhkZ0oiP-ldeaAPkZFdysxEVio4xzVW40?cache=no)
+![Struktur](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer/additionalElement.svg)
 
 | Elementnavn | Forekomster | Beskrivelse |
 | -------- | ------- | ------- |
@@ -50,6 +50,6 @@ I eksempelet er det definert et tilleggselement period, som består av to underl
 
 Dette kan også illustreres slik:
 
-![Eksempel](https://www.plantuml.com/plantuml/svg/FSqn3i9W28RXtLFe0InnTUhYEGmMR4c1DXJgzVqR4oUIXxpv-YqnianF5_51YxX2prFckjq1HicfNjsm663CikySCoSWaUcrbKuO184VCDoI0_xsbh6Y0IiRUtiTaQGiZlhusVFMhSTmpqxjVW40?cache=no)
+![Eksempel](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer/additionalElement_1.svg)
 
 Hvor den tomme rammen markerer et omslag rundt en gruppe av elementer og altså tilsvarer nivået additionalElements.
