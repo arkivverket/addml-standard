@@ -1,8 +1,3 @@
-|image1|
-
-.. |image1| image:: kapitler/media/image1.png
-   :width: 30%
-
 ADDML
 =======
 
