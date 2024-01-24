@@ -1,0 +1,11 @@
+@startuml
+skinparam linetype ortho
+rectangle dataset
+rectangle reference
+rectangle flatFiles
+rectangle dataObjects
+
+dataset -- reference
+dataset -- flatFiles
+dataset -- dataObjects
+@enduml
