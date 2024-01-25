@@ -8,7 +8,7 @@ I tabellform er det gitt grunnleggende informasjon om elementet. Og deretter i e
 
 Til slutt er det vist et enkelt eksempel med bruk av elementet. For noen element er det vist til eksempler under andre element.
 
-## additionalElement {#additionalElement}
+## additionalElement <a id="additionalelement"/>
 
 Elementet additionalElement utgjør et egetdefinert element. Standarden selv definerer ingen tilleggselementer, men lar det være opp til brukerne å definere sine egne. Sammen med additionalElements danner additionalElement muligheten for å kunne bygge sin egen generiske struktur.
 
@@ -28,7 +28,7 @@ Elementet additionalElement utgjør et egetdefinert element. Standarden selv def
 | -------- | ------- |
 | [value](#value)  | 0-1 |
 | [properties](#properties)  | 0-1 |
-| [additionalElements](#additionalElements)  | 0-1 |
+| [additionalElements](#additionalelements)  | 0-1 |
 | [processes](#processes)  | 0-1 |
 
 ### Eksempel
@@ -54,7 +54,7 @@ Dette kan også illustreres slik:
 
 Hvor den tomme rammen markerer et omslag rundt en gruppe av elementer og altså tilsvarer nivået additionalElements.
 
-## additionalElements {#additionalElements}
+## additionalElements <a id="additionalelements"/>
 
 Elementet additionalElements er et samlenivå for gruppering av tilleggselementer.
 
