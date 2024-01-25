@@ -1,0 +1,20 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle context
+rectangle content
+rectangle "additionalElement" as a
+rectangle "additionalElement" as b
+rectangle description
+rectangle processes
+
+object additionalElements
+context --o| additionalElements
+content --o| additionalElements
+a --o| additionalElements
+
+additionalElements --o| description
+additionalElements --o{ b
+additionalElements --o| processes
+@enduml
