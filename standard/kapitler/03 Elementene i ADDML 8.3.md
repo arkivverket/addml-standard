@@ -1,4 +1,4 @@
-# Elementene i ADDML 8.3.
+# Elementene i ADDML 8.3
 
 I det etterfølgende er hvert enkelt element i ADDML beskrevet.
 
@@ -8,7 +8,7 @@ I tabellform er det gitt grunnleggende informasjon om elementet. Og deretter i e
 
 Til slutt er det vist et enkelt eksempel med bruk av elementet. For noen element er det vist til eksempler under andre element.
 
-## additionalElement
+## additionalElement {#additionalElement}
 
 Elementet additionalElement utgjør et egetdefinert element. Standarden selv definerer ingen tilleggselementer, men lar det være opp til brukerne å definere sine egne. Sammen med additionalElements danner additionalElement muligheten for å kunne bygge sin egen generiske struktur.
 
@@ -26,10 +26,10 @@ Elementet additionalElement utgjør et egetdefinert element. Standarden selv def
 
 | Underliggende elementer | Forekomster |
 | -------- | ------- |
-| value  | 0-1 |
-| properties  | 0-1 |
-| additionalElements  | 0-1 |
-| processes  | 0-1 |
+| [value](#value)  | 0-1 |
+| [properties](#properties)  | 0-1 |
+| [additionalElements](#additionalElements)  | 0-1 |
+| [processes](#processes)  | 0-1 |
 
 ### Eksempel
 
@@ -53,3 +53,23 @@ Dette kan også illustreres slik:
 ![Eksempel](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer/additionalElement_1.svg)
 
 Hvor den tomme rammen markerer et omslag rundt en gruppe av elementer og altså tilsvarer nivået additionalElements.
+
+## additionalElements {#additionalElements}
+
+Elementet additionalElements er et samlenivå for gruppering av tilleggselementer.
+
+![Struktur](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer/additionalElements.svg)
+
+| Elementnavn | Forekomster | Beskrivelse |
+| -------- | ------- | ------- |
+| additionalElements | 0-1 | Dette elementet benyttes for å samle tilleggselementer i grupper. Og derigjennom å kunne danne strukturer av tilleggselementer.
+
+Ingen attributter.
+
+| Underliggende elementer | Forekomster |
+| -------- | ------- |
+| [description](#description) | 0-1 |
+| [additionalElement](#additionalElement) | 0-n |
+| [processes](#processes) | 0-1 |
+
+For eksempel se [additionalElement](#additionalElement).
