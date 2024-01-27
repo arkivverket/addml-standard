@@ -1,0 +1,16 @@
+@startuml
+skinparam linetype ortho
+
+rectangle flatFile
+rectangle fileName
+rectangle numberOfOccurrences
+rectangle checksum
+rectangle algorithm
+rectangle value
+
+flatFile -- fileName
+flatFile -- numberOfOccurrences
+flatFile -- checksum
+checksum -- algorithm
+checksum -- value
+@enduml
