@@ -634,4 +634,4 @@ Eksempel på prosesser som instruksjoner i ADDML-filen:
 
 I addml kan man også angi dataobjekter for andre typer filer enn flate filer. Det er ikke satt noen krav til dataObjects eller dataObject i denne profilen.
 
-Hvordan man kan bruke dataobjekter er beskrevet i et eget notat – *Bruk av komponenter i ADDML*. For nærmere informasjon om dataobjekter og bruk av disse henvises til dette notatet.
+Hvordan man kan bruke dataobjekter er beskrevet i e vedlegg 1 – *Bruk av komponenter i ADDML*. For nærmere informasjon om dataobjekter og bruk av disse henvises til dette notatet.
