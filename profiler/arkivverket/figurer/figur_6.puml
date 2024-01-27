@@ -1,0 +1,17 @@
+@startuml
+skinparam linetype ortho
+
+rectangle " " as c1 #line:blue;
+
+rectangle system #line:blue;
+rectangle "systemType***" as systemType #line:blue;
+rectangle "name" as name2 #line:blue;
+rectangle version #line:blue;
+rectangle history #line:blue;
+
+system -[#0000ff]- c1
+c1 -[#0000ff]- systemType
+c1 -[#0000ff]- name2
+c1 -[#0000ff]- version
+c1 -[#0000ff]- history
+@enduml
