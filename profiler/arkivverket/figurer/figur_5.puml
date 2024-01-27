@@ -1,0 +1,27 @@
+@startuml
+skinparam linetype ortho
+
+rectangle " " as c1 #line:blue;
+rectangle " " as c2 #line:red;
+rectangle " " as c3 #line:blue;
+rectangle " " as c4 #line:red;
+
+rectangle agents #line:blue;
+rectangle agent #line:blue;
+rectangle "role" as role #line:red;
+rectangle "type" as type1 #line:red;
+rectangle "name" as name1 #line:blue;
+rectangle contact #line:blue;
+rectangle "type" as type2 #line:red;
+
+agents -[#0000ff]- c1
+c1 -[#0000ff]- agent
+agent -[#ff0000]- c2
+c2 -[#ff0000]- role
+c2 -[#ff0000]- type1
+agent -[#0000ff]- c3
+c3 -[#0000ff]- name1
+c3 -[#0000ff]- contact
+contact -[#ff0000]- c4
+c4 -[#ff0000]- type2
+@enduml
