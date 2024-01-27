@@ -37,6 +37,7 @@ Strukturen for egenskapene skal følge strukturen i figur 2.
 
 
 ![Egenskaper for flatFile](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_2.svg)
+
 Figur 2. Egenskaper for flatFile.
 
 #### fileName
@@ -332,6 +333,7 @@ Til andre arkivinstitusjoner kan listen av gyldige verdier være annerledes.
 For elementet context er det krav om et sett av tilleggselementer. Disse tilleggselementene skal alle inneholde informasjon om materialets kontekst, altså informasjon knyttet til det opprinnelige system informasjonen er skap i, både hva systemet er og hvordan og av hvem det er benyttet. En oversikt over tilleggselementer som skal forefinnes i en arkivversjon er vist i figur 3. Deretter følger en nærmere beskrivelse av det enkelte tilleggselement.
 
 ![En oversikt over foreslåtte elementer til context](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_3.svg)
+
 Figur 3. En oversikt over foreslåtte elementer til context.
 
 Under kontekstuelle elementer er det foreslått tre bolker med elementer. Flere av elementene kan også gjenfinnes som elementer i infofilen og i mets-filen.
@@ -460,6 +462,7 @@ Eksempel:
 For elementet content er det også krav om et sett av tilleggselementer. Disse tilleggselementene skal alle inneholde informasjon om arkivuttrekket. En oversikt over tilleggselementer som skal forefinnes i en arkivversjon er vist i figur 4. Deretter følger en nærmere beskrivelse av det enkelte tilleggselement.
 
 ![En oversikt over foreslåtte elementer i content](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_4.svg)
+
 Figur 4. En oversikt over foreslåtte elementer i content.
 
 I archivalPeriod finnes det elementer som angir start og sluttdato for arkivperioden som uttrekket omfatter. Dessuten informasjon om inngående og utgående skille for perioden, hvorvidt det er skarpt eller mykt. I archivalDataset finnes det to elementer som er uttrekksdato og uttrekksformatet, hvor valgene i det sistnevnte er Noark-3, Noark-4, Noark 5 og Fagsystem.
