@@ -1,0 +1,60 @@
+@startuml
+skinparam linetype ortho
+
+rectangle " " as c1 #line:blue;
+rectangle " " as c2 #line:blue;
+rectangle " " as c3 #line:blue;
+rectangle " " as c4 #line:blue;
+rectangle " " as c5 #line:blue;
+
+rectangle content #line:blue;
+rectangle archivalPeriod #line:blue;
+rectangle startDate #line:blue;
+rectangle endDate #line:blue;
+rectangle period #line:blue;
+rectangle "inboundPartition*" as inboundPartition #line:blue;
+rectangle "outboundPartition*" as outboundPartition #line:blue;
+rectangle archivalDataset #line:blue;
+rectangle date #line:blue;
+rectangle "type**" as type1 #line:blue;
+rectangle comments #line:blue;
+rectangle comment #line:blue;
+
+content -[#0000ff]- c1
+
+c1 -[#0000ff]- archivalPeriod
+archivalPeriod -[#0000ff]- c2
+c2 -[#0000ff]- startDate
+c2 -[#0000ff]- endDate
+c2 -[#0000ff]- period
+period -[#0000ff]- c3
+c3 -[#0000ff]- inboundPartition
+c3 -[#0000ff]- outboundPartition
+
+c1 -[#0000ff]- archivalDataset
+archivalDataset -[#0000ff]- c4
+c4 -[#0000ff]- date
+c4 -[#0000ff]- type1
+
+c1 -[#0000ff]- comments
+comments -[#0000ff]- c5
+c5 -[#0000ff]- comment
+
+note left of inboundPartition
+  skarpt
+  mykt
+end note
+
+note right of outboundPartition
+  skarpt
+  mykt
+end note
+
+note bottom of type1
+  Noark-3
+  Noark-4
+  Noark 5
+  Fagsystem
+end note
+
+@enduml
