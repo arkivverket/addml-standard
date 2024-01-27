@@ -1,0 +1,81 @@
+@startuml
+skinparam linetype ortho
+
+rectangle " " as c1 #line:blue;
+rectangle " " as c2 #line:blue;
+rectangle " " as c3 #line:red;
+rectangle " " as c4 #line:blue;
+rectangle " " as c5 #line:red;
+rectangle " " as c6 #line:blue;
+rectangle " " as c7 #line:blue;
+
+rectangle context #line:blue;
+rectangle agents #line:blue;
+rectangle agent #line:blue;
+rectangle "role*" as role #line:red;
+rectangle "type**" as type1 #line:red;
+rectangle "name" as name1 #line:blue;
+rectangle contact #line:blue;
+rectangle "type****" as type2 #line:red;
+rectangle system #line:blue;
+rectangle "systemType***" as systemType #line:blue;
+rectangle "name" as name2 #line:blue;
+rectangle version #line:blue;
+rectangle history #line:blue;
+rectangle comments #line:blue;
+rectangle comment #line:blue;
+
+context -[#0000ff]- c1
+
+c1 -[#0000ff]- agents
+agents -[#0000ff]- c2
+c2 -[#0000ff]- agent
+agent -[#ff0000]- c3
+c3 -[#ff0000]- role
+c3 -[#ff0000]- type1
+agent -[#0000ff]- c4
+c4 -[#0000ff]- name1
+c4 -[#0000ff]- contact
+contact -[#ff0000]- c5
+c5 -[#ff0000]- type2
+
+c1 -[#0000ff]- system
+system -[#0000ff]- c6
+c6 -[#0000ff]- systemType
+c6 -[#0000ff]- name2
+c6 -[#0000ff]- version
+c6 -[#0000ff]- history
+
+c1 -[#0000ff]- comments
+comments -[#0000ff]- c7
+c7 -[#0000ff]- comment
+
+note bottom of role
+  recordCreator
+  deliver
+  producer
+  owner
+  archive
+end note
+
+note bottom of type1
+  individual
+  institution
+  system
+end note
+
+note bottom of systemType
+  Noark-3
+  Noark-4
+  Noark 5
+  Fagsystem
+end note
+
+note right of type2
+  address
+  email
+  telephone
+  mobile
+end note
+
+@enduml
