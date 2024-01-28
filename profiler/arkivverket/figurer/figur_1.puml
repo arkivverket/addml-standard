@@ -1,0 +1,18 @@
+@startuml
+rectangle "Infofilen" as info
+
+rectangle {
+rectangle "dias-mets.xml" as mets
+rectangle "dias-premis.xml" as premis
+rectangle "ead.xml" as ead
+rectangle "eac-cpf.xml" as eac
+rectangle "arkivuttrekk.xml" as addml
+}
+
+mets -[hidden]- premis
+premis -[hidden]- ead
+ead -[hidden]- eac
+eac -[hidden]- addml
+info -[hidden] premis
+
+@enduml
