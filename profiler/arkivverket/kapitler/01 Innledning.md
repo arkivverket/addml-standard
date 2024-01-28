@@ -22,7 +22,9 @@ Selve innholdet og dets metadata pakkes inn i en tar-fil. I tillegg overføres og
 
 I selve pakken benyttes standardene dias-mets som er en profil av den internasjonale standarden mets og inneholder en oversikt over alle filer som inngår i pakken. Også infofilen er en profil av mets. I pakken følger dessuten dias-premis som er en profil av den internasjonale standarden og inneholder informasjon om hendelser og rettigheter til innholdet. Dessuten kan det forekomme filer som følger standardene ead og eac-cpf som inneholder arkiv- og aktørbeskrivelse. (Disse er valgfrie for en SIP.) Og endelig kommer den tekniske strukturbeskrivelsen i filen arkivuttrekk.xml som skal følge ADDML For ADDML må derfor hvert depot også definere sin profil av standarden og dette dokumentet beskriver en slik profil som da benyttes for overføring og i Arkivverket.
 
-* Figur - Innholdet i en pakke.
+![Innholdet i en pakke](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_figur_1.svg)
+
+Figur - Innholdet i en pakke.
 
 ## Hvordan benytte ADDML
 

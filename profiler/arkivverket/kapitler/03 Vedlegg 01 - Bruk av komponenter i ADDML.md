@@ -32,7 +32,7 @@ I additionalElements vil det først og fremst være behov for komponenter i samm
 
 ##### Aktør
 
-![Grunnoversikt over aktør](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_5.svg)
+![Grunnoversikt over aktør](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_5.svg)
 
 Figur 5. Grunnoversikt over aktør.
 
@@ -125,7 +125,7 @@ Eksempel:
 
 Under system er det tenkt å beskrive det opprinnelige systemet et arkivuttrekk ble tatt fra.
 
-![Grunnoversikt over system](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_6.svg)
+![Grunnoversikt over system](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_6.svg)
 
 Figur 6. Grunnoversikt over system.
 
@@ -165,7 +165,7 @@ Eksempel:
 
 Under uttrekk beskrives det aktuelle uttrekket.
 
-![Grunnoversikt over uttrekk](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_7.svg)
+![Grunnoversikt over uttrekk](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_7.svg)
 
 Figur 7. Grunnoversikt over uttrekk.
 
@@ -206,7 +206,7 @@ I motsetning til additionalElements hvor det er et begrenset antall komponenter,
 
 ##### Fil
 
-![Grunnbeskrivelse av en fil](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_8.svg)
+![Grunnbeskrivelse av en fil](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_8.svg)
 
 Figur 8. Grunnbeskrivelse av en fil.
 
@@ -260,7 +260,7 @@ Eksempel:
 
 En xml-fil følger naturlig nok samme prinsipper som en hvilken som helst annen fil. I tillegg skal den knyttes opp mot sin beskrivelse, enten i form av et skjema (xsd) eller flere, eller en beskrivelse (dtd). Og disse igjen er også filer. Slik at det spesielle her er den nevnte koplingen mellom to eller flere filer.
 
-![Grunnbeskrivelse av en xml-fil med skjema](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_9.svg)
+![Grunnbeskrivelse av en xml-fil med skjema](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_9.svg)
 
 Figur 9. Grunnoversikt over en xml-fil med en beskrivende fil (skjema).
 
@@ -297,7 +297,7 @@ Eksempel:
 
 En katalog som komponent er tenkt benyttet for en samling av filer i en katalogstruktur.
 
-![Grunnbeskrivelse av katalog](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_10.svg)
+![Grunnbeskrivelse av katalog](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_10.svg)
 
 Figur 10. Grunnoversikt over katalog.
 
@@ -325,7 +325,7 @@ Eksempel:
 
 ##### Info
 
-![Grunnbeskrivelse av info](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_11.svg)
+![Grunnbeskrivelse av info](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_11.svg)
 
 Figur 11. Grunnoversikt over info.
 
