@@ -36,7 +36,9 @@ Selve innholdet og dets metadata pakkes inn i en tar-fil. I tillegg overføres o
 
 I selve pakken benyttes standardene dias-mets som er en profil av den internasjonale standarden mets og inneholder en oversikt over alle filer som inngår i pakken. Også infofilen er en profil av mets. I pakken følger dessuten dias-premis som er en profil av den internasjonale standarden og inneholder informasjon om hendelser og rettigheter til innholdet. Dessuten kan det forekomme filer som følger standardene ead og eac-cpf som inneholder arkiv- og aktørbeskrivelse. (Disse er valgfrie for en SIP.) Og endelig kommer den tekniske strukturbeskrivelsen i filen arkivuttrekk.xml som skal følge ADDML For ADDML må derfor hvert depot også definere sin profil av standarden og dette dokumentet beskriver en slik profil som da benyttes for overføring og i Arkivverket.
 
-* Figur - Innholdet i en pakke.
+![Innholdet i en pakke](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_figur_1.svg)
+
+Figur - Innholdet i en pakke.
 
 ## Hvordan benytte ADDML
 
@@ -92,7 +94,7 @@ Følgende egenskaper skal være med:
 Strukturen for egenskapene skal følge strukturen i figur 2.
 
 
-![Egenskaper for flatFile](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_2.svg)
+![Egenskaper for flatFile](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_figur_2.svg)
 
 Figur 2. Egenskaper for flatFile.
 
@@ -388,7 +390,7 @@ Til andre arkivinstitusjoner kan listen av gyldige verdier være annerledes.
 
 For elementet context er det krav om et sett av tilleggselementer. Disse tilleggselementene skal alle inneholde informasjon om materialets kontekst, altså informasjon knyttet til det opprinnelige system informasjonen er skap i, både hva systemet er og hvordan og av hvem det er benyttet. En oversikt over tilleggselementer som skal forefinnes i en arkivversjon er vist i figur 3. Deretter følger en nærmere beskrivelse av det enkelte tilleggselement.
 
-![En oversikt over foreslåtte elementer til context](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_3.svg)
+![En oversikt over foreslåtte elementer til context](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_figur_3.svg)
 
 Figur 3. En oversikt over foreslåtte elementer til context.
 
@@ -517,7 +519,7 @@ Eksempel:
 
 For elementet content er det også krav om et sett av tilleggselementer. Disse tilleggselementene skal alle inneholde informasjon om arkivuttrekket. En oversikt over tilleggselementer som skal forefinnes i en arkivversjon er vist i figur 4. Deretter følger en nærmere beskrivelse av det enkelte tilleggselement.
 
-![En oversikt over foreslåtte elementer i content](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_4.svg)
+![En oversikt over foreslåtte elementer i content](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_figur_4.svg)
 
 Figur 4. En oversikt over foreslåtte elementer i content.
 
@@ -730,7 +732,7 @@ I additionalElements vil det først og fremst være behov for komponenter i samm
 
 ##### Aktør
 
-![Grunnoversikt over aktør](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_5.svg)
+![Grunnoversikt over aktør](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_5.svg)
 
 Figur 5. Grunnoversikt over aktør.
 
@@ -823,7 +825,7 @@ Eksempel:
 
 Under system er det tenkt å beskrive det opprinnelige systemet et arkivuttrekk ble tatt fra.
 
-![Grunnoversikt over system](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_6.svg)
+![Grunnoversikt over system](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_6.svg)
 
 Figur 6. Grunnoversikt over system.
 
@@ -863,7 +865,7 @@ Eksempel:
 
 Under uttrekk beskrives det aktuelle uttrekket.
 
-![Grunnoversikt over uttrekk](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_7.svg)
+![Grunnoversikt over uttrekk](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_7.svg)
 
 Figur 7. Grunnoversikt over uttrekk.
 
@@ -904,7 +906,7 @@ I motsetning til additionalElements hvor det er et begrenset antall komponenter,
 
 ##### Fil
 
-![Grunnbeskrivelse av en fil](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_8.svg)
+![Grunnbeskrivelse av en fil](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_8.svg)
 
 Figur 8. Grunnbeskrivelse av en fil.
 
@@ -958,7 +960,7 @@ Eksempel:
 
 En xml-fil følger naturlig nok samme prinsipper som en hvilken som helst annen fil. I tillegg skal den knyttes opp mot sin beskrivelse, enten i form av et skjema (xsd) eller flere, eller en beskrivelse (dtd). Og disse igjen er også filer. Slik at det spesielle her er den nevnte koplingen mellom to eller flere filer.
 
-![Grunnbeskrivelse av en xml-fil med skjema](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_9.svg)
+![Grunnbeskrivelse av en xml-fil med skjema](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_9.svg)
 
 Figur 9. Grunnoversikt over en xml-fil med en beskrivende fil (skjema).
 
@@ -995,7 +997,7 @@ Eksempel:
 
 En katalog som komponent er tenkt benyttet for en samling av filer i en katalogstruktur.
 
-![Grunnbeskrivelse av katalog](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_10.svg)
+![Grunnbeskrivelse av katalog](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_10.svg)
 
 Figur 10. Grunnoversikt over katalog.
 
@@ -1023,7 +1025,7 @@ Eksempel:
 
 ##### Info
 
-![Grunnbeskrivelse av info](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/figur_11.svg)
+![Grunnbeskrivelse av info](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/av_v1_figur_11.svg)
 
 Figur 11. Grunnoversikt over info.
 
