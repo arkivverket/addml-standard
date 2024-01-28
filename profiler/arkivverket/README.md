@@ -1,6 +1,6 @@
 # Arkivverkets implementasjon av ADDML
 
-### Versjon 8.3 - 2021.02.04:
+### Versjon 8.3 - 2021-02-04:
 
 Nye endringer av bruk, grunnet mottak av *mediekonverterte arkiver*. Disse kommer både som flate filer og xml, mens dokumentmappen blir deklarert som et eget dataobjekt i addml-filen. Arbeid på beskrivelse av og prosesser knyttet til fagsystem med dokumenter blir startet.
 
