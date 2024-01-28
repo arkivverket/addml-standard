@@ -1,0 +1,52 @@
+@startuml
+skinparam linetype ortho
+
+rectangle " " as c1 #line:blue;
+rectangle " " as c2 #line:blue;
+rectangle " " as c3 #line:blue;
+rectangle " " as c4 #line:red;
+rectangle " " as c5 #line:red;
+rectangle " " as c6 #line:red;
+rectangle " " as c7 #line:red;
+
+rectangle "xml-file" as xmlfile #line:blue;
+rectangle info #line:blue;
+rectangle datafile #line:blue
+rectangle schema #line:blue
+
+rectangle file as file #line:blue;
+
+rectangle name as name #line:red;
+rectangle path as path #line:red;
+rectangle format #line:red;
+rectangle type #line:red;
+rectangle version as version #line:red;
+rectangle checksum #line:red;
+rectangle algorithm #line:red;
+
+xmlfile -[#0000ff]- c1
+c1 -[#0000ff]- info
+c1 -[#0000ff]- datafile
+c1 -[#0000ff]- schema
+
+datafile -[#0000ff]- c2
+schema -[#0000ff]- c3
+c2 -[#0000ff]- file
+c3 -[#0000ff]- file
+
+file -[#ff0000]- c4
+
+c4 -[#ff0000]- name
+name -[#ff0000]- c5
+c5 -[#ff0000]- path
+
+c4 -[#ff0000]- format
+format -[#ff0000]- c6
+c6 -[#ff0000]- type
+c6 -[#ff0000]- version
+
+c4 -[#ff0000]- checksum
+checksum -[#ff0000]- c7
+c7 -[#ff0000]- algorithm
+
+@enduml
