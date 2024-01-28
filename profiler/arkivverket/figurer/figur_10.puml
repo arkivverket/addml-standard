@@ -1,0 +1,39 @@
+@startuml
+skinparam linetype ortho
+
+skinparam package<<Layout>> {
+  borderColor Transparent
+  backgroundColor Transparent
+  fontColor Transparent
+  stereotypeFontColor Transparent
+}
+
+package p1 <<Layout>>
+package p2 <<Layout>>
+package p3 <<Layout>>
+package p4 <<Layout>>
+
+rectangle " " as c1 #line:blue;
+
+rectangle "xml-file" as xmlfile #line:blue;
+rectangle info #line:blue;
+rectangle file #line:blue
+rectangle "directory" as dir1 #line:blue
+rectangle "directory" as dir2 #line:blue
+
+dir1 -[#0000ff]- c1
+c1 -[#0000ff]- info
+c1 -[#0000ff]- file
+c1 -[#0000ff]- xmlfile
+c1 -[#0000ff]- dir2
+
+info -[#ff0000]- p1
+file -[#ff0000]- p2
+xmlfile -[#0000ff]- p3
+dir2 -[#0000ff]- p4
+
+info -[hidden] file
+file -[hidden] xmlfile
+xmlfile -[hidden] dir2
+
+@enduml
