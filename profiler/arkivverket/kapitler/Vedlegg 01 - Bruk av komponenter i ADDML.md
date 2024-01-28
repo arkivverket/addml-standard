@@ -330,6 +330,8 @@ Eksempel:
 Figur 11. Grunnoversikt over info.
 
 Eksempel:
+
+```xml
 <dataObjects>
     <dataObject name="info">
         <properties>
@@ -347,5 +349,6 @@ Eksempel:
         </properties>
     </dataObject>
 </dataObjects>
+```
 
 NB! Eksemplet er kun et eksempel på hvordan man kan define egenskaper under info. Den egenskapen som er vist hører egentlig hjemme under Fil som format.
