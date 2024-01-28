@@ -1,0 +1,15 @@
+@startuml
+skinparam linetype ortho
+
+rectangle " " as c1 #line:red;
+rectangle " " as c2 #line:red;
+
+rectangle info #line:blue;
+rectangle filetype #line:red;
+rectangle version #line:red;
+
+info -[#ff0000]- c1
+c1 -[#ff0000]- filetype
+filetype -[#ff0000]- c2
+c2 -[#ff0000]- version
+@enduml
