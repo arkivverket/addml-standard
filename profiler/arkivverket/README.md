@@ -14,7 +14,7 @@ Det ble korrigert diverse skrivefeil.
 
 ### Versjon 8.3 - 2019-12-06:
 
-Bruk av komponenter i ADDML ble først publisert i 06.12.2019, med veiledning for strukturering av tilleggselementer / additionalElement og dataobjekter / dataObject. Det går ut på å standardisere hvordan f.eks. en xml-fil skal beskrives, med  filegenskaper for xml-filen og skjema, samt koblingen mellom de to.
+Arkivverkets profil for versjon 8.3 med vedlegg "Bruk av komponenter i ADDML" ble først publisert i desember 2019, med veiledning for strukturering av tilleggselementer / additionalElement og dataobjekter / dataObject. Det går ut på å standardisere hvordan f.eks. en xml-fil skal beskrives, med  filegenskaper for xml-filen og skjema, samt koblingen mellom de to.
 
 ### Versjon 8.2 - 2016-11-21
 
