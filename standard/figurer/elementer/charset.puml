@@ -1,0 +1,8 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "flatFileType" as p1
+object "charset" as e
+p1 --|| e
+@enduml

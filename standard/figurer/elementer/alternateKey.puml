@@ -1,0 +1,8 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "key" as p1
+object "alternateKey" as e
+p1 --|| e
+@enduml

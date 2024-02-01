@@ -1,0 +1,8 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "flatFileDefinition" as p1
+object "external" as e
+p1 --o| e
+@enduml

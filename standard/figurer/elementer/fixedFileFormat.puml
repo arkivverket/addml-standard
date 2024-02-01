@@ -1,0 +1,10 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "flatFileType" as p1
+rectangle "recordSeparator" as c1
+object "fixedFileFormat" as e
+p1 --|| e
+e --o| c1
+@enduml

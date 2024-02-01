@@ -1,0 +1,10 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "recordDefinition" as p1
+rectangle "repeatingGroup" as c1
+object "repeatingGroups" as e
+p1 --o| e
+e --|{ c1
+@enduml

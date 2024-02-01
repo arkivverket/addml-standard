@@ -1,0 +1,8 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "foreignKey" as p1
+object "relationType" as e
+p1 --|| e
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "addml" as p1
+rectangle "description" as c1
+rectangle "reference" as c2
+rectangle "flatFiles" as c3
+rectangle "dataObjects" as c4
+object "dataset" as e
+e : name
+p1 --|{ e
+e --o| c1
+e --o| c2
+e --o| c3
+e --o| c4
+@enduml

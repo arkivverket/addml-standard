@@ -1,0 +1,14 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "reference" as p1
+rectangle "description" as c1
+rectangle "additionalElements" as c2
+rectangle "processes" as c3
+object "content" as e
+p1 --o| e
+e --o| c1
+e --o| c2
+e --o| c3
+@enduml

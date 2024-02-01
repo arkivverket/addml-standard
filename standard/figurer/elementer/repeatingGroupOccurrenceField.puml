@@ -1,0 +1,9 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "repeatingGroup" as p1
+object "repeatingGroupOccurrenceField" as e
+e : definitionReference
+p1 --|| e
+@enduml

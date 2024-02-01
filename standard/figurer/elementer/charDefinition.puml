@@ -1,0 +1,10 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "charDefinitions" as p1
+object "charDefinition" as e
+e : fromChar
+e : toChar
+p1 --|{ e
+@enduml

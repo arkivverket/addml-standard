@@ -1,0 +1,10 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "codes" as p1
+object "code" as e
+e : codeValue
+e : explan
+p1 --|{ e
+@enduml

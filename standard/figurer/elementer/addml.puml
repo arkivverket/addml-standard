@@ -1,0 +1,9 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "dataset" as c1
+object "addml" as e
+e : name
+e --|{ c1
+@enduml

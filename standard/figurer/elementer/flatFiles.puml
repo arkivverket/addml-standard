@@ -1,0 +1,20 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "dataset" as p1
+rectangle "flatFile" as c1
+rectangle "flatFileDefinitions" as c2
+rectangle "structureTypes" as c3
+rectangle "queries" as c4
+rectangle "processes" as c5
+rectangle "flatFileProcesses" as c6
+object "flatFiles" as e
+p1 --o| e
+e --|{ c1
+e --|| c2
+e --|| c3
+e --o| c4
+e --o| c5
+e --o{ c6
+@enduml

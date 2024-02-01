@@ -1,0 +1,19 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "flatFileTypes" as p1
+rectangle "description" as c1
+rectangle "charset" as c2
+rectangle "charDefinitions" as c3
+rectangle "fixedFileFormat" as c4
+rectangle "delimFileFormat" as c5
+object "flatFileType" as e
+e : name
+p1 --|{ e
+e --o| c1
+e --|| c2
+e --o| c3
+e --|| c4
+e --|| c5
+@enduml

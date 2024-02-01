@@ -1,0 +1,20 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "flatFileDefinitions" as p1
+rectangle "description" as c1
+rectangle "properties" as c2
+rectangle "external" as c3
+rectangle "recordDefinitionFieldIdentifier" as c4
+rectangle "recordDefinitions" as c5
+object "flatFileDefinition" as e
+e : name
+e : typeReference
+p1 --|{ e
+e --o| c1
+e --o| c2
+e --o| c3
+e --o| c4
+e --|| c5
+@enduml

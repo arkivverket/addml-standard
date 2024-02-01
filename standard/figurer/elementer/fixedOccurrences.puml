@@ -1,0 +1,8 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "repeatingGroup" as p1
+object "fixedOccurrences" as e
+p1 --|| e
+@enduml

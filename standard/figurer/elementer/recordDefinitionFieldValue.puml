@@ -1,0 +1,8 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "recordDefinition" as p1
+object "recordDefinitionFieldValue" as e
+p1 --o| e
+@enduml

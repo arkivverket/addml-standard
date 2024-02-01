@@ -1,0 +1,34 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "fieldDefinitions" as p1
+rectangle "fieldParts" as p2
+rectangle "description" as c1
+rectangle "properties" as c2
+rectangle "startPos" as c3
+rectangle "endPos" as c4
+rectangle "fixedLength" as c5
+rectangle "minLength" as c6
+rectangle "maxLength" as c7
+rectangle "unique" as c8
+rectangle "notNull" as c9
+rectangle "fieldParts" as c10
+rectangle "codes" as c11
+object "fieldDefinition" as e
+e : name
+e : typeReference
+p1 --|{ e
+p2 --|{ e
+e --o| c1
+e --o| c2
+e --o| c3
+e --o| c4
+e --o| c5
+e --o| c6
+e --o| c7
+e --o| c8
+e --o| c9
+e --o| c10
+e --o| c11
+@enduml

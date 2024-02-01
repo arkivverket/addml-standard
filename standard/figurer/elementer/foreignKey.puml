@@ -1,0 +1,12 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "key" as p1
+rectangle "flatFileDefinitionReference" as c1
+rectangle "relationType" as c2
+object "foreignKey" as e
+p1 --|| e
+e --|| c1
+e --|| c2
+@enduml

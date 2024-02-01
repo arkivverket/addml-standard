@@ -1,0 +1,28 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "recordDefinitions" as p1
+rectangle "description" as c1
+rectangle "properties" as c2
+rectangle "recordDefinitionFieldValue" as c3
+rectangle "incomplete" as c4
+rectangle "fixedLength" as c5
+rectangle "repeatingGroups" as c6
+rectangle "keys" as c7
+rectangle "fieldDefinitions" as c8
+rectangle "headerLevel" as c9
+object "recordDefinition" as e
+e : name
+e : typeReference
+p1 --|{ e
+e --o| c1
+e --o| c2
+e --o| c3
+e --o| c4
+e --o| c5
+e --o| c6
+e --o| c7
+e --|| c8
+e --o| c9
+@enduml
