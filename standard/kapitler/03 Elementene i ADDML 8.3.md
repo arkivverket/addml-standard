@@ -9,21 +9,14 @@ I tabellform er det gitt grunnleggende informasjon om elementet. Og deretter i e
 Til slutt er det vist et enkelt eksempel med bruk av elementet. For noen element er det vist til eksempler under andre element.
 
 ## addml  <a id="addml"/>
+
 På toppnivået er det kun ett element - addml.
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-c1[dataset]
-e[addml] {
-attribute name
-}
-e ||--|{ c1: ""
-```
+![Hierarki for addml](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/addml.svg)
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| addml | name angir navnet til denne addml-filen. Det er ingen krav til navnsetting i utgangspunktet. |
+| addml | addml er toppnivået i strukturen. Dette elementet skal eksistere en og kun en gang i henhold til reglene for XML. |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
@@ -35,24 +28,12 @@ e ||--|{ c1: ""
 
 Ingen overordnede elementer.
 
+
 ## dataset  <a id="dataset"/>
+
 Hovednivået dataset som tilsvarer et datasett har også bare ett enkelt element. Til gjengjeld kan dette forekomme flere ganger.
 
-```mermaid
-erDiagram
-  p1[addml]
-  c1[description]
-  c2[reference]
-  c3[flatFiles]
-  c4[dataObjects]
-  e[dataset]
-
-  p1 ||--|{ e: ""
-  e ||--o| c1: ""
-  e ||--o| c2: ""
-  e ||--o| c3: ""
-  e ||--o| c4: ""
-```
+![Hierarki for dataset](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/dataset.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -60,7 +41,7 @@ erDiagram
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| dataset | name angir navnet til det spesifikke datasettet. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| dataset | dataset er hovednivået i beskrivelsen. I Arkivverket tilsvarer dette et arkivuttrekk. Imidlertid kan en og samme beskrivelse også inneholde flere dataset. Dette for at det skal være mulig å samle beskrivelser når de skal benyttes sammen, for eksempel i en brukssituasjon. |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
@@ -73,21 +54,13 @@ erDiagram
 | [flatFiles](#flatFiles) | 0-1 |
 | [dataObjects](#dataObjects) | 0-1 |
 
+### Eksempel
+
+Ved flere datasett i samme addml-fil er det anbefalt å bruke attributten name for hvert datasett for å holde de adskilt.
+
 ## reference  <a id="reference"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[dataset]
-c1[context]
-c2[content]
-e[reference] {
-attribute name
-}
-p1 ||--o| e: ""
-e ||--o| c1: ""
-e ||--o| c2: ""
-```
+![Hierarki for reference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/reference.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -95,7 +68,7 @@ e ||--o| c2: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| reference | name angir navnet til det spesifikke referanseobjektet. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| reference |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
@@ -106,22 +79,10 @@ e ||--o| c2: ""
 | [context](#context) | 0-1 |
 | [content](#content) | 0-1 |
 
+
 ## context  <a id="context"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[reference]
-c1[description]
-c2[additionalElements]
-c3[processes]
-e[context] {
-}
-p1 ||--o| e: ""
-e ||--o| c1: ""
-e ||--o| c2: ""
-e ||--o| c3: ""
-```
+![Hierarki for context](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/context.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -139,22 +100,23 @@ e ||--o| c3: ""
 
 Ingen attributter.
 
+### Eksempel
+
+```xml
+<reference>
+	<context>
+		<additionalElements>
+			<additionalElement name="arkivskaper" datatype="string">
+				<value>Kulturdepartementet</value>
+			</additionalElement>
+		</additionalElements>
+	</context>
+<reference>
+```
+
 ## content  <a id="content"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[reference]
-c1[description]
-c2[additionalElements]
-c3[processes]
-e[content] {
-}
-p1 ||--o| e: ""
-e ||--o| c1: ""
-e ||--o| c2: ""
-e ||--o| c3: ""
-```
+![Hierarki for content](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/content.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -172,28 +134,25 @@ e ||--o| c3: ""
 
 Ingen attributter.
 
+### Eksempel
+
+```xml
+<reference>
+	<content>
+		<additionalElements>
+			<additionalElement name="period">
+				<additionalElements>
+					<!= Inngående og utgående skille =>
+				</additionalElements>
+			</additionalElement>
+		</additionalElements>
+	</content>
+<reference>
+```
+
 ## flatFiles  <a id="flatFiles"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[dataset]
-c1[flatFile]
-c2[flatFileDefinitions]
-c3[structureTypes]
-c4[queries]
-c5[processes]
-c6[flatFileProcesses]
-e[flatFiles] {
-}
-p1 ||--o| e: ""
-e ||--|{ c1: ""
-e ||--|| c2: ""
-e ||--|| c3: ""
-e ||--o| c4: ""
-e ||--o| c5: ""
-e ||--o{ c6: ""
-```
+![Hierarki for flatFiles](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFiles.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -214,20 +173,10 @@ e ||--o{ c6: ""
 
 Ingen attributter.
 
+
 ## flatFile  <a id="flatFile"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFiles]
-c1[properties]
-e[flatFile] {
-attribute name
-attribute definitionReference
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-```
+![Hierarki for flatFile](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFile.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -235,29 +184,21 @@ e ||--o| c1: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| flatFile | Referanse til flatFileDefinition, en referanse som kan være mange til en. |
+| flatFile |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
-| definitionReference | 0-1 | Referanse til flatFileDefinition, en referanse som kan være mange til en. |
+| name | 1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| definitionReference | 1 | Referanse til flatFileDefinition, en referanse som kan være mange til en. |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
 | [properties](#properties) | 0-1 |
 
+
 ## flatFileDefinitions  <a id="flatFileDefinitions"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFiles]
-c1[flatFileDefinition]
-e[flatFileDefinitions] {
-}
-p1 ||--|| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for flatFileDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileDefinitions.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -273,28 +214,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## flatFileDefinition  <a id="flatFileDefinition"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFileDefinitions]
-c1[description]
-c2[properties]
-c3[external]
-c4[recordDefinitionFieldIdentifier]
-c5[recordDefinitions]
-e[flatFileDefinition] {
-attribute name
-attribute typeReference
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-e ||--o| c2: ""
-e ||--o| c3: ""
-e ||--o| c4: ""
-e ||--|| c5: ""
-```
+![Hierarki for flatFileDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileDefinition.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -302,11 +225,11 @@ e ||--|| c5: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| flatFileDefinition | Referanse til flatFileType, en referanse som kan være mange til en. |
+| flatFileDefinition |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| name | 1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
 | typeReference | 0-1 | Referanse til flatFileType, en referanse som kan være mange til en. |
 
 | Underliggende elementer | Forekomster |
@@ -317,18 +240,13 @@ e ||--|| c5: ""
 | [recordDefinitionFieldIdentifier](#recordDefinitionFieldIdentifier) | 0-1 |
 | [recordDefinitions](#recordDefinitions) | 1 |
 
+
 ## external  <a id="external"/>
+
 I noen tilfeller er det behov for å knytte et datauttrekk til et annet. Det er da definert to elementer i ADDML som er tenkt å benyttes til dette formålet. Elementene er external som angir at den filen som her defineres ikke er med i selve datauttrekket, og incomplete som angir at definisjonen ikke er komplett. Tanken er at man for eksterne filer bare definerer de elementene som er nødvendig for å opprette referanser mellom filen som defineres utenfra og de interne filene.
 Et eksempel på en slik kobling kan være at man i uttrekket definerer postkatalogen som en ekstern fil. Dette fordi den benyttes av flere systemer samtidig. Samtidig er det også opprettet referanser (nøkler) fra interne elementer med postnr til denne eksterne postkatalogen.
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFileDefinition]
-e[external] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for external](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/external.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -338,18 +256,27 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | external | Dette elementet benyttes når det er referanser til filer som ikke er med i uttrekket. Elementet er da et flagg som benyttes for å angi at filen ikke er med.  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
+### Eksempel
+
+```xml
+<recordDefinition name=”post2”>
+	<incomplete>
+	<fixedLength>244</fixedLength>
+	<fieldDefinition name=”postnr”>
+		<startPos>1</startPos>
+		<endPos>4</endpos>
+	</fieldDefinition>
+</recordDefinition>
+```
+
+I eksemplet er det definert en ufullstendig post (post2) med et
+felt – postnr.
 
 ## recordDefinitionFieldIdentifier  <a id="recordDefinitionFieldIdentifier"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFileDefinition]
-e[recordDefinitionFieldIdentifier] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for recordDefinitionFieldIdentifier](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinitionFieldIdentifier.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -359,20 +286,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | recordDefinitionFieldIdentifier |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## recordDefinitions  <a id="recordDefinitions"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFileDefinition]
-c1[recordDefinition]
-e[recordDefinitions] {
-}
-p1 ||--|| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for recordDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinitions.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -388,36 +307,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## recordDefinition  <a id="recordDefinition"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordDefinitions]
-c1[description]
-c2[properties]
-c3[recordDefinitionFieldValue]
-c4[incomplete]
-c5[fixedLength]
-c6[repeatingGroups]
-c7[keys]
-c8[fieldDefinitions]
-c9[headerLevel]
-e[recordDefinition] {
-attribute name
-attribute typeReference
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-e ||--o| c2: ""
-e ||--o| c3: ""
-e ||--o| c4: ""
-e ||--o| c5: ""
-e ||--o| c6: ""
-e ||--o| c7: ""
-e ||--|| c8: ""
-e ||--o| c9: ""
-```
+![Hierarki for recordDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinition.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -425,11 +318,11 @@ e ||--o| c9: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| recordDefinition | Referanse til recordType. Kun påkrevd om ledende nuller eller etterfølgende og ledende blanke tegn er fjernet. |
+| recordDefinition |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| name | 1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
 | typeReference | 0-1 | Referanse til recordType. Kun påkrevd om ledende nuller eller etterfølgende og ledende blanke tegn er fjernet. |
 
 | Underliggende elementer | Forekomster |
@@ -444,16 +337,10 @@ e ||--o| c9: ""
 | [fieldDefinitions](#fieldDefinitions) | 1 |
 | [headerLevel](#headerLevel) | 0-1 |
 
+
 ## recordDefinitionFieldValue  <a id="recordDefinitionFieldValue"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordDefinition]
-e[recordDefinitionFieldValue] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for recordDefinitionFieldValue](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinitionFieldValue.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -463,18 +350,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | recordDefinitionFieldValue |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## incomplete  <a id="incomplete"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordDefinition]
-e[incomplete] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for incomplete](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/incomplete.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -484,20 +365,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | incomplete |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## fixedLength  <a id="fixedLength"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordDefinition]
-p2[fieldDefinition]
-e[fixedLength] {
-}
-p1 ||--o| e: ""
-p2 ||--o| e: ""
-```
+![Hierarki for fixedLength](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fixedLength.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -508,20 +381,12 @@ p2 ||--o| e: ""
 | :-- | :-- |
 | fixedLength |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## repeatingGroups  <a id="repeatingGroups"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordDefinition]
-c1[repeatingGroup]
-e[repeatingGroups] {
-}
-p1 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for repeatingGroups](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/repeatingGroups.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -537,23 +402,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## repeatingGroup  <a id="repeatingGroup"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[repeatingGroups]
-c1[repeatingGroupOccurrenceField]
-c2[fixedOccurrences]
-c3[fieldDefinitionReferences]
-e[repeatingGroup] {
-attribute name
-}
-p1 ||--|{ e: ""
-e ||--|| c1: ""
-e ||--|| c2: ""
-e ||--|| c3: ""
-```
+![Hierarki for repeatingGroup](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/repeatingGroup.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -561,7 +413,7 @@ e ||--|| c3: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| repeatingGroup | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| repeatingGroup |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
@@ -573,17 +425,10 @@ e ||--|| c3: ""
 | [fixedOccurrences](#fixedOccurrences) | 1 |
 | [fieldDefinitionReferences](#fieldDefinitionReferences) | 1 |
 
+
 ## repeatingGroupOccurrenceField  <a id="repeatingGroupOccurrenceField"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[repeatingGroup]
-e[repeatingGroupOccurrenceField] {
-attribute definitionReference
-}
-p1 ||--|| e: ""
-```
+![Hierarki for repeatingGroupOccurrenceField](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/repeatingGroupOccurrenceField.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -591,24 +436,18 @@ p1 ||--|| e: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| repeatingGroupOccurrenceField | Referanse til fieldDefinition. |
+| repeatingGroupOccurrenceField |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| definitionReference | 0-1 | Referanse til fieldDefinition. |
+| definitionReference | 1 | Referanse til fieldDefinition. |
 
 Ingen underordnede elementer.
 
+
 ## fixedOccurrences  <a id="fixedOccurrences"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[repeatingGroup]
-e[fixedOccurrences] {
-}
-p1 ||--|| e: ""
-```
+![Hierarki for fixedOccurrences](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fixedOccurrences.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -618,20 +457,12 @@ p1 ||--|| e: ""
 | :-- | :-- |
 | fixedOccurrences |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## keys  <a id="keys"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordDefinition]
-c1[key]
-e[keys] {
-}
-p1 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for keys](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/keys.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -647,25 +478,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## key  <a id="key"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[keys]
-c1[primaryKey]
-c2[alternateKey]
-c3[foreignKey]
-c4[fieldDefinitionReferences]
-e[key] {
-attribute name
-}
-p1 ||--|{ e: ""
-e ||--|| c1: ""
-e ||--|| c2: ""
-e ||--|| c3: ""
-e ||--|| c4: ""
-```
+![Hierarki for key](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/key.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -673,7 +489,7 @@ e ||--|| c4: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| key | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| key |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
@@ -686,16 +502,10 @@ e ||--|| c4: ""
 | [foreignKey](#foreignKey) | 1 |
 | [fieldDefinitionReferences](#fieldDefinitionReferences) | 1 |
 
+
 ## primaryKey  <a id="primaryKey"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[key]
-e[primaryKey] {
-}
-p1 ||--|| e: ""
-```
+![Hierarki for primaryKey](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/primaryKey.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -705,18 +515,12 @@ p1 ||--|| e: ""
 | :-- | :-- |
 | primaryKey |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## alternateKey  <a id="alternateKey"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[key]
-e[alternateKey] {
-}
-p1 ||--|| e: ""
-```
+![Hierarki for alternateKey](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/alternateKey.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -726,22 +530,24 @@ p1 ||--|| e: ""
 | :-- | :-- |
 | alternateKey | Dette elementet benyttes for å angi alternative nøkler. I praksis vil dette gi muligheten for å angi indekser. Selve elementet er kun et flagg. |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
+### Eksempel
+
+```xml
+<key name="indeks1">
+	<alternateKey/>
+	<fieldDefinitionReferences>
+		<!= elementene som inngår i nøkkel =>
+	</fieldDefinitionReferences>
+</key>
+```
+
+I eksemplet er det definert en nøkkel indeks1 som en alternative nøkkel (evt en indeks) og hvor de elementene som inngår er definert under fieldDefinitionReferences.
 
 ## foreignKey  <a id="foreignKey"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[key]
-c1[flatFileDefinitionReference]
-c2[relationType]
-e[foreignKey] {
-}
-p1 ||--|| e: ""
-e ||--|| c1: ""
-e ||--|| c2: ""
-```
+![Hierarki for foreignKey](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/foreignKey.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -758,16 +564,10 @@ e ||--|| c2: ""
 
 Ingen attributter.
 
+
 ## relationType  <a id="relationType"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[foreignKey]
-e[relationType] {
-}
-p1 ||--|| e: ""
-```
+![Hierarki for relationType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/relationType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -777,20 +577,12 @@ p1 ||--|| e: ""
 | :-- | :-- |
 | relationType |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## fieldDefinitions  <a id="fieldDefinitions"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordDefinition]
-c1[fieldDefinition]
-e[fieldDefinitions] {
-}
-p1 ||--|| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for fieldDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldDefinitions.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -806,43 +598,12 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## fieldDefinition  <a id="fieldDefinition"/>
+
 I ADDML er det tre parallelle informasjonstyper, den øverste er den generelle typen, hvor basis informasjon om felter defineres. Deretter kommer definisjonen av det enkelt felt, hvor man for mer eksplisitt informasjon om et felt og til slutt det fysiske delen som dog bare er på filnivå. Elementet som forklares her er på definisjonslaget.
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldDefinitions]
-p2[fieldParts]
-c1[description]
-c2[properties]
-c3[startPos]
-c4[endPos]
-c5[fixedLength]
-c6[minLength]
-c7[maxLength]
-c8[unique]
-c9[notNull]
-c10[fieldParts]
-c11[codes]
-e[fieldDefinition] {
-attribute name
-attribute typeReference
-}
-p1 ||--|{ e: ""
-p2 ||--|{ e: ""
-e ||--o| c1: ""
-e ||--o| c2: ""
-e ||--o| c3: ""
-e ||--o| c4: ""
-e ||--o| c5: ""
-e ||--o| c6: ""
-e ||--o| c7: ""
-e ||--o| c8: ""
-e ||--o| c9: ""
-e ||--o| c10: ""
-e ||--o| c11: ""
-```
+![Hierarki for fieldDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldDefinition.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -851,12 +612,12 @@ e ||--o| c11: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| fieldDefinition | Referanse til fieldType. |
+| fieldDefinition | Dette elementet er en beholder for informasjon om ett enkelt felt for filer som er i fast format, dvs. fast posisjonering eller tegnseparert. |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
-| typeReference | 0-1 | Referanse til fieldType. |
+| name | 1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| typeReference | 1 | Referanse til fieldType. |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
@@ -872,16 +633,32 @@ e ||--o| c11: ""
 | [fieldParts](#fieldParts) | 0-1 |
 | [codes](#codes) | 0-1 |
 
+### Eksempel
+
+```xml
+<fieldDefinition name=”kjønn” typeReference=”flagg”>
+	<startPos>1</startPos>
+	<endPos>1</endPos>
+	<codes>
+		<code codeValue=”M” explan=”Mann”>
+		<code codeValue=”K” explan=”Kvinne”>
+		<code codeValue=”U” explan=”Ukjent”>
+		<code codeValue=” ” explan=”Ikke oppgitt”>
+	</codes>
+   </fieldDefinition>
+   <fieldDefinition name=”fødselsnr” typeReference=”fnr”>
+	<startPos>1</startPos>
+	<fixedLength>11</fixedLength>
+	<notNull/>
+	<unique/>
+</fieldDefinition>
+```
+
+Over er vist et par eksempler med felter kjønn og fødselsnr.
+
 ## startPos  <a id="startPos"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldDefinition]
-e[startPos] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for startPos](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/startPos.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -891,18 +668,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | startPos |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## endPos  <a id="endPos"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldDefinition]
-e[endPos] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for endPos](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/endPos.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -912,18 +683,13 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | endPos | Dette elementet inneholder sluttposisjonen for et felt når det er snakk om et uttrekk med en flat fil med fast posisjonering. |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
+For eksempel se fieldDefinition.
 
 ## minLength  <a id="minLength"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldDefinition]
-e[minLength] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for minLength](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/minLength.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -933,18 +699,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | minLength |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## maxLength  <a id="maxLength"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldDefinition]
-e[maxLength] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for maxLength](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/maxLength.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -954,18 +714,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | maxLength |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## unique  <a id="unique"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldDefinition]
-e[unique] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for unique](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/unique.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -975,18 +729,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | unique |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## notNull  <a id="notNull"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldDefinition]
-e[notNull] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for notNull](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/notNull.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -996,21 +744,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | notNull |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## fieldParts  <a id="fieldParts"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldDefinition]
-c1[fieldDefinition]
-e[fieldParts] {
-attribute name
-}
-p1 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for fieldParts](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldParts.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1018,7 +757,7 @@ e ||--|{ c1: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| fieldParts | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| fieldParts |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
@@ -1028,18 +767,10 @@ e ||--|{ c1: ""
 | :-- |  :-- |
 | [fieldDefinition](#fieldDefinition) | 1-n |
 
+
 ## codes  <a id="codes"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldDefinition]
-c1[code]
-e[codes] {
-}
-p1 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for codes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/codes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1055,19 +786,14 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
+For eksempel se *code*.
+
 ## code  <a id="code"/>
+
 For et enkelt felt i et datasett kan man definere gyldige kodeverdier. Dette anbefales kun å gjøre dersom det er et begrenset antall, selv om standarden selv ikke setter noen begrensninger på antallet. Men dersom det er mange kodeverdier, anbefales heller at disse følger med datasettet som en egen fil.
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[codes]
-e[code] {
-attribute codeValue
-attribute explan
-}
-p1 ||--|{ e: ""
-```
+![Hierarki for code](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/code.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1075,31 +801,33 @@ p1 ||--|{ e: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| code | En forklaring på hva kodeverdien skal bety. Kan være spesielt nyttig når verdien av koden er kort og kryptisk. |
+| code | Elementet code benyttes til å angi kodeverdier for et enkelt felt i et datasett. |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| codeValue | 0-1 | Den faktiske gyldige kodeverdien |
+| codeValue | 1 | Den faktiske gyldige kodeverdien |
 | explan | 0-1 | En forklaring på hva kodeverdien skal bety. Kan være spesielt nyttig når verdien av koden er kort og kryptisk. |
 
 Ingen underordnede elementer.
 
+### Eksempel
+
+```xml
+<fieldDefinition name="kjønn">
+	<codes>
+		<code codeValue="M" explan="Mann">
+		<code codeValue="K" explan="Kvinne">
+		<code codeValue="U" explan="Ukjent">
+		<code codeValue=" " explan="Ikke oppgitt">
+	</codes>
+</fieldDefinition>
+```
+
+Legg merke til at i eksemplet er blank verdi en gyldig kodeverdi som ikke oppgitt, og at denne er en annen verdi enn ukjent.
+
 ## structureTypes  <a id="structureTypes"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFiles]
-c1[flatFileTypes]
-c2[recordTypes]
-c3[fieldTypes]
-e[structureTypes] {
-}
-p1 ||--|| e: ""
-e ||--|| c1: ""
-e ||--o| c2: ""
-e ||--|| c3: ""
-```
+![Hierarki for structureTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/structureTypes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1117,18 +845,10 @@ e ||--|| c3: ""
 
 Ingen attributter.
 
+
 ## flatFileTypes  <a id="flatFileTypes"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[structureTypes]
-c1[flatFileType]
-e[flatFileTypes] {
-}
-p1 ||--|| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for flatFileTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileTypes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1144,27 +864,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## flatFileType  <a id="flatFileType"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFileTypes]
-c1[description]
-c2[charset]
-c3[charDefinitions]
-c4[fixedFileFormat]
-c5[delimFileFormat]
-e[flatFileType] {
-attribute name
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-e ||--|| c2: ""
-e ||--o| c3: ""
-e ||--|| c4: ""
-e ||--|| c5: ""
-```
+![Hierarki for flatFileType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1172,11 +875,11 @@ e ||--|| c5: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| flatFileType | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| flatFileType |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| name | 1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
@@ -1186,16 +889,10 @@ e ||--|| c5: ""
 | [fixedFileFormat](#fixedFileFormat) | 1 |
 | [delimFileFormat](#delimFileFormat) | 1 |
 
+
 ## charset  <a id="charset"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFileType]
-e[charset] {
-}
-p1 ||--|| e: ""
-```
+![Hierarki for charset](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/charset.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1205,20 +902,21 @@ p1 ||--|| e: ""
 | :-- | :-- |
 | charset | Dette elementet benyttes til å angi tegnsettet som benyttes i datasettet. Brukeren må selv definere hvordan de forskjellige tegnsettene skal angis. |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
+### Eksempel
+
+```xml
+<flatFileType name="fil1">
+	<charset>ISO-8859-1</charset>
+</flatFileType>
+```
+
+I eksemplet er f.eks tegnsettet angitt til å være ISO-8859-1.
 
 ## charDefinitions  <a id="charDefinitions"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFileType]
-c1[charDefinition]
-e[charDefinitions] {
-}
-p1 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for charDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/charDefinitions.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1234,19 +932,15 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
+				For eksempel se *charDefinition*.
+							
+
 ## charDefinition  <a id="charDefinition"/>
+
 charDefinition er ment å kunne benyttes ved spesialtegn som ikke følger vanlig standard. I de fleste tilfeller vil det være nok å bare angi tegnsett. Men dersom et datasett har avvikende tegn kan man benytte denne muligheten til å redefinere de få tegnene som avviker.
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[charDefinitions]
-e[charDefinition] {
-attribute fromChar
-attribute toChar
-}
-p1 ||--|{ e: ""
-```
+![Hierarki for charDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/charDefinition.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1254,27 +948,37 @@ p1 ||--|{ e: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| charDefinition | Angivelse av verdien slik den er i datasettet og som altså avviker fra tegnsettet. Hva slags type verdi som skal benyttes er det opp til brukeren å bestemme. |
+| charDefinition | Elementet benyttes for angivelse av endring av en verdi for ett enkelt tegn som avviker fra tegnsettet som er oppgitt. |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| fromChar | 0-1 | Angivelse av verdien slik den er definert i tegnsettet. Hva slags type verdi som skal benyttes er det opp til brukeren å bestemme. |
-| toChar | 0-1 | Angivelse av verdien slik den er i datasettet og som altså avviker fra tegnsettet. Hva slags type verdi som skal benyttes er det opp til brukeren å bestemme. |
+| fromChar | 1 | Angivelse av verdien slik den er definert i tegnsettet. Hva slags type verdi som skal benyttes er det opp til brukeren å bestemme. |
+| toChar | 1 | Angivelse av verdien slik den er i datasettet og som altså avviker fra tegnsettet. Hva slags type verdi som skal benyttes er det opp til brukeren å bestemme. |
 
 Ingen underordnede elementer.
 
+### Eksempel
+
+```xml
+<flatFileType name="fil1">
+	<charset>EBCDIC</charset>
+	<charDefinitions>
+		<charDefinition fromChar="E6" toChar="5B">
+		<charDefiniton fromChar="F8" toChar="7C">
+		<charDefinition fromChar="E5" toChar="5D">
+	</charDefinitions>
+	….
+</flatFileType>
+```
+
+I eksempelet er vist en mulig endring av verdien av de norske bokstavene æ, ø og å (små verdier) fra deres standard versjon i EBCDIC til en spesiell variant som har vært i bruk i Norge. Nemlig liten æ inn på plassen for [, liten ø inn på plassen for | og liten å inn på plassen for ].
+
+I eksemplet er verdiene av tegnene oppgitt med hexadesimal verdi
+			
+
 ## fixedFileFormat  <a id="fixedFileFormat"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFileType]
-c1[recordSeparator]
-e[fixedFileFormat] {
-}
-p1 ||--|| e: ""
-e ||--o| c1: ""
-```
+![Hierarki for fixedFileFormat](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fixedFileFormat.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1290,22 +994,10 @@ e ||--o| c1: ""
 
 Ingen attributter.
 
+
 ## delimFileFormat  <a id="delimFileFormat"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFileType]
-c1[recordSeparator]
-c2[fieldSeparatingChar]
-c3[quotingChar]
-e[delimFileFormat] {
-}
-p1 ||--|| e: ""
-e ||--|| c1: ""
-e ||--|| c2: ""
-e ||--o| c3: ""
-```
+![Hierarki for delimFileFormat](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/delimFileFormat.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1323,16 +1015,19 @@ e ||--o| c3: ""
 
 Ingen attributter.
 
+### Eksempel
+
+```xml
+<flatFileType name=”fil1”>
+	<delimFileFormat/>
+</flatFileType>
+```
+	
+I eksemplet er fil1 oppgitt å være en fil inneholdende felter som er separert ved et skilletegn, og dermed ikke har noen fast posisjon.
+
 ## fieldSeparatingChar  <a id="fieldSeparatingChar"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[delimFileFormat]
-e[fieldSeparatingChar] {
-}
-p1 ||--|| e: ""
-```
+![Hierarki for fieldSeparatingChar](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldSeparatingChar.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1342,18 +1037,12 @@ p1 ||--|| e: ""
 | :-- | :-- |
 | fieldSeparatingChar |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## quotingChar  <a id="quotingChar"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[delimFileFormat]
-e[quotingChar] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for quotingChar](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/quotingChar.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1363,20 +1052,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | quotingChar |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## recordTypes  <a id="recordTypes"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[structureTypes]
-c1[recordType]
-e[recordTypes] {
-}
-p1 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for recordTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordTypes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1392,21 +1073,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## recordType  <a id="recordType"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordTypes]
-c1[description]
-c2[trimmed]
-e[recordType] {
-attribute name
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-e ||--o| c2: ""
-```
+![Hierarki for recordType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1414,27 +1084,21 @@ e ||--o| c2: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| recordType | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| recordType |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| name | 1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
 | [description](#description) | 0-1 |
 | [trimmed](#trimmed) | 0-1 |
 
+
 ## trimmed  <a id="trimmed"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordType]
-e[trimmed] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for trimmed](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/trimmed.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1444,20 +1108,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | trimmed |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## fieldTypes  <a id="fieldTypes"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[structureTypes]
-c1[fieldType]
-e[fieldTypes] {
-}
-p1 ||--|| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for fieldTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldTypes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1473,31 +1129,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## fieldType  <a id="fieldType"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldTypes]
-c1[description]
-c2[dataType]
-c3[fieldFormat]
-c4[alignment]
-c5[padChar]
-c6[packType]
-c7[nullValues]
-e[fieldType] {
-attribute name
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-e ||--|| c2: ""
-e ||--o| c3: ""
-e ||--o| c4: ""
-e ||--o| c5: ""
-e ||--o| c6: ""
-e ||--o| c7: ""
-```
+![Hierarki for fieldType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1505,11 +1140,11 @@ e ||--o| c7: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| fieldType | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| fieldType |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| name | 1 | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
@@ -1521,16 +1156,10 @@ e ||--o| c7: ""
 | [packType](#packType) | 0-1 |
 | [nullValues](#nullValues) | 0-1 |
 
+
 ## dataType  <a id="dataType"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldType]
-e[dataType] {
-}
-p1 ||--|| e: ""
-```
+![Hierarki for dataType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/dataType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1540,18 +1169,22 @@ p1 ||--|| e: ""
 | :-- | :-- |
 | dataType | Hvilken datatype et felt er. Brukeren må selv definere gyldige datatyper og hvordan de skal betegnes. |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
+### Eksempel
+
+```xml
+<fieldType name="heltall">
+	<dataType>integer</dataType>
+</fieldType>
+```
+
+I eksemplet er det definert en felttype som heter heltall. Denne er da definert som datatypen
+integer (integer for heltall).
 
 ## fieldFormat  <a id="fieldFormat"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldType]
-e[fieldFormat] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for fieldFormat](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldFormat.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1561,18 +1194,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | fieldFormat |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## alignment  <a id="alignment"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldType]
-e[alignment] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for alignment](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/alignment.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1582,18 +1209,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | alignment | alignment benyttes for å angi hvorvidt innholdet i et felt er venstrejustert, høyrejustert eller midtstilt. Brukeren selv må definere de faktiske verdiene for alignment. |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## padChar  <a id="padChar"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldType]
-e[padChar] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for padChar](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/padChar.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1603,18 +1224,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | padChar |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## packType  <a id="packType"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldType]
-e[packType] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for packType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/packType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1624,20 +1239,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | packType |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## nullValues  <a id="nullValues"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldType]
-c1[nullValue]
-e[nullValues] {
-}
-p1 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for nullValues](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/nullValues.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1653,16 +1260,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## nullValue  <a id="nullValue"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[nullValues]
-e[nullValue] {
-}
-p1 ||--|{ e: ""
-```
+![Hierarki for nullValue](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/nullValue.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1672,20 +1273,12 @@ p1 ||--|{ e: ""
 | :-- | :-- |
 | nullValue |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## queries  <a id="queries"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFiles]
-c1[query]
-e[queries] {
-}
-p1 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for queries](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/queries.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1701,21 +1294,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## query  <a id="query"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[queries]
-c1[description]
-c2[statement]
-e[query] {
-attribute name
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-e ||--|| c2: ""
-```
+![Hierarki for query](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/query.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1723,7 +1305,7 @@ e ||--|| c2: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| query | name angir navnet til det spesifikke objekt. Det er ingen krav til navnsetting i utgangspunktet, men navnene for samme type objekt må være unike innen en addml-fil. |
+| query |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
@@ -1734,16 +1316,10 @@ e ||--|| c2: ""
 | [description](#description) | 0-1 |
 | [statement](#statement) | 1 |
 
+
 ## statement  <a id="statement"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[query]
-e[statement] {
-}
-p1 ||--|| e: ""
-```
+![Hierarki for statement](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/statement.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1753,23 +1329,12 @@ p1 ||--|| e: ""
 | :-- | :-- |
 | statement |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## flatFileProcesses  <a id="flatFileProcesses"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFiles]
-c1[processes]
-c2[recordProcesses]
-e[flatFileProcesses] {
-attribute flatFileReference
-}
-p1 ||--o{ e: ""
-e ||--o| c1: ""
-e ||--o{ c2: ""
-```
+![Hierarki for flatFileProcesses](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileProcesses.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1781,28 +1346,17 @@ e ||--o{ c2: ""
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| flatFileReference | 0-1 |  |
+| flatFileReference | 1 |  |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
 | [processes](#processes) | 0-1 |
 | [recordProcesses](#recordProcesses) | 0-n |
 
+
 ## recordProcesses  <a id="recordProcesses"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFileProcesses]
-c1[processes]
-c2[fieldProcesses]
-e[recordProcesses] {
-attribute definitionReference
-}
-p1 ||--o{ e: ""
-e ||--o| c1: ""
-e ||--o{ c2: ""
-```
+![Hierarki for recordProcesses](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordProcesses.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1814,26 +1368,17 @@ e ||--o{ c2: ""
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| definitionReference | 0-1 |  |
+| definitionReference | 1 |  |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
 | [processes](#processes) | 0-1 |
 | [fieldProcesses](#fieldProcesses) | 0-n |
 
+
 ## fieldProcesses  <a id="fieldProcesses"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordProcesses]
-c1[processes]
-e[fieldProcesses] {
-attribute definitionReference
-}
-p1 ||--o{ e: ""
-e ||--|| c1: ""
-```
+![Hierarki for fieldProcesses](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldProcesses.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1845,42 +1390,16 @@ e ||--|| c1: ""
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| definitionReference | 0-1 |  |
+| definitionReference | 1 |  |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
 | [processes](#processes) | 1 |
 
+
 ## processes  <a id="processes"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[context]
-p2[content]
-p3[flatFiles]
-p4[flatFileProcesses]
-p5[recordProcesses]
-p6[fieldProcesses]
-p7[dataObjects]
-p8[dataObject]
-p9[additionalElements]
-p10[additionalElement]
-c1[process]
-e[processes] {
-}
-p1 ||--o| e: ""
-p2 ||--o| e: ""
-p3 ||--o| e: ""
-p4 ||--o| e: ""
-p5 ||--o| e: ""
-p6 ||--|| e: ""
-p7 ||--o| e: ""
-p8 ||--o| e: ""
-p9 ||--o| e: ""
-p10 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for processes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/processes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1905,19 +1424,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## process  <a id="process"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[processes]
-c1[parameters]
-e[process] {
-attribute name
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-```
+![Hierarki for process](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/process.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1925,28 +1435,20 @@ e ||--o| c1: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| process | Navn på prosess som skal utføres. Dette er noe som brukerne og leverandørene av applikasjonene som benyttes må være enige om. |
+| process |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | Navn på prosess som skal utføres. Dette er noe som brukerne og leverandørene av applikasjonene som benyttes må være enige om. |
+| name | 1 | Navn på prosess som skal utføres. Dette er noe som brukerne og leverandørene av applikasjonene som benyttes må være enige om. |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
 | [parameters](#parameters) | 0-1 |
 
+
 ## parameters  <a id="parameters"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[process]
-c1[parameter]
-e[parameters] {
-}
-p1 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for parameters](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/parameters.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1962,18 +1464,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## parameter  <a id="parameter"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[parameters]
-e[parameter] {
-attribute name
-attribute value
-}
-p1 ||--|{ e: ""
-```
+![Hierarki for parameter](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/parameter.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1985,24 +1479,15 @@ p1 ||--|{ e: ""
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | Navn på parameter som tilhører prosessen som skal utføres. Dette er noe som brukerne og leverandørene av applikasjonene som benyttes må være enige om. |
+| name | 1 | Navn på parameter som tilhører prosessen som skal utføres. Dette er noe som brukerne og leverandørene av applikasjonene som benyttes må være enige om. |
 | value | 0-1 |  |
 
 Ingen underordnede elementer.
 
+
 ## flatFileDefinitionReference  <a id="flatFileDefinitionReference"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[foreignKey]
-c1[recordDefinitionReferences]
-e[flatFileDefinitionReference] {
-attribute name
-}
-p1 ||--|| e: ""
-e ||--o| c1: ""
-```
+![Hierarki for flatFileDefinitionReference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileDefinitionReference.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2010,28 +1495,20 @@ e ||--o| c1: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| flatFileDefinitionReference | Referanse til en flatFile. |
+| flatFileDefinitionReference |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | Referanse til en flatFile. |
+| name | 1 | Referanse til en flatFile. |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
 | [recordDefinitionReferences](#recordDefinitionReferences) | 0-1 |
 
+
 ## recordDefinitionReferences  <a id="recordDefinitionReferences"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFileDefinitionReference]
-c1[recordDefinitionReference]
-e[recordDefinitionReferences] {
-}
-p1 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for recordDefinitionReferences](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinitionReferences.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2047,19 +1524,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## recordDefinitionReference  <a id="recordDefinitionReference"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordDefinitionReferences]
-c1[fieldDefinitionReferences]
-e[recordDefinitionReference] {
-attribute name
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-```
+![Hierarki for recordDefinitionReference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinitionReference.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2067,32 +1535,20 @@ e ||--o| c1: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| recordDefinitionReference | Referanse til en recordDefinition |
+| recordDefinitionReference |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | Referanse til en recordDefinition |
+| name | 1 | Referanse til en recordDefinition |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
 | [fieldDefinitionReferences](#fieldDefinitionReferences) | 0-1 |
 
+
 ## fieldDefinitionReferences  <a id="fieldDefinitionReferences"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[repeatingGroup]
-p2[key]
-p3[recordDefinitionReference]
-c1[fieldDefinitionReference]
-e[fieldDefinitionReferences] {
-}
-p1 ||--|| e: ""
-p2 ||--|| e: ""
-p3 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for fieldDefinitionReferences](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldDefinitionReferences.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2110,17 +1566,16 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
+```xml
+
+```
+
+For eksempel se [fieldDefinitionReference](#fieldDefinitionReference).
+
 ## fieldDefinitionReference  <a id="fieldDefinitionReference"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fieldDefinitionReferences]
-e[fieldDefinitionReference] {
-attribute name
-}
-p1 ||--|{ e: ""
-```
+![Hierarki for fieldDefinitionReference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldDefinitionReference.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2128,33 +1583,43 @@ p1 ||--|{ e: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| fieldDefinitionReference | Referanse til et fieldDefinition-felt |
+| fieldDefinitionReference | Referanse til et felt |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | Referanse til et fieldDefinition-felt |
+| name | 1 | Referanse til et fieldDefinition-felt |
 
 Ingen underordnede elementer.
 
+### Eksempel
+
+```xml
+ <key>
+	<foreignKey>
+		<flatFileDefinitionReference name=”fil2”>
+			<recordDefinitionReferences>
+				<recordDefinitionReference name=”post2”>
+					<fieldDefinitionReferences>
+						<fieldDefinitionReference name=”postnr”/>
+					</fieldDefinitionReferences>
+				</recordDefinitionReference>
+			</recordDefinitionReferences>
+		</flatFileDefinitionReference>
+		<relationType>n:1</relationType>
+	</foreignKey>
+	<fieldDefinitionReferences>
+		<fieldDefinitionReference name=”postnr”>
+	</fieldDefinitionReferences>
+ </key>
+```
+
+text
+
 ## dataObjects  <a id="dataObjects"/>
+
 De første versjonene av ADDML ble konstruert for å håndtere flate filer. Etter hvert er det også blitt behov for å håndtere andre typer filer, ikke minst xml-filer. Av den grunn ble det innført en ny hoveddel med dataobjekter. Denne delen er generisk, hvor brukeren selv må definere strukturer og informasjonselementer som skal være med.
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[dataset]
-p2[dataObject]
-c1[description]
-c2[dataObject]
-c3[processes]
-e[dataObjects] {
-}
-p1 ||--o| e: ""
-p2 ||--o| e: ""
-e ||--o| c1: ""
-e ||--|{ c2: ""
-e ||--o| c3: ""
-```
+![Hierarki for dataObjects](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/dataObjects.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2173,26 +1638,14 @@ e ||--o| c3: ""
 
 Ingen attributter.
 
+
+For eksempel se *dataObject*.
+
 ## dataObject  <a id="dataObject"/>
+
 De første versjonene av ADDML ble konstruert for å håndtere flate filer. Etter hvert er detogså blitt behov for å håndtere andre typer filer, ikke minst xml-filer. Av den grunn ble det innført en ny hoveddel med dataobjekter. Denne delen er generisk, hvor brukeren selv må definere strukturer og informasjonselementer som skal være med.
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[dataObjects]
-c1[description]
-c2[properties]
-c3[dataObjects]
-c4[processes]
-e[dataObject] {
-attribute name
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-e ||--o| c2: ""
-e ||--o| c3: ""
-e ||--o| c4: ""
-```
+![Hierarki for dataObject](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/dataObject.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2200,11 +1653,11 @@ e ||--o| c4: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| dataObject | Navnet på dataobjektet som defineres.  |
+| dataObject | Dette er elementer hvor man kan lage en egen hierarkisk struktur for filer som ikke er flate filer. Man må selv bygge opp strukturen på det viset en selv føler blir best mulig. |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | Navnet på dataobjektet som defineres.  |
+| name | 1 | Navnet på dataobjektet som defineres.  |
 
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
@@ -2213,27 +1666,55 @@ e ||--o| c4: ""
 | [dataObjects](#dataObjects) | 0-1 |
 | [processes](#processes) | 0-1 |
 
+### Eksempel
+
+```xml
+<dataObjects>
+	<dataObject name="Noark 5-arkivuttrekk">
+		<properties>
+			<property name="info">
+				<properties>
+					<property name="type">
+						<value>Noark 5</value>
+						<properties>
+							<property name="version">
+								<value>5.0</value>
+							</property>
+						</properties>
+					</property>
+				</properties>
+			</property>
+		</properties>
+		<dataObjects>
+			<dataObject name="arkivstruktur">
+				<properties>
+					<property name="file">
+						<!= Filegenskaper =>
+					</property>
+					<property name="schema">
+						<value>main</value>
+						<!= Hovedskjema =>
+					</property>
+					<property name="schema">
+						<!= Andre skjema =>
+					</property>
+					<property name="info">
+						<!= Informasjon =>
+					</property>
+				</properties>
+			</dataObject>
+		</dataObjects>
+	</dataObject>
+</dataObjects>
+```
+
+Eksempelet er hentet fra Noark 5. I datasettet er det definert et arkivuttrekk-nivå, med egenskaper som beskriver type og versjon arkivuttrekk som dataobjektet inneholder. Dette objektet inneholder ett under-dataobjekt, arkivstruktur, som er fil-nivå. Den inneholder filegenskaper, skjema-referanser og mer-informasjon.
+
 ## additionalElements  <a id="additionalElements"/>
+
 Elementet additionalElements er et samlenivå for gruppering av tilleggselementer.
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[context]
-p2[content]
-p3[additionalElement]
-c1[description]
-c2[additionalElement]
-c3[processes]
-e[additionalElements] {
-}
-p1 ||--o| e: ""
-p2 ||--o| e: ""
-p3 ||--o| e: ""
-e ||--o| c1: ""
-e ||--|{ c2: ""
-e ||--o| c3: ""
-```
+![Hierarki for additionalElements](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/additionalElements.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2253,28 +1734,12 @@ e ||--o| c3: ""
 
 Ingen attributter.
 
+
 ## additionalElement  <a id="additionalElement"/>
+
 Elementet additionalElement utgjør et egetdefinert element. Standarden selv definerer ingen tilleggselementer, men lar det være opp til brukerne å definere sine egne. Sammen med additionalElements danner additionalElement muligheten for å kunne bygge sin egen generiske struktur.
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[additionalElements]
-c1[value]
-c2[properties]
-c3[additionalElements]
-c4[processes]
-e[additionalElement] {
-attribute name
-attribute dataType
-attribute format
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-e ||--o| c2: ""
-e ||--o| c3: ""
-e ||--o| c4: ""
-```
+![Hierarki for additionalElement](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/additionalElement.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2282,11 +1747,11 @@ e ||--o| c4: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| additionalElement | Siden tilleggselementet kan ha et underelement med en verdi, kan man identifisere formatet til denne verdien. Hvilke formater som skal aksepteres må brukeren selv definere. |
+| additionalElement | Identifiserer et enkelt tilleggselement. Et tilleggselement defineres av brukeren. |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | Alle tilleggselement må ha et navn. Navnet identifiserer tilleggselementet og vil være utgangspunktet for eventuelle operasjoner som skal utføres på elementet eller gjenfinning av elementet for annet bruk. |
+| name | 1 | Alle tilleggselement må ha et navn. Navnet identifiserer tilleggselementet og vil være utgangspunktet for eventuelle operasjoner som skal utføres på elementet eller gjenfinning av elementet for annet bruk. |
 | dataType | 0-1 | Siden tilleggselementet kan ha et underelement med en verdi, kan man identifisere datatypen til denne verdien. |
 | format | 0-1 | Siden tilleggselementet kan ha et underelement med en verdi, kan man identifisere formatet til denne verdien. Hvilke formater som skal aksepteres må brukeren selv definere. |
 
@@ -2297,41 +1762,12 @@ e ||--o| c4: ""
 | [additionalElements](#additionalElements) | 0-1 |
 | [processes](#processes) | 0-1 |
 
+
 ## description  <a id="description"/>
+
 Elementet beskrivelse benyttes flere steder i strukturen.
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[dataset]
-p2[context]
-p3[content]
-p4[flatFileDefinition]
-p5[recordDefinition]
-p6[fieldDefinition]
-p7[flatFileType]
-p8[recordType]
-p9[fieldType]
-p10[query]
-p11[dataObjects]
-p12[dataObject]
-p13[additionalElements]
-e[description] {
-}
-p1 ||--o| e: ""
-p2 ||--o| e: ""
-p3 ||--o| e: ""
-p4 ||--o| e: ""
-p5 ||--o| e: ""
-p6 ||--o| e: ""
-p7 ||--o| e: ""
-p8 ||--o| e: ""
-p9 ||--o| e: ""
-p10 ||--o| e: ""
-p11 ||--o| e: ""
-p12 ||--o| e: ""
-p13 ||--o| e: ""
-```
+![Hierarki for description](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/description.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2353,32 +1789,23 @@ p13 ||--o| e: ""
 | :-- | :-- |
 | description | Dette elementet inneholder en tekstlig beskrivelse knyttet til elementet det ligger under. |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
+### Eksempel
+
+```xml
+<dataset>
+	<description>
+	Dette datasettet inneholder et arkivuttrekk fra system x fra arkivskaper y.
+	</description>
+</dataset>
+```
+
+text
 
 ## properties  <a id="properties"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[flatFile]
-p2[flatFileDefinition]
-p3[recordDefinition]
-p4[fieldDefinition]
-p5[dataObject]
-p6[additionalElement]
-p7[property]
-c1[property]
-e[properties] {
-}
-p1 ||--o| e: ""
-p2 ||--o| e: ""
-p3 ||--o| e: ""
-p4 ||--o| e: ""
-p5 ||--o| e: ""
-p6 ||--o| e: ""
-p7 ||--o| e: ""
-e ||--|{ c1: ""
-```
+![Hierarki for properties](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/properties.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2400,23 +1827,10 @@ e ||--|{ c1: ""
 
 Ingen attributter.
 
+
 ## property  <a id="property"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[properties]
-c1[value]
-c2[properties]
-e[property] {
-attribute name
-attribute dataType
-attribute format
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-e ||--o| c2: ""
-```
+![Hierarki for property](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/property.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2424,11 +1838,11 @@ e ||--o| c2: ""
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
-| property | Siden egenskapen kan ha et underelement med en verdi, kan man identifisere formatet til denne verdien. Hvilke formater som skal aksepteres må brukeren selv definere. |
+| property |  |
 
 | Attributt | Forekomst | Beskrivelse |
 | :-- | :-- | :-- |
-| name | 0-1 | Alle egenskaper må ha et navn. Navnet identifiserer egenskapen og vil være utgangspunktet for eventuelle operasjoner som skal utføres på egenskapen eller gjenfinning av egenskapen for annet bruk. |
+| name | 1 | Alle egenskaper må ha et navn. Navnet identifiserer egenskapen og vil være utgangspunktet for eventuelle operasjoner som skal utføres på egenskapen eller gjenfinning av egenskapen for annet bruk. |
 | dataType | 0-1 | Siden egenskapen kan ha et underelement med en verdi, kan man identifisere datatypen til denne verdien. |
 | format | 0-1 | Siden egenskapen kan ha et underelement med en verdi, kan man identifisere formatet til denne verdien. Hvilke formater som skal aksepteres må brukeren selv definere. |
 
@@ -2437,16 +1851,10 @@ e ||--o| c2: ""
 | [value](#value) | 0-1 |
 | [properties](#properties) | 0-1 |
 
+
 ## headerLevel  <a id="headerLevel"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[recordDefinition]
-e[headerLevel] {
-}
-p1 ||--o| e: ""
-```
+![Hierarki for headerLevel](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/headerLevel.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2456,20 +1864,12 @@ p1 ||--o| e: ""
 | :-- | :-- |
 | headerLevel |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## recordSeparator  <a id="recordSeparator"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[fixedFileFormat]
-p2[delimFileFormat]
-e[recordSeparator] {
-}
-p1 ||--o| e: ""
-p2 ||--|| e: ""
-```
+![Hierarki for recordSeparator](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordSeparator.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2480,20 +1880,12 @@ p2 ||--|| e: ""
 | :-- | :-- |
 | recordSeparator |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
+
 
 ## value  <a id="value"/>
 
-```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
-erDiagram
-p1[additionalElement]
-p2[property]
-e[value] {
-}
-p1 ||--o| e: ""
-p2 ||--o| e: ""
-```
+![Hierarki for value](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/value.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2504,4 +1896,4 @@ p2 ||--o| e: ""
 | :-- | :-- |
 | value |  |
 
-Ingen attributter eller underordnede elementer.
+Ingen attributter, underordnede elemente eller underordnede elementer.
