@@ -2,18 +2,14 @@
 allowmixing
 skinparam linetype ortho
 
-rectangle "additionalElements" as p1
+rectangle "properties" as p1
 rectangle "value" as c1
 rectangle "properties" as c2
-rectangle "additionalElements" as c3
-rectangle "processes" as c4
-object "additionalElement" as e
+object "property" as e
 e : name
 e : dataType
 e : format
 p1 --|{ e
 e --o| c1
 e --o| c2
-e --o| c3
-e --o| c4
 @enduml

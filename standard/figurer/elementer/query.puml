@@ -1,0 +1,13 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "queries" as p1
+rectangle "description" as c1
+rectangle "statement" as c2
+object "query" as e
+e : name
+p1 --|{ e
+e --o| c1
+e --|| c2
+@enduml

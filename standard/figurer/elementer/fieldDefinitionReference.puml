@@ -1,0 +1,9 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "fieldDefinitionReferences" as p1
+object "fieldDefinitionReference" as e
+e : name
+p1 --|{ e
+@enduml

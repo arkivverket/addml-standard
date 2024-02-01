@@ -1,0 +1,23 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "fieldTypes" as p1
+rectangle "description" as c1
+rectangle "dataType" as c2
+rectangle "fieldFormat" as c3
+rectangle "alignment" as c4
+rectangle "padChar" as c5
+rectangle "packType" as c6
+rectangle "nullValues" as c7
+object "fieldType" as e
+e : name
+p1 --|{ e
+e --o| c1
+e --|| c2
+e --o| c3
+e --o| c4
+e --o| c5
+e --o| c6
+e --o| c7
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "process" as p1
+rectangle "parameter" as c1
+object "parameters" as e
+p1 --o| e
+e --|{ c1
+@enduml

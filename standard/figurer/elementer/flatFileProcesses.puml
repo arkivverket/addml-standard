@@ -1,0 +1,13 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "flatFiles" as p1
+rectangle "processes" as c1
+rectangle "recordProcesses" as c2
+object "flatFileProcesses" as e
+e : flatFileReference
+p1 --o{ e
+e --o| c1
+e --o{ c2
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "recordProcesses" as p1
+rectangle "processes" as c1
+object "fieldProcesses" as e
+e : definitionReference
+p1 --o{ e
+e --|| c1
+@enduml

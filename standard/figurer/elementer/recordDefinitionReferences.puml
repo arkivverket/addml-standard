@@ -1,0 +1,10 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "flatFileDefinitionReference" as p1
+rectangle "recordDefinitionReference" as c1
+object "recordDefinitionReferences" as e
+p1 --o| e
+e --|{ c1
+@enduml

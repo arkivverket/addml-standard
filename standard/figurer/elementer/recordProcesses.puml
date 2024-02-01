@@ -1,0 +1,13 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "flatFileProcesses" as p1
+rectangle "processes" as c1
+rectangle "fieldProcesses" as c2
+object "recordProcesses" as e
+e : definitionReference
+p1 --o{ e
+e --o| c1
+e --o{ c2
+@enduml

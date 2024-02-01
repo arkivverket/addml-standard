@@ -1,0 +1,8 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "delimFileFormat" as p1
+object "quotingChar" as e
+p1 --o| e
+@enduml

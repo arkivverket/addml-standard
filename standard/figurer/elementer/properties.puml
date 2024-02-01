@@ -1,0 +1,22 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "flatFile" as p1
+rectangle "flatFileDefinition" as p2
+rectangle "recordDefinition" as p3
+rectangle "fieldDefinition" as p4
+rectangle "dataObject" as p5
+rectangle "additionalElement" as p6
+rectangle "property" as p7
+rectangle "property" as c1
+object "properties" as e
+p1 --o| e
+p2 --o| e
+p3 --o| e
+p4 --o| e
+p5 --o| e
+p6 --o| e
+p7 --o| e
+e --|{ c1
+@enduml

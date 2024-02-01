@@ -1,0 +1,10 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "parameters" as p1
+object "parameter" as e
+e : name
+e : value
+p1 --|{ e
+@enduml

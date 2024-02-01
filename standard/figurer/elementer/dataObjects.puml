@@ -2,16 +2,14 @@
 allowmixing
 skinparam linetype ortho
 
-rectangle "context" as p1
-rectangle "content" as p2
-rectangle "additionalElement" as p3
+rectangle "dataset" as p1
+rectangle "dataObject" as p2
 rectangle "description" as c1
-rectangle "additionalElement" as c2
+rectangle "dataObject" as c2
 rectangle "processes" as c3
-object "additionalElements" as e
+object "dataObjects" as e
 p1 --o| e
 p2 --o| e
-p3 --o| e
 e --o| c1
 e --|{ c2
 e --o| c3

@@ -1,0 +1,28 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "context" as p1
+rectangle "content" as p2
+rectangle "flatFiles" as p3
+rectangle "flatFileProcesses" as p4
+rectangle "recordProcesses" as p5
+rectangle "fieldProcesses" as p6
+rectangle "dataObjects" as p7
+rectangle "dataObject" as p8
+rectangle "additionalElements" as p9
+rectangle "additionalElement" as p10
+rectangle "process" as c1
+object "processes" as e
+p1 --o| e
+p2 --o| e
+p3 --o| e
+p4 --o| e
+p5 --o| e
+p6 --|| e
+p7 --o| e
+p8 --o| e
+p9 --o| e
+p10 --o| e
+e --|{ c1
+@enduml

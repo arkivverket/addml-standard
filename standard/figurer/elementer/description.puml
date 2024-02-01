@@ -1,0 +1,32 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "dataset" as p1
+rectangle "context" as p2
+rectangle "content" as p3
+rectangle "flatFileDefinition" as p4
+rectangle "recordDefinition" as p5
+rectangle "fieldDefinition" as p6
+rectangle "flatFileType" as p7
+rectangle "recordType" as p8
+rectangle "fieldType" as p9
+rectangle "query" as p10
+rectangle "dataObjects" as p11
+rectangle "dataObject" as p12
+rectangle "additionalElements" as p13
+object "description" as e
+p1 --o| e
+p2 --o| e
+p3 --o| e
+p4 --o| e
+p5 --o| e
+p6 --o| e
+p7 --o| e
+p8 --o| e
+p9 --o| e
+p10 --o| e
+p11 --o| e
+p12 --o| e
+p13 --o| e
+@enduml

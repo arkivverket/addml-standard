@@ -1,0 +1,13 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "recordTypes" as p1
+rectangle "description" as c1
+rectangle "trimmed" as c2
+object "recordType" as e
+e : name
+p1 --|{ e
+e --o| c1
+e --o| c2
+@enduml

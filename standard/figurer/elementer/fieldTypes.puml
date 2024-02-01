@@ -1,0 +1,10 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "structureTypes" as p1
+rectangle "fieldType" as c1
+object "fieldTypes" as e
+p1 --|| e
+e --|{ c1
+@enduml

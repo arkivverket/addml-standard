@@ -1,0 +1,10 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "flatFiles" as p1
+rectangle "query" as c1
+object "queries" as e
+p1 --o| e
+e --|{ c1
+@enduml

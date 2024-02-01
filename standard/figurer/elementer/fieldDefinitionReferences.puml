@@ -1,0 +1,14 @@
+@startuml
+allowmixing
+skinparam linetype ortho
+
+rectangle "repeatingGroup" as p1
+rectangle "key" as p2
+rectangle "recordDefinitionReference" as p3
+rectangle "fieldDefinitionReference" as c1
+object "fieldDefinitionReferences" as e
+p1 --|| e
+p2 --|| e
+p3 --o| e
+e --|{ c1
+@enduml
