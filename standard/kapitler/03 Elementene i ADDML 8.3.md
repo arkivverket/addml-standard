@@ -41,19 +41,19 @@ Hovednivået dataset som tilsvarer et datasett har også bare ett enkelt element
 ```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
-p1[addml]
-c1[description]
-c2[reference]
-c3[flatFiles]
-c4[dataObjects]
-e[dataset] {
-attribute name
-}
-p1 ||--|{ e: ""
-e ||--o| c1: ""
-e ||--o| c2: ""
-e ||--o| c3: ""
-e ||--o| c4: ""
+  p1[addml]
+  c1[description]
+  c2[reference]
+  c3[flatFiles]
+  c4[dataObjects]
+  e[dataset] {
+    attribute name
+  }
+  p1 ||--|{ e: ""
+  e ||--o| c1: ""
+  e ||--o| c2: ""
+  e ||--o| c3: ""
+  e ||--o| c4: ""
 ```
 
 | Overordnede elementer | Forekomster av element |
