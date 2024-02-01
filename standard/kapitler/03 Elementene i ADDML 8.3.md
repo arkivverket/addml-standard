@@ -39,7 +39,6 @@ Ingen overordnede elementer.
 Hovednivået dataset som tilsvarer et datasett har også bare ett enkelt element. Til gjengjeld kan dette forekomme flere ganger.
 
 ```mermaid
-%%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false}}}%%
 erDiagram
   p1[addml]
   c1[description]
