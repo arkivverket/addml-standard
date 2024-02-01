@@ -28,7 +28,6 @@ På toppnivået er det kun ett element - addml.
 
 Ingen overordnede elementer.
 
-
 ## dataset  <a id="dataset"/>
 
 Hovednivået dataset som tilsvarer et datasett har også bare ett enkelt element. Til gjengjeld kan dette forekomme flere ganger.
@@ -78,7 +77,6 @@ Ved flere datasett i samme addml-fil er det anbefalt å bruke attributten name f
 | :-- |  :-- |
 | [context](#context) | 0-1 |
 | [content](#content) | 0-1 |
-
 
 ## context  <a id="context"/>
 
@@ -173,7 +171,6 @@ Ingen attributter.
 
 Ingen attributter.
 
-
 ## flatFile  <a id="flatFile"/>
 
 ![Hierarki for flatFile](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//flatFile.svg)
@@ -195,7 +192,6 @@ Ingen attributter.
 | :-- |  :-- |
 | [properties](#properties) | 0-1 |
 
-
 ## flatFileDefinitions  <a id="flatFileDefinitions"/>
 
 ![Hierarki for flatFileDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//flatFileDefinitions.svg)
@@ -213,7 +209,6 @@ Ingen attributter.
 | [flatFileDefinition](#flatFileDefinition) | 1-n |
 
 Ingen attributter.
-
 
 ## flatFileDefinition  <a id="flatFileDefinition"/>
 
@@ -240,7 +235,6 @@ Ingen attributter.
 | [recordDefinitionFieldIdentifier](#recordDefinitionFieldIdentifier) | 0-1 |
 | [recordDefinitions](#recordDefinitions) | 1 |
 
-
 ## external  <a id="external"/>
 
 I noen tilfeller er det behov for å knytte et datauttrekk til et annet. Det er da definert to elementer i ADDML som er tenkt å benyttes til dette formålet. Elementene er external som angir at den filen som her defineres ikke er med i selve datauttrekket, og incomplete som angir at definisjonen ikke er komplett. Tanken er at man for eksterne filer bare definerer de elementene som er nødvendig for å opprette referanser mellom filen som defineres utenfra og de interne filene.
@@ -256,7 +250,7 @@ Et eksempel på en slik kobling kan være at man i uttrekket definerer postkatal
 | :-- | :-- |
 | external | Dette elementet benyttes når det er referanser til filer som ikke er med i uttrekket. Elementet er da et flagg som benyttes for å angi at filen ikke er med.  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
+Ingen attributter' eller 'underordnede elementer.
 
 ### Eksempel
 
@@ -286,8 +280,7 @@ felt – postnr.
 | :-- | :-- |
 | recordDefinitionFieldIdentifier |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## recordDefinitions  <a id="recordDefinitions"/>
 
@@ -306,7 +299,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | [recordDefinition](#recordDefinition) | 1-n |
 
 Ingen attributter.
-
 
 ## recordDefinition  <a id="recordDefinition"/>
 
@@ -337,7 +329,6 @@ Ingen attributter.
 | [fieldDefinitions](#fieldDefinitions) | 1 |
 | [headerLevel](#headerLevel) | 0-1 |
 
-
 ## recordDefinitionFieldValue  <a id="recordDefinitionFieldValue"/>
 
 ![Hierarki for recordDefinitionFieldValue](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordDefinitionFieldValue.svg)
@@ -350,8 +341,7 @@ Ingen attributter.
 | :-- | :-- |
 | recordDefinitionFieldValue |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## incomplete  <a id="incomplete"/>
 
@@ -365,8 +355,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | incomplete |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## fixedLength  <a id="fixedLength"/>
 
@@ -381,8 +370,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | fixedLength |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## repeatingGroups  <a id="repeatingGroups"/>
 
@@ -401,7 +389,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | [repeatingGroup](#repeatingGroup) | 1-n |
 
 Ingen attributter.
-
 
 ## repeatingGroup  <a id="repeatingGroup"/>
 
@@ -425,7 +412,6 @@ Ingen attributter.
 | [fixedOccurrences](#fixedOccurrences) | 1 |
 | [fieldDefinitionReferences](#fieldDefinitionReferences) | 1 |
 
-
 ## repeatingGroupOccurrenceField  <a id="repeatingGroupOccurrenceField"/>
 
 ![Hierarki for repeatingGroupOccurrenceField](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//repeatingGroupOccurrenceField.svg)
@@ -444,7 +430,6 @@ Ingen attributter.
 
 Ingen underordnede elementer.
 
-
 ## fixedOccurrences  <a id="fixedOccurrences"/>
 
 ![Hierarki for fixedOccurrences](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fixedOccurrences.svg)
@@ -457,8 +442,7 @@ Ingen underordnede elementer.
 | :-- | :-- |
 | fixedOccurrences |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## keys  <a id="keys"/>
 
@@ -477,7 +461,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | [key](#key) | 1-n |
 
 Ingen attributter.
-
 
 ## key  <a id="key"/>
 
@@ -502,7 +485,6 @@ Ingen attributter.
 | [foreignKey](#foreignKey) | 1 |
 | [fieldDefinitionReferences](#fieldDefinitionReferences) | 1 |
 
-
 ## primaryKey  <a id="primaryKey"/>
 
 ![Hierarki for primaryKey](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//primaryKey.svg)
@@ -515,8 +497,7 @@ Ingen attributter.
 | :-- | :-- |
 | primaryKey |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## alternateKey  <a id="alternateKey"/>
 
@@ -530,7 +511,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | alternateKey | Dette elementet benyttes for å angi alternative nøkler. I praksis vil dette gi muligheten for å angi indekser. Selve elementet er kun et flagg. |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
+Ingen attributter' eller 'underordnede elementer.
 
 ### Eksempel
 
@@ -564,7 +545,6 @@ I eksemplet er det definert en nøkkel indeks1 som en alternative nøkkel (evt e
 
 Ingen attributter.
 
-
 ## relationType  <a id="relationType"/>
 
 ![Hierarki for relationType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//relationType.svg)
@@ -577,8 +557,7 @@ Ingen attributter.
 | :-- | :-- |
 | relationType |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## fieldDefinitions  <a id="fieldDefinitions"/>
 
@@ -597,7 +576,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | [fieldDefinition](#fieldDefinition) | 1-n |
 
 Ingen attributter.
-
 
 ## fieldDefinition  <a id="fieldDefinition"/>
 
@@ -668,8 +646,7 @@ Over er vist et par eksempler med felter kjønn og fødselsnr.
 | :-- | :-- |
 | startPos |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## endPos  <a id="endPos"/>
 
@@ -683,7 +660,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | endPos | Dette elementet inneholder sluttposisjonen for et felt når det er snakk om et uttrekk med en flat fil med fast posisjonering. |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
+Ingen attributter' eller 'underordnede elementer.
 
 For eksempel se fieldDefinition.
 
@@ -699,8 +676,7 @@ For eksempel se fieldDefinition.
 | :-- | :-- |
 | minLength |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## maxLength  <a id="maxLength"/>
 
@@ -714,8 +690,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | maxLength |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## unique  <a id="unique"/>
 
@@ -729,8 +704,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | unique |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## notNull  <a id="notNull"/>
 
@@ -744,8 +718,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | notNull |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## fieldParts  <a id="fieldParts"/>
 
@@ -766,7 +739,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
 | [fieldDefinition](#fieldDefinition) | 1-n |
-
 
 ## codes  <a id="codes"/>
 
@@ -845,7 +817,6 @@ Legg merke til at i eksemplet er blank verdi en gyldig kodeverdi som ikke oppgit
 
 Ingen attributter.
 
-
 ## flatFileTypes  <a id="flatFileTypes"/>
 
 ![Hierarki for flatFileTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//flatFileTypes.svg)
@@ -863,7 +834,6 @@ Ingen attributter.
 | [flatFileType](#flatFileType) | 1-n |
 
 Ingen attributter.
-
 
 ## flatFileType  <a id="flatFileType"/>
 
@@ -889,7 +859,6 @@ Ingen attributter.
 | [fixedFileFormat](#fixedFileFormat) | 1 |
 | [delimFileFormat](#delimFileFormat) | 1 |
 
-
 ## charset  <a id="charset"/>
 
 ![Hierarki for charset](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//charset.svg)
@@ -902,7 +871,7 @@ Ingen attributter.
 | :-- | :-- |
 | charset | Dette elementet benyttes til å angi tegnsettet som benyttes i datasettet. Brukeren må selv definere hvordan de forskjellige tegnsettene skal angis. |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
+Ingen attributter' eller 'underordnede elementer.
 
 ### Eksempel
 
@@ -994,7 +963,6 @@ I eksemplet er verdiene av tegnene oppgitt med hexadesimal verdi
 
 Ingen attributter.
 
-
 ## delimFileFormat  <a id="delimFileFormat"/>
 
 ![Hierarki for delimFileFormat](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//delimFileFormat.svg)
@@ -1037,8 +1005,7 @@ I eksemplet er fil1 oppgitt å være en fil inneholdende felter som er separert 
 | :-- | :-- |
 | fieldSeparatingChar |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## quotingChar  <a id="quotingChar"/>
 
@@ -1052,8 +1019,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | quotingChar |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## recordTypes  <a id="recordTypes"/>
 
@@ -1072,7 +1038,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | [recordType](#recordType) | 1-n |
 
 Ingen attributter.
-
 
 ## recordType  <a id="recordType"/>
 
@@ -1095,7 +1060,6 @@ Ingen attributter.
 | [description](#description) | 0-1 |
 | [trimmed](#trimmed) | 0-1 |
 
-
 ## trimmed  <a id="trimmed"/>
 
 ![Hierarki for trimmed](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//trimmed.svg)
@@ -1108,8 +1072,7 @@ Ingen attributter.
 | :-- | :-- |
 | trimmed |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## fieldTypes  <a id="fieldTypes"/>
 
@@ -1128,7 +1091,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | [fieldType](#fieldType) | 1-n |
 
 Ingen attributter.
-
 
 ## fieldType  <a id="fieldType"/>
 
@@ -1156,7 +1118,6 @@ Ingen attributter.
 | [packType](#packType) | 0-1 |
 | [nullValues](#nullValues) | 0-1 |
 
-
 ## dataType  <a id="dataType"/>
 
 ![Hierarki for dataType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//dataType.svg)
@@ -1169,7 +1130,7 @@ Ingen attributter.
 | :-- | :-- |
 | dataType | Hvilken datatype et felt er. Brukeren må selv definere gyldige datatyper og hvordan de skal betegnes. |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
+Ingen attributter' eller 'underordnede elementer.
 
 ### Eksempel
 
@@ -1194,8 +1155,7 @@ integer (integer for heltall).
 | :-- | :-- |
 | fieldFormat |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## alignment  <a id="alignment"/>
 
@@ -1209,8 +1169,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | alignment | alignment benyttes for å angi hvorvidt innholdet i et felt er venstrejustert, høyrejustert eller midtstilt. Brukeren selv må definere de faktiske verdiene for alignment. |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## padChar  <a id="padChar"/>
 
@@ -1224,8 +1183,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | padChar |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## packType  <a id="packType"/>
 
@@ -1239,8 +1197,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | packType |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## nullValues  <a id="nullValues"/>
 
@@ -1260,7 +1217,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 Ingen attributter.
 
-
 ## nullValue  <a id="nullValue"/>
 
 ![Hierarki for nullValue](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//nullValue.svg)
@@ -1273,8 +1229,7 @@ Ingen attributter.
 | :-- | :-- |
 | nullValue |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## queries  <a id="queries"/>
 
@@ -1293,7 +1248,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | [query](#query) | 1-n |
 
 Ingen attributter.
-
 
 ## query  <a id="query"/>
 
@@ -1316,7 +1270,6 @@ Ingen attributter.
 | [description](#description) | 0-1 |
 | [statement](#statement) | 1 |
 
-
 ## statement  <a id="statement"/>
 
 ![Hierarki for statement](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//statement.svg)
@@ -1329,8 +1282,7 @@ Ingen attributter.
 | :-- | :-- |
 | statement |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## flatFileProcesses  <a id="flatFileProcesses"/>
 
@@ -1353,7 +1305,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | [processes](#processes) | 0-1 |
 | [recordProcesses](#recordProcesses) | 0-n |
 
-
 ## recordProcesses  <a id="recordProcesses"/>
 
 ![Hierarki for recordProcesses](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordProcesses.svg)
@@ -1375,7 +1326,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | [processes](#processes) | 0-1 |
 | [fieldProcesses](#fieldProcesses) | 0-n |
 
-
 ## fieldProcesses  <a id="fieldProcesses"/>
 
 ![Hierarki for fieldProcesses](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fieldProcesses.svg)
@@ -1395,7 +1345,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
 | [processes](#processes) | 1 |
-
 
 ## processes  <a id="processes"/>
 
@@ -1424,7 +1373,6 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 Ingen attributter.
 
-
 ## process  <a id="process"/>
 
 ![Hierarki for process](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//process.svg)
@@ -1445,7 +1393,6 @@ Ingen attributter.
 | :-- |  :-- |
 | [parameters](#parameters) | 0-1 |
 
-
 ## parameters  <a id="parameters"/>
 
 ![Hierarki for parameters](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//parameters.svg)
@@ -1463,7 +1410,6 @@ Ingen attributter.
 | [parameter](#parameter) | 1-n |
 
 Ingen attributter.
-
 
 ## parameter  <a id="parameter"/>
 
@@ -1483,7 +1429,6 @@ Ingen attributter.
 | value | 0-1 |  |
 
 Ingen underordnede elementer.
-
 
 ## flatFileDefinitionReference  <a id="flatFileDefinitionReference"/>
 
@@ -1505,7 +1450,6 @@ Ingen underordnede elementer.
 | :-- |  :-- |
 | [recordDefinitionReferences](#recordDefinitionReferences) | 0-1 |
 
-
 ## recordDefinitionReferences  <a id="recordDefinitionReferences"/>
 
 ![Hierarki for recordDefinitionReferences](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordDefinitionReferences.svg)
@@ -1523,7 +1467,6 @@ Ingen underordnede elementer.
 | [recordDefinitionReference](#recordDefinitionReference) | 1-n |
 
 Ingen attributter.
-
 
 ## recordDefinitionReference  <a id="recordDefinitionReference"/>
 
@@ -1544,7 +1487,6 @@ Ingen attributter.
 | Underliggende elementer | Forekomster |
 | :-- |  :-- |
 | [fieldDefinitionReferences](#fieldDefinitionReferences) | 0-1 |
-
 
 ## fieldDefinitionReferences  <a id="fieldDefinitionReferences"/>
 
@@ -1734,7 +1676,6 @@ Elementet additionalElements er et samlenivå for gruppering av tilleggselemente
 
 Ingen attributter.
 
-
 ## additionalElement  <a id="additionalElement"/>
 
 Elementet additionalElement utgjør et egetdefinert element. Standarden selv definerer ingen tilleggselementer, men lar det være opp til brukerne å definere sine egne. Sammen med additionalElements danner additionalElement muligheten for å kunne bygge sin egen generiske struktur.
@@ -1762,7 +1703,6 @@ Elementet additionalElement utgjør et egetdefinert element. Standarden selv def
 | [additionalElements](#additionalElements) | 0-1 |
 | [processes](#processes) | 0-1 |
 
-
 ## description  <a id="description"/>
 
 Elementet beskrivelse benyttes flere steder i strukturen.
@@ -1789,7 +1729,7 @@ Elementet beskrivelse benyttes flere steder i strukturen.
 | :-- | :-- |
 | description | Dette elementet inneholder en tekstlig beskrivelse knyttet til elementet det ligger under. |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
+Ingen attributter' eller 'underordnede elementer.
 
 ### Eksempel
 
@@ -1827,7 +1767,6 @@ text
 
 Ingen attributter.
 
-
 ## property  <a id="property"/>
 
 ![Hierarki for property](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//property.svg)
@@ -1851,7 +1790,6 @@ Ingen attributter.
 | [value](#value) | 0-1 |
 | [properties](#properties) | 0-1 |
 
-
 ## headerLevel  <a id="headerLevel"/>
 
 ![Hierarki for headerLevel](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//headerLevel.svg)
@@ -1864,8 +1802,7 @@ Ingen attributter.
 | :-- | :-- |
 | headerLevel |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## recordSeparator  <a id="recordSeparator"/>
 
@@ -1880,8 +1817,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | recordSeparator |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
-
+Ingen attributter' eller 'underordnede elementer.
 
 ## value  <a id="value"/>
 
@@ -1896,4 +1832,4 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 | :-- | :-- |
 | value |  |
 
-Ingen attributter, underordnede elemente eller underordnede elementer.
+Ingen attributter' eller 'underordnede elementer.
