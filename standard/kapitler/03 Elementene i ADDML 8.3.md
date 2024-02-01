@@ -45,9 +45,8 @@ erDiagram
   c2[reference]
   c3[flatFiles]
   c4[dataObjects]
-  e[dataset] {
-    attribute name
-  }
+  e[dataset]
+
   p1 ||--|{ e: ""
   e ||--o| c1: ""
   e ||--o| c2: ""
