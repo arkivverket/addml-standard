@@ -11,7 +11,7 @@ Til slutt er det vist et enkelt eksempel med bruk av elementet. For noen element
 ## addml  <a id="addml"/>
 På toppnivået er det kun ett element - addml.
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 c1[dataset]
@@ -19,7 +19,7 @@ e[addml] {
 attribute name
 }
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
@@ -38,7 +38,7 @@ Ingen overordnede elementer.
 ## dataset  <a id="dataset"/>
 Hovednivået dataset som tilsvarer et datasett har også bare ett enkelt element. Til gjengjeld kan dette forekomme flere ganger.
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[addml]
@@ -54,7 +54,7 @@ e ||--o| c1: ""
 e ||--o| c2: ""
 e ||--o| c3: ""
 e ||--o| c4: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -77,7 +77,7 @@ e ||--o| c4: ""
 
 ## reference  <a id="reference"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[dataset]
@@ -89,7 +89,7 @@ attribute name
 p1 ||--o| e: ""
 e ||--o| c1: ""
 e ||--o| c2: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -110,7 +110,7 @@ e ||--o| c2: ""
 
 ## context  <a id="context"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[reference]
@@ -123,7 +123,7 @@ p1 ||--o| e: ""
 e ||--o| c1: ""
 e ||--o| c2: ""
 e ||--o| c3: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -143,7 +143,7 @@ Ingen attributter.
 
 ## content  <a id="content"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[reference]
@@ -156,7 +156,7 @@ p1 ||--o| e: ""
 e ||--o| c1: ""
 e ||--o| c2: ""
 e ||--o| c3: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -176,7 +176,7 @@ Ingen attributter.
 
 ## flatFiles  <a id="flatFiles"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[dataset]
@@ -195,7 +195,7 @@ e ||--|| c3: ""
 e ||--o| c4: ""
 e ||--o| c5: ""
 e ||--o{ c6: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -218,7 +218,7 @@ Ingen attributter.
 
 ## flatFile  <a id="flatFile"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFiles]
@@ -229,7 +229,7 @@ attribute definitionReference
 }
 p1 ||--|{ e: ""
 e ||--o| c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -250,7 +250,7 @@ e ||--o| c1: ""
 
 ## flatFileDefinitions  <a id="flatFileDefinitions"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFiles]
@@ -259,7 +259,7 @@ e[flatFileDefinitions] {
 }
 p1 ||--|| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -277,7 +277,7 @@ Ingen attributter.
 
 ## flatFileDefinition  <a id="flatFileDefinition"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFileDefinitions]
@@ -296,7 +296,7 @@ e ||--o| c2: ""
 e ||--o| c3: ""
 e ||--o| c4: ""
 e ||--|| c5: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -323,14 +323,14 @@ e ||--|| c5: ""
 I noen tilfeller er det behov for å knytte et datauttrekk til et annet. Det er da definert to elementer i ADDML som er tenkt å benyttes til dette formålet. Elementene er external som angir at den filen som her defineres ikke er med i selve datauttrekket, og incomplete som angir at definisjonen ikke er komplett. Tanken er at man for eksterne filer bare definerer de elementene som er nødvendig for å opprette referanser mellom filen som defineres utenfra og de interne filene.
 Et eksempel på en slik kobling kan være at man i uttrekket definerer postkatalogen som en ekstern fil. Dette fordi den benyttes av flere systemer samtidig. Samtidig er det også opprettet referanser (nøkler) fra interne elementer med postnr til denne eksterne postkatalogen.
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFileDefinition]
 e[external] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -344,14 +344,14 @@ Ingen attributter eller underordnede elementer.
 
 ## recordDefinitionFieldIdentifier  <a id="recordDefinitionFieldIdentifier"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFileDefinition]
 e[recordDefinitionFieldIdentifier] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -365,7 +365,7 @@ Ingen attributter eller underordnede elementer.
 
 ## recordDefinitions  <a id="recordDefinitions"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFileDefinition]
@@ -374,7 +374,7 @@ e[recordDefinitions] {
 }
 p1 ||--|| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -392,7 +392,7 @@ Ingen attributter.
 
 ## recordDefinition  <a id="recordDefinition"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordDefinitions]
@@ -419,7 +419,7 @@ e ||--o| c6: ""
 e ||--o| c7: ""
 e ||--|| c8: ""
 e ||--o| c9: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -448,14 +448,14 @@ e ||--o| c9: ""
 
 ## recordDefinitionFieldValue  <a id="recordDefinitionFieldValue"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordDefinition]
 e[recordDefinitionFieldValue] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -469,14 +469,14 @@ Ingen attributter eller underordnede elementer.
 
 ## incomplete  <a id="incomplete"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordDefinition]
 e[incomplete] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -490,7 +490,7 @@ Ingen attributter eller underordnede elementer.
 
 ## fixedLength  <a id="fixedLength"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordDefinition]
@@ -499,7 +499,7 @@ e[fixedLength] {
 }
 p1 ||--o| e: ""
 p2 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -514,7 +514,7 @@ Ingen attributter eller underordnede elementer.
 
 ## repeatingGroups  <a id="repeatingGroups"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordDefinition]
@@ -523,7 +523,7 @@ e[repeatingGroups] {
 }
 p1 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -541,7 +541,7 @@ Ingen attributter.
 
 ## repeatingGroup  <a id="repeatingGroup"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[repeatingGroups]
@@ -555,7 +555,7 @@ p1 ||--|{ e: ""
 e ||--|| c1: ""
 e ||--|| c2: ""
 e ||--|| c3: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -577,7 +577,7 @@ e ||--|| c3: ""
 
 ## repeatingGroupOccurrenceField  <a id="repeatingGroupOccurrenceField"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[repeatingGroup]
@@ -585,7 +585,7 @@ e[repeatingGroupOccurrenceField] {
 attribute definitionReference
 }
 p1 ||--|| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -603,14 +603,14 @@ Ingen underordnede elementer.
 
 ## fixedOccurrences  <a id="fixedOccurrences"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[repeatingGroup]
 e[fixedOccurrences] {
 }
 p1 ||--|| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -624,7 +624,7 @@ Ingen attributter eller underordnede elementer.
 
 ## keys  <a id="keys"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordDefinition]
@@ -633,7 +633,7 @@ e[keys] {
 }
 p1 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -651,7 +651,7 @@ Ingen attributter.
 
 ## key  <a id="key"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[keys]
@@ -667,7 +667,7 @@ e ||--|| c1: ""
 e ||--|| c2: ""
 e ||--|| c3: ""
 e ||--|| c4: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -690,14 +690,14 @@ e ||--|| c4: ""
 
 ## primaryKey  <a id="primaryKey"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[key]
 e[primaryKey] {
 }
 p1 ||--|| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -711,14 +711,14 @@ Ingen attributter eller underordnede elementer.
 
 ## alternateKey  <a id="alternateKey"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[key]
 e[alternateKey] {
 }
 p1 ||--|| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -732,7 +732,7 @@ Ingen attributter eller underordnede elementer.
 
 ## foreignKey  <a id="foreignKey"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[key]
@@ -743,7 +743,7 @@ e[foreignKey] {
 p1 ||--|| e: ""
 e ||--|| c1: ""
 e ||--|| c2: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -762,14 +762,14 @@ Ingen attributter.
 
 ## relationType  <a id="relationType"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[foreignKey]
 e[relationType] {
 }
 p1 ||--|| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -783,7 +783,7 @@ Ingen attributter eller underordnede elementer.
 
 ## fieldDefinitions  <a id="fieldDefinitions"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordDefinition]
@@ -792,7 +792,7 @@ e[fieldDefinitions] {
 }
 p1 ||--|| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -811,7 +811,7 @@ Ingen attributter.
 ## fieldDefinition  <a id="fieldDefinition"/>
 I ADDML er det tre parallelle informasjonstyper, den øverste er den generelle typen, hvor basis informasjon om felter defineres. Deretter kommer definisjonen av det enkelt felt, hvor man for mer eksplisitt informasjon om et felt og til slutt det fysiske delen som dog bare er på filnivå. Elementet som forklares her er på definisjonslaget.
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldDefinitions]
@@ -844,7 +844,7 @@ e ||--o| c8: ""
 e ||--o| c9: ""
 e ||--o| c10: ""
 e ||--o| c11: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -876,14 +876,14 @@ e ||--o| c11: ""
 
 ## startPos  <a id="startPos"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldDefinition]
 e[startPos] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -897,14 +897,14 @@ Ingen attributter eller underordnede elementer.
 
 ## endPos  <a id="endPos"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldDefinition]
 e[endPos] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -918,14 +918,14 @@ Ingen attributter eller underordnede elementer.
 
 ## minLength  <a id="minLength"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldDefinition]
 e[minLength] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -939,14 +939,14 @@ Ingen attributter eller underordnede elementer.
 
 ## maxLength  <a id="maxLength"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldDefinition]
 e[maxLength] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -960,14 +960,14 @@ Ingen attributter eller underordnede elementer.
 
 ## unique  <a id="unique"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldDefinition]
 e[unique] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -981,14 +981,14 @@ Ingen attributter eller underordnede elementer.
 
 ## notNull  <a id="notNull"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldDefinition]
 e[notNull] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1002,7 +1002,7 @@ Ingen attributter eller underordnede elementer.
 
 ## fieldParts  <a id="fieldParts"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldDefinition]
@@ -1012,7 +1012,7 @@ attribute name
 }
 p1 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1032,7 +1032,7 @@ e ||--|{ c1: ""
 
 ## codes  <a id="codes"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldDefinition]
@@ -1041,7 +1041,7 @@ e[codes] {
 }
 p1 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1060,7 +1060,7 @@ Ingen attributter.
 ## code  <a id="code"/>
 For et enkelt felt i et datasett kan man definere gyldige kodeverdier. Dette anbefales kun å gjøre dersom det er et begrenset antall, selv om standarden selv ikke setter noen begrensninger på antallet. Men dersom det er mange kodeverdier, anbefales heller at disse følger med datasettet som en egen fil.
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[codes]
@@ -1069,7 +1069,7 @@ attribute codeValue
 attribute explan
 }
 p1 ||--|{ e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1088,7 +1088,7 @@ Ingen underordnede elementer.
 
 ## structureTypes  <a id="structureTypes"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFiles]
@@ -1101,7 +1101,7 @@ p1 ||--|| e: ""
 e ||--|| c1: ""
 e ||--o| c2: ""
 e ||--|| c3: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1121,7 +1121,7 @@ Ingen attributter.
 
 ## flatFileTypes  <a id="flatFileTypes"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[structureTypes]
@@ -1130,7 +1130,7 @@ e[flatFileTypes] {
 }
 p1 ||--|| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1148,7 +1148,7 @@ Ingen attributter.
 
 ## flatFileType  <a id="flatFileType"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFileTypes]
@@ -1166,7 +1166,7 @@ e ||--|| c2: ""
 e ||--o| c3: ""
 e ||--|| c4: ""
 e ||--|| c5: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1190,14 +1190,14 @@ e ||--|| c5: ""
 
 ## charset  <a id="charset"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFileType]
 e[charset] {
 }
 p1 ||--|| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1211,7 +1211,7 @@ Ingen attributter eller underordnede elementer.
 
 ## charDefinitions  <a id="charDefinitions"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFileType]
@@ -1220,7 +1220,7 @@ e[charDefinitions] {
 }
 p1 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1239,7 +1239,7 @@ Ingen attributter.
 ## charDefinition  <a id="charDefinition"/>
 charDefinition er ment å kunne benyttes ved spesialtegn som ikke følger vanlig standard. I de fleste tilfeller vil det være nok å bare angi tegnsett. Men dersom et datasett har avvikende tegn kan man benytte denne muligheten til å redefinere de få tegnene som avviker.
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[charDefinitions]
@@ -1248,7 +1248,7 @@ attribute fromChar
 attribute toChar
 }
 p1 ||--|{ e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1267,7 +1267,7 @@ Ingen underordnede elementer.
 
 ## fixedFileFormat  <a id="fixedFileFormat"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFileType]
@@ -1276,7 +1276,7 @@ e[fixedFileFormat] {
 }
 p1 ||--|| e: ""
 e ||--o| c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1294,7 +1294,7 @@ Ingen attributter.
 
 ## delimFileFormat  <a id="delimFileFormat"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFileType]
@@ -1307,7 +1307,7 @@ p1 ||--|| e: ""
 e ||--|| c1: ""
 e ||--|| c2: ""
 e ||--o| c3: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1327,14 +1327,14 @@ Ingen attributter.
 
 ## fieldSeparatingChar  <a id="fieldSeparatingChar"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[delimFileFormat]
 e[fieldSeparatingChar] {
 }
 p1 ||--|| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1348,14 +1348,14 @@ Ingen attributter eller underordnede elementer.
 
 ## quotingChar  <a id="quotingChar"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[delimFileFormat]
 e[quotingChar] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1369,7 +1369,7 @@ Ingen attributter eller underordnede elementer.
 
 ## recordTypes  <a id="recordTypes"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[structureTypes]
@@ -1378,7 +1378,7 @@ e[recordTypes] {
 }
 p1 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1396,7 +1396,7 @@ Ingen attributter.
 
 ## recordType  <a id="recordType"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordTypes]
@@ -1408,7 +1408,7 @@ attribute name
 p1 ||--|{ e: ""
 e ||--o| c1: ""
 e ||--o| c2: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1429,14 +1429,14 @@ e ||--o| c2: ""
 
 ## trimmed  <a id="trimmed"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordType]
 e[trimmed] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1450,7 +1450,7 @@ Ingen attributter eller underordnede elementer.
 
 ## fieldTypes  <a id="fieldTypes"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[structureTypes]
@@ -1459,7 +1459,7 @@ e[fieldTypes] {
 }
 p1 ||--|| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1477,7 +1477,7 @@ Ingen attributter.
 
 ## fieldType  <a id="fieldType"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldTypes]
@@ -1499,7 +1499,7 @@ e ||--o| c4: ""
 e ||--o| c5: ""
 e ||--o| c6: ""
 e ||--o| c7: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1525,14 +1525,14 @@ e ||--o| c7: ""
 
 ## dataType  <a id="dataType"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldType]
 e[dataType] {
 }
 p1 ||--|| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1546,14 +1546,14 @@ Ingen attributter eller underordnede elementer.
 
 ## fieldFormat  <a id="fieldFormat"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldType]
 e[fieldFormat] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1567,14 +1567,14 @@ Ingen attributter eller underordnede elementer.
 
 ## alignment  <a id="alignment"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldType]
 e[alignment] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1588,14 +1588,14 @@ Ingen attributter eller underordnede elementer.
 
 ## padChar  <a id="padChar"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldType]
 e[padChar] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1609,14 +1609,14 @@ Ingen attributter eller underordnede elementer.
 
 ## packType  <a id="packType"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldType]
 e[packType] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1630,7 +1630,7 @@ Ingen attributter eller underordnede elementer.
 
 ## nullValues  <a id="nullValues"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldType]
@@ -1639,7 +1639,7 @@ e[nullValues] {
 }
 p1 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1657,14 +1657,14 @@ Ingen attributter.
 
 ## nullValue  <a id="nullValue"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[nullValues]
 e[nullValue] {
 }
 p1 ||--|{ e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1678,7 +1678,7 @@ Ingen attributter eller underordnede elementer.
 
 ## queries  <a id="queries"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFiles]
@@ -1687,7 +1687,7 @@ e[queries] {
 }
 p1 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1705,7 +1705,7 @@ Ingen attributter.
 
 ## query  <a id="query"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[queries]
@@ -1717,7 +1717,7 @@ attribute name
 p1 ||--|{ e: ""
 e ||--o| c1: ""
 e ||--|| c2: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1738,14 +1738,14 @@ e ||--|| c2: ""
 
 ## statement  <a id="statement"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[query]
 e[statement] {
 }
 p1 ||--|| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1759,7 +1759,7 @@ Ingen attributter eller underordnede elementer.
 
 ## flatFileProcesses  <a id="flatFileProcesses"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFiles]
@@ -1771,7 +1771,7 @@ attribute flatFileReference
 p1 ||--o{ e: ""
 e ||--o| c1: ""
 e ||--o{ c2: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1792,7 +1792,7 @@ e ||--o{ c2: ""
 
 ## recordProcesses  <a id="recordProcesses"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFileProcesses]
@@ -1804,7 +1804,7 @@ attribute definitionReference
 p1 ||--o{ e: ""
 e ||--o| c1: ""
 e ||--o{ c2: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1825,7 +1825,7 @@ e ||--o{ c2: ""
 
 ## fieldProcesses  <a id="fieldProcesses"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordProcesses]
@@ -1835,7 +1835,7 @@ attribute definitionReference
 }
 p1 ||--o{ e: ""
 e ||--|| c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1855,7 +1855,7 @@ e ||--|| c1: ""
 
 ## processes  <a id="processes"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[context]
@@ -1882,7 +1882,7 @@ p8 ||--o| e: ""
 p9 ||--o| e: ""
 p10 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1909,7 +1909,7 @@ Ingen attributter.
 
 ## process  <a id="process"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[processes]
@@ -1919,7 +1919,7 @@ attribute name
 }
 p1 ||--|{ e: ""
 e ||--o| c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1939,7 +1939,7 @@ e ||--o| c1: ""
 
 ## parameters  <a id="parameters"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[process]
@@ -1948,7 +1948,7 @@ e[parameters] {
 }
 p1 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1966,7 +1966,7 @@ Ingen attributter.
 
 ## parameter  <a id="parameter"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[parameters]
@@ -1975,7 +1975,7 @@ attribute name
 attribute value
 }
 p1 ||--|{ e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1994,7 +1994,7 @@ Ingen underordnede elementer.
 
 ## flatFileDefinitionReference  <a id="flatFileDefinitionReference"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[foreignKey]
@@ -2004,7 +2004,7 @@ attribute name
 }
 p1 ||--|| e: ""
 e ||--o| c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2024,7 +2024,7 @@ e ||--o| c1: ""
 
 ## recordDefinitionReferences  <a id="recordDefinitionReferences"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFileDefinitionReference]
@@ -2033,7 +2033,7 @@ e[recordDefinitionReferences] {
 }
 p1 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2051,7 +2051,7 @@ Ingen attributter.
 
 ## recordDefinitionReference  <a id="recordDefinitionReference"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordDefinitionReferences]
@@ -2061,7 +2061,7 @@ attribute name
 }
 p1 ||--|{ e: ""
 e ||--o| c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2081,7 +2081,7 @@ e ||--o| c1: ""
 
 ## fieldDefinitionReferences  <a id="fieldDefinitionReferences"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[repeatingGroup]
@@ -2094,7 +2094,7 @@ p1 ||--|| e: ""
 p2 ||--|| e: ""
 p3 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2114,7 +2114,7 @@ Ingen attributter.
 
 ## fieldDefinitionReference  <a id="fieldDefinitionReference"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fieldDefinitionReferences]
@@ -2122,7 +2122,7 @@ e[fieldDefinitionReference] {
 attribute name
 }
 p1 ||--|{ e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2141,7 +2141,7 @@ Ingen underordnede elementer.
 ## dataObjects  <a id="dataObjects"/>
 De første versjonene av ADDML ble konstruert for å håndtere flate filer. Etter hvert er det også blitt behov for å håndtere andre typer filer, ikke minst xml-filer. Av den grunn ble det innført en ny hoveddel med dataobjekter. Denne delen er generisk, hvor brukeren selv må definere strukturer og informasjonselementer som skal være med.
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[dataset]
@@ -2156,7 +2156,7 @@ p2 ||--o| e: ""
 e ||--o| c1: ""
 e ||--|{ c2: ""
 e ||--o| c3: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2178,7 +2178,7 @@ Ingen attributter.
 ## dataObject  <a id="dataObject"/>
 De første versjonene av ADDML ble konstruert for å håndtere flate filer. Etter hvert er detogså blitt behov for å håndtere andre typer filer, ikke minst xml-filer. Av den grunn ble det innført en ny hoveddel med dataobjekter. Denne delen er generisk, hvor brukeren selv må definere strukturer og informasjonselementer som skal være med.
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[dataObjects]
@@ -2194,7 +2194,7 @@ e ||--o| c1: ""
 e ||--o| c2: ""
 e ||--o| c3: ""
 e ||--o| c4: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2218,7 +2218,7 @@ e ||--o| c4: ""
 ## additionalElements  <a id="additionalElements"/>
 Elementet additionalElements er et samlenivå for gruppering av tilleggselementer.
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[context]
@@ -2235,7 +2235,7 @@ p3 ||--o| e: ""
 e ||--o| c1: ""
 e ||--|{ c2: ""
 e ||--o| c3: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2258,7 +2258,7 @@ Ingen attributter.
 ## additionalElement  <a id="additionalElement"/>
 Elementet additionalElement utgjør et egetdefinert element. Standarden selv definerer ingen tilleggselementer, men lar det være opp til brukerne å definere sine egne. Sammen med additionalElements danner additionalElement muligheten for å kunne bygge sin egen generiske struktur.
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[additionalElements]
@@ -2276,7 +2276,7 @@ e ||--o| c1: ""
 e ||--o| c2: ""
 e ||--o| c3: ""
 e ||--o| c4: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2302,7 +2302,7 @@ e ||--o| c4: ""
 ## description  <a id="description"/>
 Elementet beskrivelse benyttes flere steder i strukturen.
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[dataset]
@@ -2333,7 +2333,7 @@ p10 ||--o| e: ""
 p11 ||--o| e: ""
 p12 ||--o| e: ""
 p13 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2359,7 +2359,7 @@ Ingen attributter eller underordnede elementer.
 
 ## properties  <a id="properties"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[flatFile]
@@ -2380,7 +2380,7 @@ p5 ||--o| e: ""
 p6 ||--o| e: ""
 p7 ||--o| e: ""
 e ||--|{ c1: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2404,7 +2404,7 @@ Ingen attributter.
 
 ## property  <a id="property"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[properties]
@@ -2418,7 +2418,7 @@ attribute format
 p1 ||--|{ e: ""
 e ||--o| c1: ""
 e ||--o| c2: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2441,14 +2441,14 @@ e ||--o| c2: ""
 
 ## headerLevel  <a id="headerLevel"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[recordDefinition]
 e[headerLevel] {
 }
 p1 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2462,7 +2462,7 @@ Ingen attributter eller underordnede elementer.
 
 ## recordSeparator  <a id="recordSeparator"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[fixedFileFormat]
@@ -2471,7 +2471,7 @@ e[recordSeparator] {
 }
 p1 ||--o| e: ""
 p2 ||--|| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2486,7 +2486,7 @@ Ingen attributter eller underordnede elementer.
 
 ## value  <a id="value"/>
 
-<div class="mermaid"><pre>
+```mermaid
 %%{init: {'er':{'minEntityHeight':false,'minEntityWidth':false},'theme':'neutral'}}%%
 erDiagram
 p1[additionalElement]
@@ -2495,7 +2495,7 @@ e[value] {
 }
 p1 ||--o| e: ""
 p2 ||--o| e: ""
-</pre></div>
+```
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -2507,4 +2507,3 @@ p2 ||--o| e: ""
 | value |  |
 
 Ingen attributter eller underordnede elementer.
-
