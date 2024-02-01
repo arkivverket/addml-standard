@@ -12,7 +12,7 @@ Til slutt er det vist et enkelt eksempel med bruk av elementet. For noen element
 
 På toppnivået er det kun ett element - addml.
 
-![Hierarki for addml](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/addml.svg)
+![Hierarki for addml](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//addml.svg)
 
 | Elementnavn | Beskrivelse |
 | :-- | :-- |
@@ -33,7 +33,7 @@ Ingen overordnede elementer.
 
 Hovednivået dataset som tilsvarer et datasett har også bare ett enkelt element. Til gjengjeld kan dette forekomme flere ganger.
 
-![Hierarki for dataset](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/dataset.svg)
+![Hierarki for dataset](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//dataset.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -60,7 +60,7 @@ Ved flere datasett i samme addml-fil er det anbefalt å bruke attributten name f
 
 ## reference  <a id="reference"/>
 
-![Hierarki for reference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/reference.svg)
+![Hierarki for reference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//reference.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -82,7 +82,7 @@ Ved flere datasett i samme addml-fil er det anbefalt å bruke attributten name f
 
 ## context  <a id="context"/>
 
-![Hierarki for context](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/context.svg)
+![Hierarki for context](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//context.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -116,7 +116,7 @@ Ingen attributter.
 
 ## content  <a id="content"/>
 
-![Hierarki for content](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/content.svg)
+![Hierarki for content](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//content.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -152,7 +152,7 @@ Ingen attributter.
 
 ## flatFiles  <a id="flatFiles"/>
 
-![Hierarki for flatFiles](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFiles.svg)
+![Hierarki for flatFiles](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//flatFiles.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -176,7 +176,7 @@ Ingen attributter.
 
 ## flatFile  <a id="flatFile"/>
 
-![Hierarki for flatFile](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFile.svg)
+![Hierarki for flatFile](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//flatFile.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -198,7 +198,7 @@ Ingen attributter.
 
 ## flatFileDefinitions  <a id="flatFileDefinitions"/>
 
-![Hierarki for flatFileDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileDefinitions.svg)
+![Hierarki for flatFileDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//flatFileDefinitions.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -217,7 +217,7 @@ Ingen attributter.
 
 ## flatFileDefinition  <a id="flatFileDefinition"/>
 
-![Hierarki for flatFileDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileDefinition.svg)
+![Hierarki for flatFileDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//flatFileDefinition.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -246,7 +246,7 @@ Ingen attributter.
 I noen tilfeller er det behov for å knytte et datauttrekk til et annet. Det er da definert to elementer i ADDML som er tenkt å benyttes til dette formålet. Elementene er external som angir at den filen som her defineres ikke er med i selve datauttrekket, og incomplete som angir at definisjonen ikke er komplett. Tanken er at man for eksterne filer bare definerer de elementene som er nødvendig for å opprette referanser mellom filen som defineres utenfra og de interne filene.
 Et eksempel på en slik kobling kan være at man i uttrekket definerer postkatalogen som en ekstern fil. Dette fordi den benyttes av flere systemer samtidig. Samtidig er det også opprettet referanser (nøkler) fra interne elementer med postnr til denne eksterne postkatalogen.
 
-![Hierarki for external](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/external.svg)
+![Hierarki for external](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//external.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -276,7 +276,7 @@ felt – postnr.
 
 ## recordDefinitionFieldIdentifier  <a id="recordDefinitionFieldIdentifier"/>
 
-![Hierarki for recordDefinitionFieldIdentifier](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinitionFieldIdentifier.svg)
+![Hierarki for recordDefinitionFieldIdentifier](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordDefinitionFieldIdentifier.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -291,7 +291,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## recordDefinitions  <a id="recordDefinitions"/>
 
-![Hierarki for recordDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinitions.svg)
+![Hierarki for recordDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordDefinitions.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -310,7 +310,7 @@ Ingen attributter.
 
 ## recordDefinition  <a id="recordDefinition"/>
 
-![Hierarki for recordDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinition.svg)
+![Hierarki for recordDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordDefinition.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -340,7 +340,7 @@ Ingen attributter.
 
 ## recordDefinitionFieldValue  <a id="recordDefinitionFieldValue"/>
 
-![Hierarki for recordDefinitionFieldValue](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinitionFieldValue.svg)
+![Hierarki for recordDefinitionFieldValue](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordDefinitionFieldValue.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -355,7 +355,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## incomplete  <a id="incomplete"/>
 
-![Hierarki for incomplete](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/incomplete.svg)
+![Hierarki for incomplete](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//incomplete.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -370,7 +370,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## fixedLength  <a id="fixedLength"/>
 
-![Hierarki for fixedLength](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fixedLength.svg)
+![Hierarki for fixedLength](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fixedLength.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -386,7 +386,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## repeatingGroups  <a id="repeatingGroups"/>
 
-![Hierarki for repeatingGroups](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/repeatingGroups.svg)
+![Hierarki for repeatingGroups](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//repeatingGroups.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -405,7 +405,7 @@ Ingen attributter.
 
 ## repeatingGroup  <a id="repeatingGroup"/>
 
-![Hierarki for repeatingGroup](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/repeatingGroup.svg)
+![Hierarki for repeatingGroup](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//repeatingGroup.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -428,7 +428,7 @@ Ingen attributter.
 
 ## repeatingGroupOccurrenceField  <a id="repeatingGroupOccurrenceField"/>
 
-![Hierarki for repeatingGroupOccurrenceField](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/repeatingGroupOccurrenceField.svg)
+![Hierarki for repeatingGroupOccurrenceField](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//repeatingGroupOccurrenceField.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -447,7 +447,7 @@ Ingen underordnede elementer.
 
 ## fixedOccurrences  <a id="fixedOccurrences"/>
 
-![Hierarki for fixedOccurrences](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fixedOccurrences.svg)
+![Hierarki for fixedOccurrences](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fixedOccurrences.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -462,7 +462,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## keys  <a id="keys"/>
 
-![Hierarki for keys](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/keys.svg)
+![Hierarki for keys](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//keys.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -481,7 +481,7 @@ Ingen attributter.
 
 ## key  <a id="key"/>
 
-![Hierarki for key](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/key.svg)
+![Hierarki for key](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//key.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -505,7 +505,7 @@ Ingen attributter.
 
 ## primaryKey  <a id="primaryKey"/>
 
-![Hierarki for primaryKey](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/primaryKey.svg)
+![Hierarki for primaryKey](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//primaryKey.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -520,7 +520,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## alternateKey  <a id="alternateKey"/>
 
-![Hierarki for alternateKey](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/alternateKey.svg)
+![Hierarki for alternateKey](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//alternateKey.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -547,7 +547,7 @@ I eksemplet er det definert en nøkkel indeks1 som en alternative nøkkel (evt e
 
 ## foreignKey  <a id="foreignKey"/>
 
-![Hierarki for foreignKey](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/foreignKey.svg)
+![Hierarki for foreignKey](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//foreignKey.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -567,7 +567,7 @@ Ingen attributter.
 
 ## relationType  <a id="relationType"/>
 
-![Hierarki for relationType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/relationType.svg)
+![Hierarki for relationType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//relationType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -582,7 +582,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## fieldDefinitions  <a id="fieldDefinitions"/>
 
-![Hierarki for fieldDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldDefinitions.svg)
+![Hierarki for fieldDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fieldDefinitions.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -603,7 +603,7 @@ Ingen attributter.
 
 I ADDML er det tre parallelle informasjonstyper, den øverste er den generelle typen, hvor basis informasjon om felter defineres. Deretter kommer definisjonen av det enkelt felt, hvor man for mer eksplisitt informasjon om et felt og til slutt det fysiske delen som dog bare er på filnivå. Elementet som forklares her er på definisjonslaget.
 
-![Hierarki for fieldDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldDefinition.svg)
+![Hierarki for fieldDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fieldDefinition.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -658,7 +658,7 @@ Over er vist et par eksempler med felter kjønn og fødselsnr.
 
 ## startPos  <a id="startPos"/>
 
-![Hierarki for startPos](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/startPos.svg)
+![Hierarki for startPos](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//startPos.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -673,7 +673,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## endPos  <a id="endPos"/>
 
-![Hierarki for endPos](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/endPos.svg)
+![Hierarki for endPos](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//endPos.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -689,7 +689,7 @@ For eksempel se fieldDefinition.
 
 ## minLength  <a id="minLength"/>
 
-![Hierarki for minLength](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/minLength.svg)
+![Hierarki for minLength](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//minLength.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -704,7 +704,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## maxLength  <a id="maxLength"/>
 
-![Hierarki for maxLength](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/maxLength.svg)
+![Hierarki for maxLength](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//maxLength.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -719,7 +719,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## unique  <a id="unique"/>
 
-![Hierarki for unique](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/unique.svg)
+![Hierarki for unique](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//unique.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -734,7 +734,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## notNull  <a id="notNull"/>
 
-![Hierarki for notNull](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/notNull.svg)
+![Hierarki for notNull](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//notNull.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -749,7 +749,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## fieldParts  <a id="fieldParts"/>
 
-![Hierarki for fieldParts](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldParts.svg)
+![Hierarki for fieldParts](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fieldParts.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -770,7 +770,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## codes  <a id="codes"/>
 
-![Hierarki for codes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/codes.svg)
+![Hierarki for codes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//codes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -793,7 +793,7 @@ For eksempel se *code*.
 
 For et enkelt felt i et datasett kan man definere gyldige kodeverdier. Dette anbefales kun å gjøre dersom det er et begrenset antall, selv om standarden selv ikke setter noen begrensninger på antallet. Men dersom det er mange kodeverdier, anbefales heller at disse følger med datasettet som en egen fil.
 
-![Hierarki for code](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/code.svg)
+![Hierarki for code](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//code.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -827,7 +827,7 @@ Legg merke til at i eksemplet er blank verdi en gyldig kodeverdi som ikke oppgit
 
 ## structureTypes  <a id="structureTypes"/>
 
-![Hierarki for structureTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/structureTypes.svg)
+![Hierarki for structureTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//structureTypes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -848,7 +848,7 @@ Ingen attributter.
 
 ## flatFileTypes  <a id="flatFileTypes"/>
 
-![Hierarki for flatFileTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileTypes.svg)
+![Hierarki for flatFileTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//flatFileTypes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -867,7 +867,7 @@ Ingen attributter.
 
 ## flatFileType  <a id="flatFileType"/>
 
-![Hierarki for flatFileType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileType.svg)
+![Hierarki for flatFileType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//flatFileType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -892,7 +892,7 @@ Ingen attributter.
 
 ## charset  <a id="charset"/>
 
-![Hierarki for charset](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/charset.svg)
+![Hierarki for charset](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//charset.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -916,7 +916,7 @@ I eksemplet er f.eks tegnsettet angitt til å være ISO-8859-1.
 
 ## charDefinitions  <a id="charDefinitions"/>
 
-![Hierarki for charDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/charDefinitions.svg)
+![Hierarki for charDefinitions](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//charDefinitions.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -940,7 +940,7 @@ Ingen attributter.
 
 charDefinition er ment å kunne benyttes ved spesialtegn som ikke følger vanlig standard. I de fleste tilfeller vil det være nok å bare angi tegnsett. Men dersom et datasett har avvikende tegn kan man benytte denne muligheten til å redefinere de få tegnene som avviker.
 
-![Hierarki for charDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/charDefinition.svg)
+![Hierarki for charDefinition](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//charDefinition.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -978,7 +978,7 @@ I eksemplet er verdiene av tegnene oppgitt med hexadesimal verdi
 
 ## fixedFileFormat  <a id="fixedFileFormat"/>
 
-![Hierarki for fixedFileFormat](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fixedFileFormat.svg)
+![Hierarki for fixedFileFormat](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fixedFileFormat.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -997,7 +997,7 @@ Ingen attributter.
 
 ## delimFileFormat  <a id="delimFileFormat"/>
 
-![Hierarki for delimFileFormat](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/delimFileFormat.svg)
+![Hierarki for delimFileFormat](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//delimFileFormat.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1027,7 +1027,7 @@ I eksemplet er fil1 oppgitt å være en fil inneholdende felter som er separert 
 
 ## fieldSeparatingChar  <a id="fieldSeparatingChar"/>
 
-![Hierarki for fieldSeparatingChar](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldSeparatingChar.svg)
+![Hierarki for fieldSeparatingChar](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fieldSeparatingChar.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1042,7 +1042,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## quotingChar  <a id="quotingChar"/>
 
-![Hierarki for quotingChar](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/quotingChar.svg)
+![Hierarki for quotingChar](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//quotingChar.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1057,7 +1057,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## recordTypes  <a id="recordTypes"/>
 
-![Hierarki for recordTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordTypes.svg)
+![Hierarki for recordTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordTypes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1076,7 +1076,7 @@ Ingen attributter.
 
 ## recordType  <a id="recordType"/>
 
-![Hierarki for recordType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordType.svg)
+![Hierarki for recordType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1098,7 +1098,7 @@ Ingen attributter.
 
 ## trimmed  <a id="trimmed"/>
 
-![Hierarki for trimmed](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/trimmed.svg)
+![Hierarki for trimmed](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//trimmed.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1113,7 +1113,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## fieldTypes  <a id="fieldTypes"/>
 
-![Hierarki for fieldTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldTypes.svg)
+![Hierarki for fieldTypes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fieldTypes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1132,7 +1132,7 @@ Ingen attributter.
 
 ## fieldType  <a id="fieldType"/>
 
-![Hierarki for fieldType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldType.svg)
+![Hierarki for fieldType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fieldType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1159,7 +1159,7 @@ Ingen attributter.
 
 ## dataType  <a id="dataType"/>
 
-![Hierarki for dataType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/dataType.svg)
+![Hierarki for dataType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//dataType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1184,7 +1184,7 @@ integer (integer for heltall).
 
 ## fieldFormat  <a id="fieldFormat"/>
 
-![Hierarki for fieldFormat](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldFormat.svg)
+![Hierarki for fieldFormat](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fieldFormat.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1199,7 +1199,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## alignment  <a id="alignment"/>
 
-![Hierarki for alignment](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/alignment.svg)
+![Hierarki for alignment](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//alignment.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1214,7 +1214,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## padChar  <a id="padChar"/>
 
-![Hierarki for padChar](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/padChar.svg)
+![Hierarki for padChar](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//padChar.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1229,7 +1229,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## packType  <a id="packType"/>
 
-![Hierarki for packType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/packType.svg)
+![Hierarki for packType](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//packType.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1244,7 +1244,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## nullValues  <a id="nullValues"/>
 
-![Hierarki for nullValues](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/nullValues.svg)
+![Hierarki for nullValues](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//nullValues.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1263,7 +1263,7 @@ Ingen attributter.
 
 ## nullValue  <a id="nullValue"/>
 
-![Hierarki for nullValue](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/nullValue.svg)
+![Hierarki for nullValue](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//nullValue.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1278,7 +1278,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## queries  <a id="queries"/>
 
-![Hierarki for queries](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/queries.svg)
+![Hierarki for queries](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//queries.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1297,7 +1297,7 @@ Ingen attributter.
 
 ## query  <a id="query"/>
 
-![Hierarki for query](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/query.svg)
+![Hierarki for query](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//query.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1319,7 +1319,7 @@ Ingen attributter.
 
 ## statement  <a id="statement"/>
 
-![Hierarki for statement](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/statement.svg)
+![Hierarki for statement](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//statement.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1334,7 +1334,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## flatFileProcesses  <a id="flatFileProcesses"/>
 
-![Hierarki for flatFileProcesses](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileProcesses.svg)
+![Hierarki for flatFileProcesses](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//flatFileProcesses.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1356,7 +1356,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## recordProcesses  <a id="recordProcesses"/>
 
-![Hierarki for recordProcesses](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordProcesses.svg)
+![Hierarki for recordProcesses](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordProcesses.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1378,7 +1378,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## fieldProcesses  <a id="fieldProcesses"/>
 
-![Hierarki for fieldProcesses](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldProcesses.svg)
+![Hierarki for fieldProcesses](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fieldProcesses.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1399,7 +1399,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## processes  <a id="processes"/>
 
-![Hierarki for processes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/processes.svg)
+![Hierarki for processes](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//processes.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1427,7 +1427,7 @@ Ingen attributter.
 
 ## process  <a id="process"/>
 
-![Hierarki for process](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/process.svg)
+![Hierarki for process](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//process.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1448,7 +1448,7 @@ Ingen attributter.
 
 ## parameters  <a id="parameters"/>
 
-![Hierarki for parameters](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/parameters.svg)
+![Hierarki for parameters](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//parameters.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1467,7 +1467,7 @@ Ingen attributter.
 
 ## parameter  <a id="parameter"/>
 
-![Hierarki for parameter](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/parameter.svg)
+![Hierarki for parameter](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//parameter.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1487,7 +1487,7 @@ Ingen underordnede elementer.
 
 ## flatFileDefinitionReference  <a id="flatFileDefinitionReference"/>
 
-![Hierarki for flatFileDefinitionReference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/flatFileDefinitionReference.svg)
+![Hierarki for flatFileDefinitionReference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//flatFileDefinitionReference.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1508,7 +1508,7 @@ Ingen underordnede elementer.
 
 ## recordDefinitionReferences  <a id="recordDefinitionReferences"/>
 
-![Hierarki for recordDefinitionReferences](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinitionReferences.svg)
+![Hierarki for recordDefinitionReferences](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordDefinitionReferences.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1527,7 +1527,7 @@ Ingen attributter.
 
 ## recordDefinitionReference  <a id="recordDefinitionReference"/>
 
-![Hierarki for recordDefinitionReference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordDefinitionReference.svg)
+![Hierarki for recordDefinitionReference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordDefinitionReference.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1548,7 +1548,7 @@ Ingen attributter.
 
 ## fieldDefinitionReferences  <a id="fieldDefinitionReferences"/>
 
-![Hierarki for fieldDefinitionReferences](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldDefinitionReferences.svg)
+![Hierarki for fieldDefinitionReferences](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fieldDefinitionReferences.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1575,7 +1575,7 @@ For eksempel se [fieldDefinitionReference](#fieldDefinitionReference).
 
 ## fieldDefinitionReference  <a id="fieldDefinitionReference"/>
 
-![Hierarki for fieldDefinitionReference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/fieldDefinitionReference.svg)
+![Hierarki for fieldDefinitionReference](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//fieldDefinitionReference.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1619,7 +1619,7 @@ text
 
 De første versjonene av ADDML ble konstruert for å håndtere flate filer. Etter hvert er det også blitt behov for å håndtere andre typer filer, ikke minst xml-filer. Av den grunn ble det innført en ny hoveddel med dataobjekter. Denne delen er generisk, hvor brukeren selv må definere strukturer og informasjonselementer som skal være med.
 
-![Hierarki for dataObjects](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/dataObjects.svg)
+![Hierarki for dataObjects](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//dataObjects.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1645,7 +1645,7 @@ For eksempel se *dataObject*.
 
 De første versjonene av ADDML ble konstruert for å håndtere flate filer. Etter hvert er detogså blitt behov for å håndtere andre typer filer, ikke minst xml-filer. Av den grunn ble det innført en ny hoveddel med dataobjekter. Denne delen er generisk, hvor brukeren selv må definere strukturer og informasjonselementer som skal være med.
 
-![Hierarki for dataObject](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/dataObject.svg)
+![Hierarki for dataObject](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//dataObject.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1714,7 +1714,7 @@ Eksempelet er hentet fra Noark 5. I datasettet er det definert et arkivuttrekk-n
 
 Elementet additionalElements er et samlenivå for gruppering av tilleggselementer.
 
-![Hierarki for additionalElements](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/additionalElements.svg)
+![Hierarki for additionalElements](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//additionalElements.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1739,7 +1739,7 @@ Ingen attributter.
 
 Elementet additionalElement utgjør et egetdefinert element. Standarden selv definerer ingen tilleggselementer, men lar det være opp til brukerne å definere sine egne. Sammen med additionalElements danner additionalElement muligheten for å kunne bygge sin egen generiske struktur.
 
-![Hierarki for additionalElement](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/additionalElement.svg)
+![Hierarki for additionalElement](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//additionalElement.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1767,7 +1767,7 @@ Elementet additionalElement utgjør et egetdefinert element. Standarden selv def
 
 Elementet beskrivelse benyttes flere steder i strukturen.
 
-![Hierarki for description](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/description.svg)
+![Hierarki for description](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//description.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1805,7 +1805,7 @@ text
 
 ## properties  <a id="properties"/>
 
-![Hierarki for properties](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/properties.svg)
+![Hierarki for properties](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//properties.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1830,7 +1830,7 @@ Ingen attributter.
 
 ## property  <a id="property"/>
 
-![Hierarki for property](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/property.svg)
+![Hierarki for property](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//property.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1854,7 +1854,7 @@ Ingen attributter.
 
 ## headerLevel  <a id="headerLevel"/>
 
-![Hierarki for headerLevel](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/headerLevel.svg)
+![Hierarki for headerLevel](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//headerLevel.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1869,7 +1869,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## recordSeparator  <a id="recordSeparator"/>
 
-![Hierarki for recordSeparator](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/recordSeparator.svg)
+![Hierarki for recordSeparator](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//recordSeparator.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
@@ -1885,7 +1885,7 @@ Ingen attributter, underordnede elemente eller underordnede elementer.
 
 ## value  <a id="value"/>
 
-![Hierarki for value](https://raw.githubusercontent.com/arkivverket/addml-standard/master/profiler/arkivverket/figurer/elementer/value.svg)
+![Hierarki for value](https://raw.githubusercontent.com/arkivverket/addml-standard/master/standard/figurer/elementer//value.svg)
 
 | Overordnede elementer | Forekomster av element |
 | :-- |  :-- |
