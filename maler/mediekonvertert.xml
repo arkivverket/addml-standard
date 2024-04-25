@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addml name="Asta7-eksport" xmlns="http://www.arkivverket.no/standarder/addml">
+<addml name="unik id for addml-filen" xmlns="http://www.arkivverket.no/standarder/addml">
    <dataset name="Arkivskaper A">
       <description>Arkivskaper A, periode arkivmateriale er skapt, oppdeling i hovedserier</description>
       <reference>
