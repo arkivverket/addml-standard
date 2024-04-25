@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <addml name="Asta7-eksport" xmlns="http://www.arkivverket.no/standarder/addml">
-   <dataset name="Norges forskningsråd (NFR)">
-      <description>Norges forskningsråd (NFR), 1992-2000, hovedserie A</description>
+   <dataset name="Arkivskaper A">
+      <description>Arkivskaper A, periode arkivmateriale er skapt, oppdeling i hovedserier</description>
       <reference>
          <context>
             <additionalElements>
                <additionalElement name="recordCreators">
                   <additionalElements>
                      <additionalElement name="recordCreator">
-                        <value>Arkivskaper</value>
+                        <value>Arkivskaper A</value>
                      </additionalElement>
                   </additionalElements>
                </additionalElement>
