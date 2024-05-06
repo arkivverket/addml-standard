@@ -269,28 +269,47 @@ I tillegg vil det også være naturlig med en info-komponent i de fleste tilfell
 Eksempel:
 
 ```xml
-<dataObjects>
-    <dataObject name="xml-file">
-        <dataObjects>
-            <dataObject name="info">
-            </dataObject>
-            <dataObject name="datafile">
-                <dataObjects>
-                    <dataObject name="file">
-                        <!-- Filegenskaper -->
-                    </dataObject>
-                </dataObjects>
-            </dataObject>
-            <dataObject name="schema">
-                <dataObjects>
-                    <dataObject name="file">
-                        <!-- Filegenskaper -->
-                    </dataObject>
-                </dataObjects>
-            </dataObject>
-        </dataObjects>
-    </dataObject>
-</dataObjects>
+<dataObject name="arkivstruktur">
+    <properties>
+        <property name="file">
+            <!-- Filegenskaper til xml-filen -->
+        </property>
+        <property name="schema">
+            <!-- hoved-skjema utpekes med value = main -->
+            <value>main</value>
+            <properties>
+                <property name="file">
+                    <!-- Filegenskaper til skjema -->
+                </property>
+                <property name="type">
+                    <!-- Type skjema -->
+                    <value>XML Schema</value>
+                    <properties>
+                        <property name="version">
+                            <value>1.0</value>
+                        </property>
+                    </properties>
+                </property>
+            </properties>
+        </property>
+        <property name="info">
+            <properties>
+                <property name="numberOfOccurrences">
+                    <!-- en eller flere tellinger, avhengig av arkivobjekter det måles på -->
+                    <value>rapport-navn på element</value>
+                    <properties>
+                        <property name="elementPath">
+                            <value>[xpath-sti til telle-element]</value>
+                        </property>
+                        <property dataType="integer" name="value">
+                            <value>[antall]</value>
+                        </property>
+                    </properties>
+                </property>
+            </properties>
+        </property>
+    </properties>
+</dataObject>
 ```
 
 ##### Katalog
