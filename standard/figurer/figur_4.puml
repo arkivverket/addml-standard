@@ -32,7 +32,7 @@ rectangle fieldType
 
 flatFiles --- flatFile
 flatFiles -- flatFileDefinitions
-flatFile - flatFileDefinition
+flatFile . flatFileDefinition
 
 flatFileDefinitions -- flatFileDefinition
 flatFileDefinition -- recordDefinitions
@@ -40,9 +40,9 @@ recordDefinitions -- recordDefinition
 recordDefinition -- fieldDefinitions
 fieldDefinitions -- fieldDefinition
 
-flatFileDefinition - flatFileType
-recordDefinition - recordType
-fieldDefinition - fieldType
+flatFileDefinition . flatFileType
+recordDefinition . recordType
+fieldDefinition . fieldType
 
 structureTypes -- flatFileType 
 flatFileType --[hidden]- recordType
