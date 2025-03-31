@@ -5,8 +5,7 @@
 ADDML består av 3 hoveddeler. En del som beskriver tilhørende informasjon (kataloginformasjon), dvs. informasjon om dataene i datasettet - *reference*. En del som er selve beskrivelsen av flate filer i detalj - *flatFiles*. En del som gir mulighet for å knytte opp andre filer enn flate filer til beskrivelsen - *dataObjects*.
 
 ![Hoveddelene i ADDML](/standard/figurer/figur_1.svg)
-
-Figur - Hoveddelene i ADDML
+<br>Figur - Hoveddelene i ADDML
 
 I *reference* vil det kunne registreres bevaringsverdige metadata på kontekstuell og innholdsmessig nivå. I *flatFiles* vil man kunne registrere en detaljert beskrivelse av strukturen i datafilene dersom de enten er i fast format eller i tegnseparert format. Alle filer som ikke er i fast format eller tegnseparert format vil bli beskrevet i *dataObjects*. Dog vil det her ikke være mulig å gi en detaljert beskrivelse.
 
@@ -34,7 +33,8 @@ Man kunne endret standarden ved å kreve minst en av hoveddelene, men en tom add
 
 ## Tilhørende informasjon – bevaringsverdige metadata.
 
-* Figur - Oversikt over elementene i *reference*.
+![Oversikt over elementene i *reference*](/standard/figurer/figur_2.svg)
+<br>Figur - Oversikt over elementene i *reference*.
 
 Med tilhørende informasjon menes informasjon om datasettet. Dette kan være opplysninger om hvem som har laget datasettet, hva slags type system det er hentet fra, bakgrunn for dataene i datasettet, osv. Dette er IKKE beskrivende informasjon av selve datasettet.
 
@@ -44,7 +44,7 @@ I ADDML er all slik informasjon samlet i *reference*. *reference* har to underel
 
 Grupperingene har ingen faste felter, men det kan defineres egne felter som kan eller skal medfølge et datasett. Se eget avsnitt om generiske elementer.
 
-Et eksempel på *reference* med underliggende elementer kan da se ut som følger:
+Et eksempel på *reference* med underliggende elementer kan da se ut som følger (basert på norsk profil):
 
 ```xml
 <reference>
@@ -55,9 +55,19 @@ Et eksempel på *reference* med underliggende elementer kan da se ut som følger
           <additionalElement name="agent">
             <additionalElements>
               <additionalElement name="recordCreator">
-                <value>Riksarkivet</value>
+                <value>Arkivskaper A</value>
               </additionalElement>
             </additionalElements>
+          </additionalElement>
+        </additionalElements>
+      </additionalElement>
+      <additionalElement name="system">
+        <additionalElements>
+          <additionalElement name="name">
+            <value>System X</value>
+          </additionalElement>
+          <additionalElement name="systemType">
+            <value>Noark 5</value>
           </additionalElement>
         </additionalElements>
       </additionalElement>
@@ -73,16 +83,6 @@ Et eksempel på *reference* med underliggende elementer kan da se ut som følger
           <additionalElement name="endDate">
             <value>20100331</value>
           </additionalElement>
-          <additionalElement name="period">
-            <additionalElements>
-              <additionalElement name="inngåendeSkille">
-                <value>Skarpt</value>
-              </additionalElement>
-              <additionalElement name="utgåendeSkille">
-                <value>Mykt</value>
-              </additionalElement>
-            </additionalElements>
-          </additionalElement>
         </additionalElements>
       </additionalElement>
     </additionalElements>
@@ -92,7 +92,8 @@ Et eksempel på *reference* med underliggende elementer kan da se ut som følger
 
 ## Strukturen for å beskrive flate filer
 
-* Figur - Oversikt over elementene i *dataset* (forenklet form)
+![Oversikt over elementene i *dataset* (forenklet form)](/standard/figurer/figur_3.svg)
+<br>Figur - Oversikt over elementene i *dataset* (forenklet form).
 
 Struktur delen i ADDML er en struktur for å beskrive filer som er av typen flate filer. Med flate filer menes at filen enten er med fast format (tabellform) – hvor alle felt starter i samme posisjon – eller tegnseparert format – hvor feltene er adskilt med et nærmere angitt tegn som skille mellom feltene (csv-filer er f.eks. på denne formen).
 
@@ -102,7 +103,8 @@ I en vanlig relasjonell database vil det normalt ikke være behov for post-nivå
 
 Den komplette modellen inneholder tre hoveddeler. Dessuten består hvert nivå av et multiplums-nivå og et detalj-nivå, med unntak av *flatFiles*. De tre delene inneholder gjennomgående informasjoner om den fysiske representasjonen av nivået, den definisjonsmessige og en overordnet typedefinisjon. Det er imidlertid i dag ikke funnet behov for den fysiske representasjonen på annet enn fil-nivå. Skulle et slikt behov melde seg senere vil det være behov for en revisjon av standarden.
 
-* Figur - Oversikt over elementene i *flatFiles* (komplett form).
+![Oversikt over elementene i *flatFiles* (komplett form)](/standard/figurer/figur_4.svg)
+<br>Figur - Oversikt over elementene i *flatFiles* (komplett form).
 
 Dette betyr at strukturen er blitt mer kompleks enn i tidligere versjoner, men samtidig mer fleksibel og generell for bruk.
 
@@ -148,7 +150,8 @@ De øverste nivåene i flatFiles vil da kunne se ut for eksempel som dette:
 
 Som nevnt over inneholder strukturen kun definering av flate filer med fast eller tegnseparert format. Andre filtyper kan ikke beskrives i detalj vha. ADDML 8.3-elementer. Dog er det mulig å knytte andre typer filer og eller informasjonsobjekter opp mot datasettet som defineres i en ADDML-fil. Dette gjøres ved å definere disse filene/informasjonsobjektene som logiske objekter ved å bruke elementene *dataObjects* og *dataObject*. På et logisk objekt kan det så knyttes opp en del egenskaper for å forklare hva slags filer/informasjonsobjekter dette er. (Filene kan være datafiler i xml-format, dtd eller xml-skjema, dokumentfiler, bildefiler, lydfiler, videofiler, osv.)
 
-* Figur - Oversikt over elementene i *dataObjects*.
+![Oversikt over elementene i *dataObjects*](/standard/figurer/figur_5.svg)
+<br>Figur - Oversikt over elementene i *dataObjects*.
 
 Følgende kan være et eksempel på bruken av *dataObjects*:
 
